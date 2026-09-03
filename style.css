@@ -1,0 +1,1774 @@
+/* ==================================================
+   VARIABLES
+================================================== */
+
+:root {
+  /* Base */
+  --background: #000000;
+  --navbar-background: #020202;
+  --card-background: #050505;
+  --panel-background: #020202;
+  --panel-header-background: #030303;
+  --hover-background: #090909;
+
+  /* Borders */
+  --border-default: #1a022c;
+  --border-hover: #404040;
+  --border-purple: #22083a;
+  --row-border: #151515;
+
+  /* Brand */
+  --brand-purple: #8b2cf5;
+
+  /* Text */
+  --text-primary: #e8e8eb;
+  --text-secondary: #9898a2;
+  --text-muted: #686873;
+
+  /* Streaming */
+  --anime-streaming: #6d28d9;
+  --TV-streaming: #8b5cf6;
+  --sports-streaming: #a78bfa;
+
+  /* Reading */
+  --manga-reading: #c2410c;
+  --manhwa-reading: #f97316;
+  --novel-reading: #eab308;
+
+  /* Download */
+  --anime-download: #047857;
+  --TV-download: #059669;
+  --subtitle-download: #10b981;
+
+  /* Data */
+  --anime-database: #1246d4;
+  --anime-schedule: #2563eb;
+  --TV-database: #437ad3;
+}
+
+
+
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--background);
+  color: var(--text-primary);
+
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-weight: 400;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  flex: 1;
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container {
+  width: calc(100% - 64px);
+  max-width: 1900px;
+
+  margin: 0 auto;
+}
+
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+header {
+  background: var(--navbar-background);
+
+  border-top: 1px solid var(--border-purple);
+  border-bottom: 1px solid var(--border-purple);
+}
+
+nav {
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--text-primary);
+
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+
+
+/* Navigation Links */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-links a {
+  position: relative;
+
+  padding: 22px 0 18px;
+
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text-primary);
+}
+
+
+
+/* Active Link */
+
+.nav-links a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 10px;
+
+  width: 34px;
+  height: 2px;
+
+  background: var(--brand-purple);
+
+  border-radius: 999px;
+
+  transform: translateX(-50%);
+}
+
+
+
+/* Focus */
+
+nav a:focus-visible {
+  outline: 2px solid var(--brand-purple);
+  outline-offset: 4px;
+
+  border-radius: 4px;
+}
+
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+  padding: 42px 0 20px;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+
+/* ==================================================
+   CATEGORIES
+================================================== */
+
+.categories {
+  width: 100%;
+
+  margin-top: 20px;
+}
+
+.categories-header {
+  margin-bottom: 16px;
+}
+
+.categories-header h2 {
+  position: relative;
+
+  margin: 0;
+  padding-bottom: 7px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.categories-header h2::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 48px;
+  height: 2px;
+
+  background: var(--brand-purple);
+
+  border-radius: 999px;
+}
+
+
+
+/* ==================================================
+   CATEGORY GRID
+================================================== */
+
+.category-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+
+  gap: 12px;
+}
+
+
+
+/* ==================================================
+   CATEGORY CARD
+================================================== */
+
+.category {
+  width: 100%;
+  min-width: 0;
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 16px;
+
+  background: var(--card-background);
+
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.category:hover {
+  background: var(--hover-background);
+
+  border-color: var(--border-hover);
+
+  transform: translateY(-1px);
+}
+
+
+
+/* ==================================================
+   CATEGORY ICON
+================================================== */
+
+.category-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid currentColor;
+  border-radius: 8px;
+}
+
+.category-icon svg {
+  width: 18px;
+  height: 18px;
+
+  stroke-width: 2;
+}
+
+
+
+/* ==================================================
+   CATEGORY TEXT
+================================================== */
+
+.category-info {
+  min-width: 0;
+
+  overflow: hidden;
+}
+
+.category-info h3 {
+  margin: 0;
+
+  overflow: hidden;
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category-info p {
+  margin: 4px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+
+
+/* ==================================================
+   CATEGORY ARROW
+================================================== */
+
+.category-arrow {
+  margin-left: auto;
+
+  flex-shrink: 0;
+
+  color: var(--text-secondary);
+
+  opacity: 0.65;
+
+  user-select: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.category:hover .category-arrow {
+  opacity: 1;
+
+  transform: translateX(3px);
+}
+
+
+
+/* ==================================================
+   CATEGORY COLORS
+================================================== */
+
+/* Streaming */
+
+.anime-streaming .category-icon {
+  color: var(--anime-streaming);
+}
+
+.TV-streaming .category-icon {
+  color: var(--TV-streaming);
+}
+
+.sports-streaming .category-icon {
+  color: var(--sports-streaming);
+}
+
+
+/* Reading */
+
+.manga-reading .category-icon {
+  color: var(--manga-reading);
+}
+
+.manhwa-reading .category-icon {
+  color: var(--manhwa-reading);
+}
+
+.novel-reading .category-icon {
+  color: var(--novel-reading);
+}
+
+
+/* Download */
+
+.anime-download .category-icon {
+  color: var(--anime-download);
+}
+
+.TV-download .category-icon {
+  color: var(--TV-download);
+}
+
+.subtitle-download .category-icon {
+  color: var(--subtitle-download);
+}
+
+
+/* Data */
+
+.anime-database .category-icon {
+  color: var(--anime-database);
+}
+
+.anime-schedule .category-icon {
+  color: var(--anime-schedule);
+}
+
+.TV-database .category-icon {
+  color: var(--TV-database);
+}
+
+
+
+/* ==================================================
+   EXPLORE
+================================================== */
+
+.explore {
+  width: 100%;
+
+  margin: 44px auto 0;
+  padding-bottom: 80px;
+}
+
+.explore-header {
+  margin-bottom: 22px;
+}
+
+.explore-header h2 {
+  margin: 0 0 6px;
+
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.explore-header p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+
+/* ==================================================
+   DIRECTORY COLUMNS
+================================================== */
+
+.directory-columns {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+
+  align-items: start;
+}
+
+.directory-column {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+
+/* ==================================================
+   DIRECTORY PANEL
+================================================== */
+
+.directory-panel {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: var(--panel-background);
+
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+
+/* ==================================================
+   PANEL HEADER
+================================================== */
+
+.panel-header {
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 14px 16px;
+
+  background: var(--panel-header-background);
+
+  border-bottom: 1px solid #161616;
+}
+
+.panel-header h3 {
+  position: relative;
+
+  margin: 0;
+  padding-bottom: 8px;
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+
+  letter-spacing: -0.01em;
+}
+
+.panel-header h3::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 34px;
+  height: 2px;
+
+  border-radius: 999px;
+}
+
+.panel-header p {
+  margin: 4px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+
+
+/* ==================================================
+   PANEL COLORS
+================================================== */
+
+/* Streaming */
+
+.anime-streaming-panel .panel-header h3::after {
+  background: var(--anime-streaming);
+}
+
+.TV-streaming-panel .panel-header h3::after {
+  background: var(--TV-streaming);
+}
+
+.sports-streaming-panel .panel-header h3::after {
+  background: var(--sports-streaming);
+}
+
+
+/* Reading */
+
+.manga-reading-panel .panel-header h3::after {
+  background: var(--manga-reading);
+}
+
+.manhwa-reading-panel .panel-header h3::after {
+  background: var(--manhwa-reading);
+}
+
+.novel-reading-panel .panel-header h3::after {
+  background: var(--novel-reading);
+}
+
+
+/* Download */
+
+.anime-download-panel .panel-header h3::after {
+  background: var(--anime-download);
+}
+
+.TV-download-panel .panel-header h3::after {
+  background: var(--TV-download);
+}
+
+.subtitle-download-panel .panel-header h3::after {
+  background: var(--subtitle-download);
+}
+
+
+/* Data */
+
+.anime-database-panel .panel-header h3::after {
+  background: var(--anime-database);
+}
+
+.anime-schedule-panel .panel-header h3::after {
+  background: var(--anime-schedule);
+}
+
+.TV-database-panel .panel-header h3::after {
+  background: var(--TV-database);
+}
+
+
+
+/* ==================================================
+   SITE LIST
+================================================== */
+
+.site-list {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* ==================================================
+   SITE ROW
+================================================== */
+
+.site-row {
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 16px;
+
+  background: var(--panel-background);
+
+  border-bottom: 1px solid var(--row-border);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition: background-color 0.2s ease;
+}
+
+.site-row:nth-child(even) {
+  background: hsl(0, 0%, 3%);
+}
+
+.site-row:hover {
+  background: hsl(0, 0%, 4%);
+}
+
+.site-row::after {
+  content: "›";
+
+  margin-left: auto;
+
+  color: var(--text-muted);
+
+  font-size: 16px;
+
+  opacity: 0.65;
+
+  user-select: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.site-row:hover::after {
+  opacity: 1;
+
+  transform: translateX(2px);
+}
+
+.site-row:focus-visible {
+  position: relative;
+
+  outline: 2px solid var(--brand-purple);
+  outline-offset: -2px;
+}
+
+
+
+/* ==================================================
+   RANK
+================================================== */
+
+.rank {
+  width: 24px;
+
+  flex-shrink: 0;
+
+  color: #7b8190;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  user-select: none;
+}
+
+
+
+/* ==================================================
+   SITE LOGO
+================================================== */
+
+.site-logo {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  background: #080808;
+
+  border: 1px solid #1c1c1c;
+  border-radius: 6px;
+
+  color: var(--brand-purple);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  user-select: none;
+}
+
+.site-logo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+
+/* ==================================================
+   SITE NAME
+================================================== */
+
+.site-name {
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: var(--text-primary);
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  letter-spacing: -0.005em;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+/* ==================================================
+   VIEW ALL
+================================================== */
+
+.view-all {
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 0 16px;
+
+  background: var(--panel-header-background);
+
+  color: #c0c0c8;
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.view-all::after {
+  content: "→";
+
+  margin-left: 8px;
+
+  color: #a1a1aa;
+
+  transition: transform 0.2s ease;
+}
+
+.view-all:hover {
+  color: var(--text-primary);
+
+  background: #0c0c0c;
+}
+
+.view-all:hover::after {
+  transform: translateX(3px);
+}
+
+.view-all:focus-visible {
+  outline: 2px solid var(--brand-purple);
+  outline-offset: -2px;
+}
+
+
+
+/* ==================================================
+   PANEL HIGHLIGHT
+================================================== */
+
+.directory-panel.highlight {
+  border-color: rgba(139, 44, 245, 0.4);
+
+  box-shadow:
+    0 0 10px rgba(139, 44, 245, 0.05);
+}
+
+
+
+/* ==================================================
+   CATEGORY PAGE
+================================================== */
+
+.category-page {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 48px auto 0;
+  padding-bottom: 80px;
+}
+
+
+
+/* Back Link */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 32px;
+
+  color: var(--text-secondary);
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+
+  transform: translateX(-2px);
+}
+
+.back-link:focus-visible {
+  outline: 2px solid var(--brand-purple);
+  outline-offset: 4px;
+
+  border-radius: 4px;
+}
+
+
+
+/* Category Header */
+
+.category-page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.category-page-header h1 {
+  margin: 0 0 6px;
+
+  color: var(--text-primary);
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+.category-page-header p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+
+/* Category Page Icon */
+
+.category-page-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: var(--card-background);
+
+  border: 1px solid currentColor;
+  border-radius: 10px;
+}
+
+.category-page-icon svg {
+  width: 22px;
+  height: 22px;
+
+  stroke-width: 2;
+}
+
+
+
+/* ==================================================
+   CATEGORY PAGE LIST
+================================================== */
+
+.category-page-list {
+  overflow: hidden;
+
+  background: var(--panel-background);
+
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+}
+
+.category-page-list .site-row:last-child {
+  border-bottom: 0;
+}
+
+
+
+/* ==================================================
+   RESPONSIVE - TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .category-grid {
+    grid-template-rows: none;
+    grid-auto-flow: row;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .directory-columns {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+
+/* ==================================================
+   RESPONSIVE - MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+
+  nav {
+    gap: 16px;
+  }
+
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .nav-links {
+    gap: 18px;
+
+    font-size: 13px;
+  }
+
+  .nav-links a {
+    padding: 22px 0 18px;
+    white-space: nowrap;
+  }
+
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .category {
+    min-height: 68px;
+
+    padding: 12px 14px;
+  }
+
+
+  .explore {
+    margin-top: 38px;
+  }
+
+
+  .category-page {
+    margin-top: 32px;
+    padding-bottom: 60px;
+  }
+
+
+  .back-link {
+    margin-bottom: 24px;
+  }
+
+
+  .category-page-header {
+    gap: 14px;
+  }
+
+  .category-page-header h1 {
+    font-size: 26px;
+  }
+
+
+  .category-page-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .category-page-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .site-row {
+    padding: 0 14px;
+  }
+
+}
+
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+}
+
+/* ==================================================
+   SUGGEST PAGE
+================================================== */
+
+.suggest-page {
+  width: 100%;
+  max-width: 760px;
+
+  margin: 48px auto 0;
+  padding-bottom: 80px;
+}
+
+
+.suggest-page-header {
+  margin-bottom: 28px;
+}
+
+.suggest-page-header h1 {
+  margin: 0 0 10px;
+
+  color: var(--text-primary);
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+.suggest-page-header p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+
+/* ==================================================
+   SUGGEST FORM
+================================================== */
+
+.suggest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 24px;
+
+  background: var(--card-background);
+
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.form-group label {
+  color: var(--text-primary);
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  background: #020202;
+  color: var(--text-primary);
+
+  border: 1px solid #242424;
+  border-radius: 8px;
+
+  font: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.form-group textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #343434;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--brand-purple);
+
+  box-shadow:
+    0 0 0 3px rgba(139, 44, 245, 0.08);
+}
+
+
+.form-group select {
+  cursor: pointer;
+}
+
+
+.form-group option {
+  background: #080808;
+  color: var(--text-primary);
+}
+
+
+
+/* ==================================================
+   SUBMIT BUTTON
+================================================== */
+
+.suggest-submit {
+  min-width: 170px;
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  align-self: flex-start;
+
+  padding: 0 18px;
+
+  background: #090909;
+  color: var(--text-primary);
+
+  border: 1px solid #1a022c;
+  border-radius: 8px;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.suggest-submit::after {
+  content: "→";
+
+  color: var(--brand-purple);
+
+  font-size: 15px;
+
+  transition: transform 0.2s ease;
+}
+
+
+.suggest-submit:hover {
+  background: rgba(139, 44, 245, 0.08);
+
+  border-color: var(--brand-purple);
+
+  box-shadow:
+    0 0 10px rgba(139, 44, 245, 0.08);
+
+  transform: translateY(-1px);
+}
+
+
+.suggest-submit:hover::after {
+  transform: translateX(3px);
+}
+
+
+.suggest-submit:active {
+  transform: translateY(0);
+}
+
+
+.suggest-submit:focus-visible {
+  outline: 2px solid var(--brand-purple);
+  outline-offset: 3px;
+}
+
+.suggest-submit:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* ==================================================
+   FORM MESSAGE
+================================================== */
+
+.form-message {
+  min-height: 18px;
+
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+
+/* ==================================================
+   SUGGEST PAGE - MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+  .suggest-page {
+    margin-top: 32px;
+    padding-bottom: 60px;
+  }
+
+  .suggest-page-header h1 {
+    font-size: 26px;
+  }
+
+  .suggest-form {
+    padding: 18px;
+  }
+
+  .suggest-submit {
+    width: 100%;
+    min-width: 0;
+  }
+
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.site-footer {
+  border-top: 1px solid var(--border-purple);
+
+  background: var(--navbar-background);
+}
+
+.footer-content {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+
+  .footer-content {
+    min-height: 88px;
+
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 10px;
+  }
+
+}
+
+/* ==================================================
+   SUPPORT PAGE
+================================================== */
+
+.support-page {
+  width: 100%;
+  max-width: 760px;
+
+  margin: 48px auto 0;
+  padding-bottom: 80px;
+}
+
+
+.support-page-header {
+  margin-bottom: 28px;
+}
+
+
+.support-page-header h1 {
+  margin: 0 0 10px;
+
+  color: var(--text-primary);
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+
+.support-page-header p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+
+/* ==================================================
+   SUPPORT FORM
+================================================== */
+
+.support-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 24px;
+
+  background: var(--card-background);
+
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+}
+
+
+
+/* ==================================================
+   SUPPORT BUTTON
+================================================== */
+
+.support-submit {
+  min-width: 150px;
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  align-self: flex-start;
+
+  padding: 0 18px;
+
+  background: #090909;
+  color: var(--text-primary);
+
+  border: 1px solid #1a022c;
+  border-radius: 8px;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.support-submit::after {
+  content: "→";
+
+  color: var(--brand-purple);
+
+  font-size: 15px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+.support-submit:hover {
+  background: rgba(139, 44, 245, 0.08);
+
+  border-color: var(--brand-purple);
+
+  box-shadow:
+    0 0 10px rgba(139, 44, 245, 0.08);
+
+  transform: translateY(-1px);
+}
+
+
+.support-submit:hover::after {
+  transform: translateX(3px);
+}
+
+
+.support-submit:active {
+  transform: translateY(0);
+}
+
+
+.support-submit:focus-visible {
+  outline: 2px solid var(--brand-purple);
+  outline-offset: 3px;
+}
+
+
+.support-submit:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+
+/* ==================================================
+   SUPPORT MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+  .support-page {
+    margin-top: 32px;
+    padding-bottom: 60px;
+  }
+
+
+  .support-page-header h1 {
+    font-size: 26px;
+  }
+
+
+  .support-form {
+    padding: 18px;
+  }
+
+
+  .support-submit {
+    width: 100%;
+    min-width: 0;
+  }
+
+}
+
+@media (max-width: 390px) {
+
+  .nav-links .support {
+    display: none;
+  }
+
+}
+
+/* ==================================================
+   CATEGORY EMPTY STATE
+================================================== */
+
+.category-empty {
+  padding: 48px 24px;
+
+  text-align: center;
+}
+
+.category-empty h2 {
+  margin: 0 0 10px;
+
+  color: var(--text-primary);
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.category-empty p {
+  max-width: 460px;
+
+  margin: 0 auto 22px;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.category-empty-link {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 16px;
+
+  background: #090909;
+  color: var(--text-primary);
+
+  border: 1px solid rgba(139, 44, 245, 0.55);
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.category-empty-link:hover {
+  background: rgba(139, 44, 245, 0.08);
+  border-color: var(--brand-purple);
+}

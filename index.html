@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>WebShelf — Your Shortcut to the Web</title>
+
+<meta
+  name="description"
+  content="WebShelf is a curated directory of useful websites for streaming, reading, downloads, databases, schedules, and more."
+>
+
+  <!-- Google Font -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="/images/WebShelf/WS-Logo.png"
+    type="image/png"
+  >
+
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  >
+</head>
+
+
+<body>
+
+  <!-- ==================================================
+       NAVBAR
+  =================================================== -->
+
+  <header>
+
+    <nav class="container">
+
+      <a
+        href="./index.html"
+        class="logo"
+      >
+        <img
+          src="/images/WebShelf/WS-Logo.png"
+          alt="WebShelf Logo"
+        >
+
+        <span>WebShelf</span>
+      </a>
+
+
+<div class="nav-links">
+
+  <a
+    href="./index.html"
+    class="directory active"
+  >
+    Directory
+  </a>
+
+  <a
+    href="./support.html"
+    class="support"
+  >
+    Support
+  </a>
+
+  <a
+    href="./suggest.html"
+    class="suggest"
+  >
+    Suggest a site
+  </a>
+
+</div>
+    </nav>
+
+  </header>
+
+
+
+  <!-- ==================================================
+       MAIN
+  =================================================== -->
+
+  <main class="container">
+
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
+    <section class="hero">
+
+      <h1>
+        Find the Web worth keeping
+      </h1>
+
+      <p>
+        A curated directory of trusted places to watch,
+        download, and read online
+      </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CATEGORIES
+    =================================================== -->
+
+    <section class="categories">
+
+      <div class="categories-header">
+        <h2>Browse by category</h2>
+      </div>
+
+
+      <div class="category-grid">
+
+
+        <!-- Anime Streaming -->
+
+        <div class="category anime-streaming">
+
+          <div class="category-icon">
+            <i data-lucide="play"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Anime Streaming</h3>
+            <p id="anime-streaming-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- TV Streaming -->
+
+        <div class="category TV-streaming">
+
+          <div class="category-icon">
+            <i data-lucide="play"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>TV Streaming</h3>
+            <p id="TV-streaming-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Sports Streaming -->
+
+        <div class="category sports-streaming">
+
+          <div class="category-icon">
+            <i data-lucide="play"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Sports Streaming</h3>
+            <p id="sports-streaming-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Manga Reading -->
+
+        <div class="category manga-reading">
+
+          <div class="category-icon">
+            <i data-lucide="book-open"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Manga Reading</h3>
+            <p id="manga-reading-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Manhwa Reading -->
+
+        <div class="category manhwa-reading">
+
+          <div class="category-icon">
+            <i data-lucide="book-open"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Manhwa Reading</h3>
+            <p id="manhwa-reading-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Novel Reading -->
+
+        <div class="category novel-reading">
+
+          <div class="category-icon">
+            <i data-lucide="book-open"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Novel Reading</h3>
+            <p id="novel-reading-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Anime Download -->
+
+        <div class="category anime-download">
+
+          <div class="category-icon">
+            <i data-lucide="download"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Anime Download</h3>
+            <p id="anime-download-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- TV Download -->
+
+        <div class="category TV-download">
+
+          <div class="category-icon">
+            <i data-lucide="download"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>TV Download</h3>
+            <p id="TV-download-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Subtitle Download -->
+
+        <div class="category subtitle-download">
+
+          <div class="category-icon">
+            <i data-lucide="download"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Subtitle Download</h3>
+            <p id="subtitle-download-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Anime Database -->
+
+        <div class="category anime-database">
+
+          <div class="category-icon">
+            <i data-lucide="database"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Anime Database</h3>
+            <p id="anime-database-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- Anime Schedule -->
+
+        <div class="category anime-schedule">
+
+          <div class="category-icon">
+            <i data-lucide="calendar-days"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>Anime Schedule</h3>
+            <p id="anime-schedule-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+
+        <!-- TV Database -->
+
+        <div class="category TV-database">
+
+          <div class="category-icon">
+            <i data-lucide="database"></i>
+          </div>
+
+          <div class="category-info">
+            <h3>TV Database</h3>
+            <p id="TV-database-count">0 sites</p>
+          </div>
+
+          <span
+            class="category-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         EXPLORE DIRECTORY
+    =================================================== -->
+
+    <section class="explore">
+
+      <div class="explore-header">
+
+        <h2>
+          Explore the directory
+        </h2>
+
+        <p>
+          Top-rated websites, organized by category.
+        </p>
+
+      </div>
+
+
+      <div class="directory-columns">
+
+
+        <!-- ==================================================
+             LEFT COLUMN
+        =================================================== -->
+
+        <div class="directory-column">
+
+
+          <!-- Anime Streaming -->
+
+          <div class="directory-panel anime-streaming-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Anime Streaming</h3>
+                <p id="anime-streaming-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="anime-streaming-list"
+            ></div>
+
+            <a
+              href="./category.html?type=anime-streaming"
+              class="view-all"
+              id="anime-streaming-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- TV Streaming -->
+
+          <div class="directory-panel TV-streaming-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>TV Streaming</h3>
+                <p id="TV-streaming-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="TV-streaming-list"
+            ></div>
+
+            <a
+              href="./category.html?type=TV-streaming"
+              class="view-all"
+              id="TV-streaming-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- Sports Streaming -->
+
+          <div class="directory-panel sports-streaming-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Sports Streaming</h3>
+                <p id="sports-streaming-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="sports-streaming-list"
+            ></div>
+
+            <a
+              href="./category.html?type=sports-streaming"
+              class="view-all"
+              id="sports-streaming-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- Manga Reading -->
+
+          <div class="directory-panel manga-reading-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Manga Reading</h3>
+                <p id="manga-reading-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="manga-reading-list"
+            ></div>
+
+            <a
+              href="./category.html?type=manga-reading"
+              class="view-all"
+              id="manga-reading-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- Manhwa Reading -->
+
+          <div class="directory-panel manhwa-reading-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Manhwa Reading</h3>
+                <p id="manhwa-reading-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="manhwa-reading-list"
+            ></div>
+
+            <a
+              href="./category.html?type=manhwa-reading"
+              class="view-all"
+              id="manhwa-reading-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- Novel Reading -->
+
+          <div class="directory-panel novel-reading-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Novel Reading</h3>
+                <p id="novel-reading-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="novel-reading-list"
+            ></div>
+
+            <a
+              href="./category.html?type=novel-reading"
+              class="view-all"
+              id="novel-reading-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             RIGHT COLUMN
+        =================================================== -->
+
+        <div class="directory-column">
+
+
+          <!-- Anime Download -->
+
+          <div class="directory-panel anime-download-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Anime Download</h3>
+                <p id="anime-download-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="anime-download-list"
+            ></div>
+
+            <a
+              href="./category.html?type=anime-download"
+              class="view-all"
+              id="anime-download-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- TV Download -->
+
+          <div class="directory-panel TV-download-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>TV Download</h3>
+                <p id="TV-download-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="TV-download-list"
+            ></div>
+
+            <a
+              href="./category.html?type=TV-download"
+              class="view-all"
+              id="TV-download-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- Subtitle Download -->
+
+          <div class="directory-panel subtitle-download-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Subtitle Download</h3>
+                <p id="subtitle-download-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="subtitle-download-list"
+            ></div>
+
+            <a
+              href="./category.html?type=subtitle-download"
+              class="view-all"
+              id="subtitle-download-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- Anime Database -->
+
+          <div class="directory-panel anime-database-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Anime Database</h3>
+                <p id="anime-database-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="anime-database-list"
+            ></div>
+
+            <a
+              href="./category.html?type=anime-database"
+              class="view-all"
+              id="anime-database-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- Anime Schedule -->
+
+          <div class="directory-panel anime-schedule-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>Anime Schedule</h3>
+                <p id="anime-schedule-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="anime-schedule-list"
+            ></div>
+
+            <a
+              href="./category.html?type=anime-schedule"
+              class="view-all"
+              id="anime-schedule-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+
+          <!-- TV Database -->
+
+          <div class="directory-panel TV-database-panel">
+
+            <div class="panel-header">
+              <div>
+                <h3>TV Database</h3>
+                <p id="TV-database-panel-count">0 sites</p>
+              </div>
+            </div>
+
+            <div
+              class="site-list"
+              id="TV-database-list"
+            ></div>
+
+            <a
+              href="./category.html?type=TV-database"
+              class="view-all"
+              id="TV-database-view-all"
+            >
+              View all 0 sites
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+
+    <p>
+      © 2026 WebShelf
+    </p>
+
+    <div class="footer-links">
+
+  <a href="./index.html">
+    Directory
+  </a>
+
+  <a href="./support.html">
+    Support
+  </a>
+
+  <a href="./suggest.html">
+    Suggest a site
+  </a>
+
+</div>
+
+  </div>
+</footer>
+
+  <!-- ==================================================
+       SCRIPTS
+  =================================================== -->
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- WebShelf Data -->
+  <script src="./data.js"></script>
+
+  <!-- Home Page JavaScript -->
+  <script src="./script.js"></script>
+
+  <!-- Create Lucide Icons -->
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+
+</body>
+
+</html>

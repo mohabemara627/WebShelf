@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Suggest a Site - WebShelf</title>
+
+<meta
+  name="description"
+  content="Suggest a useful website to WebShelf for review and possible inclusion in the directory."
+>
+  <!-- Google Font -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="/images/WebShelf/WS-Logo.png"
+    type="image/png"
+  >
+
+
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  >
+</head>
+
+
+<body>
+
+  <!-- ==================================================
+       NAVBAR
+  =================================================== -->
+
+  <header>
+
+    <nav class="container">
+
+      <a
+        href="./index.html"
+        class="logo"
+      >
+        <img
+          src="/images/WebShelf/WS-Logo.png"
+          alt="WebShelf Logo"
+        >
+
+        <span>WebShelf</span>
+      </a>
+
+
+<div class="nav-links">
+
+  <a
+    href="./index.html"
+    class="directory"
+  >
+    Directory
+  </a>
+
+  <a
+    href="./support.html"
+    class="support"
+  >
+    Support
+  </a>
+
+  <a
+    href="./suggest.html"
+    class="suggest active"
+  >
+    Suggest a site
+  </a>
+
+</div>
+    </nav>
+
+  </header>
+
+
+
+  <!-- ==================================================
+       MAIN
+  =================================================== -->
+
+  <main class="container">
+
+    <section class="suggest-page">
+
+
+      <!-- Back Link -->
+
+      <a
+        href="./index.html"
+        class="back-link"
+      >
+        ← Back to Directory
+      </a>
+
+
+
+      <!-- Page Header -->
+
+      <div class="suggest-page-header">
+
+        <h1>
+          Suggest a site
+        </h1>
+
+        <p>
+          Know a useful website that belongs on WebShelf?
+          Send it for review.
+        </p>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           SUGGEST FORM
+      =================================================== -->
+
+    <form
+  
+      class="suggest-form"
+      id="suggest-form"
+      action="https://formspree.io/f/xaeyjvkd"
+      method="POST"
+    >
+
+  <input
+    type="hidden"
+    name="form-type"
+    value="WebShelf Suggestion"
+  >
+
+
+        <!-- Website URL -->
+
+        <div class="form-group">
+
+          <label for="site-url">
+            Website URL
+          </label>
+
+          <input
+            type="url"
+            id="site-url"
+            name="site-url"
+            placeholder="https://example.com"
+            required
+          >
+
+        </div>
+
+
+
+        <!-- Category -->
+
+        <div class="form-group">
+
+          <label for="site-category">
+            Category
+          </label>
+
+          <select
+            id="site-category"
+            name="site-category"
+            required
+          >
+
+            <option value="">
+              Select a category
+            </option>
+
+            <option value="anime-streaming">
+              Anime Streaming
+            </option>
+
+            <option value="TV-streaming">
+              TV Streaming
+            </option>
+
+            <option value="sports-streaming">
+              Sports Streaming
+            </option>
+
+            <option value="manga-reading">
+              Manga Reading
+            </option>
+
+            <option value="manhwa-reading">
+              Manhwa Reading
+            </option>
+
+            <option value="novel-reading">
+              Novel Reading
+            </option>
+
+            <option value="anime-download">
+              Anime Download
+            </option>
+
+            <option value="TV-download">
+              TV Download
+            </option>
+
+            <option value="subtitle-download">
+              Subtitle Download
+            </option>
+
+            <option value="anime-database">
+              Anime Database
+            </option>
+
+            <option value="anime-schedule">
+              Anime Schedule
+            </option>
+
+            <option value="TV-database">
+              TV Database
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- Notes -->
+
+        <div class="form-group">
+
+          <label for="site-notes">
+            Why should we add it?
+          </label>
+
+          <textarea
+            id="site-notes"
+            name="site-notes"
+            rows="5"
+            placeholder="Tell us what makes this site useful..."
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- Submit Button -->
+
+        <button
+          type="submit"
+          class="suggest-submit"
+          id="suggest-submit"
+        >
+          Submit suggestion
+        </button>
+
+
+
+        <!-- Form Message -->
+
+        <p
+          class="form-message"
+          id="form-message"
+          aria-live="polite"
+        ></p>
+
+
+      </form>
+
+    </section>
+
+  </main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+
+    <p>
+      © 2026 WebShelf
+    </p>
+
+    <div class="footer-links">
+
+  <a href="./index.html">
+    Directory
+  </a>
+
+  <a href="./support.html">
+    Support
+  </a>
+
+  <a href="./suggest.html">
+    Suggest a site
+  </a>
+
+    </div>
+
+  </div>
+</footer>
+
+  <!-- ==================================================
+       JAVASCRIPT
+  =================================================== -->
+
+  <script src="./suggest.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Support - WebShelf</title>
+ 
+ <meta
+  name="description"
+  content="Get support for WebShelf, report broken links, website issues, incorrect information, or ask a general question."
+>
+  
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="icon"
+    href="/images/WebShelf/WS-Logo.png"
+    type="image/png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  >
+</head>
+
+
+<body>
+
+  <header>
+
+    <nav class="container">
+
+      <a
+        href="./index.html"
+        class="logo"
+      >
+        <img
+          src="/images/WebShelf/WS-Logo.png"
+          alt="WebShelf Logo"
+        >
+
+        <span>WebShelf</span>
+      </a>
+
+
+<div class="nav-links">
+
+  <a
+    href="./index.html"
+    class="directory"
+  >
+    Directory
+  </a>
+
+  <a
+    href="./support.html"
+    class="support active"
+  >
+    Support
+  </a>
+
+  <a
+    href="./suggest.html"
+    class="suggest"
+  >
+    Suggest a site
+  </a>
+
+</div>
+    </nav>
+
+  </header>
+
+
+  <main class="container">
+
+    <section class="support-page">
+
+      <a
+        href="./index.html"
+        class="back-link"
+      >
+        ← Back to Directory
+      </a>
+
+
+      <div class="support-page-header">
+
+        <h1>
+          Support
+        </h1>
+
+        <p>
+          Report a problem, broken link, or ask a question about WebShelf.
+        </p>
+
+      </div>
+
+
+      <form
+        class="support-form"
+        id="support-form"
+        action="https://formspree.io/f/xaeyjvkd"
+        method="POST"
+      >
+
+        <input
+          type="hidden"
+          name="form-type"
+          value="WebShelf Support"
+        >
+
+
+        <div class="form-group">
+
+          <label for="support-type">
+            What do you need help with?
+          </label>
+
+          <select
+            id="support-type"
+            name="support-type"
+            required
+          >
+
+            <option value="">
+              Select an option
+            </option>
+
+            <option value="broken-link">
+              Broken link
+            </option>
+
+            <option value="website-bug">
+              Website issue / bug
+            </option>
+
+            <option value="incorrect-information">
+              Incorrect information
+            </option>
+
+            <option value="general-question">
+              General question
+            </option>
+
+            <option value="other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="support-url">
+            Related URL
+          </label>
+
+          <input
+            type="url"
+            id="support-url"
+            name="support-url"
+            placeholder="https://..."
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="support-message">
+            Message
+          </label>
+
+          <textarea
+            id="support-message"
+            name="support-message"
+            rows="6"
+            placeholder="Tell us what happened..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="support-submit"
+          id="support-submit"
+        >
+          Send message
+        </button>
+
+
+        <p
+          class="form-message"
+          id="support-message-status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div class="container footer-content">
+
+      <p>
+        © 2026 WebShelf
+      </p>
+
+      <div class="footer-links">
+
+        <a href="./index.html">
+          Directory
+        </a>
+
+        <a href="./support.html">
+          Support
+        </a>
+
+        <a href="./suggest.html">
+          Suggest a site
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="./support.js"></script>
+
+</body>
+
+</html>
