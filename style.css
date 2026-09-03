@@ -46,7 +46,27 @@
   --TV-database: #437ad3;
 }
 
+/* ==================================================
+   LIGHT MODE
+================================================== */
 
+html[data-theme="light"] {
+  --background: #f5f5f7;
+  --navbar-background: #ffffff;
+  --card-background: #ffffff;
+  --panel-background: #ffffff;
+  --panel-header-background: #fafafa;
+  --hover-background: #f1f1f3;
+
+  --border-default: #dedee5;
+  --border-hover: #b8b8c2;
+  --border-purple: #ded3eb;
+  --row-border: #e8e8ed;
+
+  --text-primary: #18181b;
+  --text-secondary: #5f5f68;
+  --text-muted: #85858e;
+}
 
 /* ==================================================
    RESET
@@ -1771,4 +1791,119 @@ nav a:focus-visible {
 .category-empty-link:hover {
   background: rgba(139, 44, 245, 0.08);
   border-color: var(--brand-purple);
+}
+
+/* ==================================================
+   THEME TOGGLE
+================================================== */
+
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: transparent;
+  color: var(--text-secondary);
+
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--text-primary);
+  background: var(--hover-background);
+  border-color: var(--border-hover);
+}
+
+/* ==================================================
+   LIGHT MODE FIXES
+================================================== */
+
+html[data-theme="light"] .site-row {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .site-row:nth-child(even) {
+  background: #f7f7f9;
+}
+
+html[data-theme="light"] .site-row:hover {
+  background: #f0f0f3;
+}
+
+
+/* Site logos */
+
+html[data-theme="light"] .site-logo {
+  background: #2a2a30;
+  border-color: #3a3a42;
+}
+
+html[data-theme="light"] .site-logo img {
+  background: transparent;
+  border-radius: 4px;
+}
+
+
+/* View all */
+
+html[data-theme="light"] .view-all {
+  background: #fafafa;
+  color: #5f5f68;
+}
+
+html[data-theme="light"] .view-all:hover {
+  background: #f1f1f3;
+  color: #18181b;
+}
+
+
+/* Buttons */
+
+html[data-theme="light"] .suggest-submit,
+html[data-theme="light"] .support-submit,
+html[data-theme="light"] .category-empty-link {
+  background: #ffffff;
+  color: #18181b;
+
+  border-color: #dedee5;
+}
+
+html[data-theme="light"] .suggest-submit:hover,
+html[data-theme="light"] .support-submit:hover,
+html[data-theme="light"] .category-empty-link:hover {
+  background: #f5f0fb;
+
+  border-color: var(--brand-purple);
+}
+
+
+/* Form fields */
+
+html[data-theme="light"] .form-group input,
+html[data-theme="light"] .form-group select,
+html[data-theme="light"] .form-group textarea {
+  background: #ffffff;
+  color: #18181b;
+
+  border-color: #d8d8df;
+}
+
+html[data-theme="light"] .form-group option {
+  background: #ffffff;
+  color: #18181b;
 }
