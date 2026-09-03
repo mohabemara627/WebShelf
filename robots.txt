@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.webshelf.link/sitemap.txt
+Sitemap: https://www.webshelf.link/sitemap.xml
