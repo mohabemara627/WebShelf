@@ -6,7 +6,51 @@
   </url>
 
   <url>
-    <loc>https://www.webshelf.link/category.html</loc>
+    <loc>https://www.webshelf.link/category.html?type=anime-streaming</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=TV-streaming</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=sports-streaming</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=manga-reading</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=manhwa-reading</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=novel-reading</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=anime-download</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=TV-download</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=subtitle-download</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=anime-database</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=anime-schedule</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=TV-database</loc>
   </url>
 
   <url>
