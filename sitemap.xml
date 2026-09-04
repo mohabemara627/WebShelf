@@ -1,15 +1,64 @@
-https://www.webshelf.link/
-https://www.webshelf.link/category.html?type=anime-streaming
-https://www.webshelf.link/category.html?type=TV-streaming
-https://www.webshelf.link/category.html?type=sports-streaming
-https://www.webshelf.link/category.html?type=manga-reading
-https://www.webshelf.link/category.html?type=manhwa-reading
-https://www.webshelf.link/category.html?type=novel-reading
-https://www.webshelf.link/category.html?type=anime-download
-https://www.webshelf.link/category.html?type=TV-download
-https://www.webshelf.link/category.html?type=subtitle-download
-https://www.webshelf.link/category.html?type=anime-database
-https://www.webshelf.link/category.html?type=anime-schedule
-https://www.webshelf.link/category.html?type=TV-database
-https://www.webshelf.link/suggest.html
-https://www.webshelf.link/support.html
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.webshelf.link/</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=anime-streaming</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=TV-streaming</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=sports-streaming</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=manga-reading</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=manhwa-reading</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=novel-reading</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=anime-download</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=TV-download</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=subtitle-download</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=anime-database</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=TV-database</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/category.html?type=anime-schedule</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/suggest.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.webshelf.link/support.html</loc>
+  </url>
+
+</urlset>

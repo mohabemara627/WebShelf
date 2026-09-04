@@ -12,7 +12,6 @@ const submitButton =
   document.querySelector("#suggest-submit");
 
 
-
 if (
   suggestForm &&
   formMessage &&
@@ -23,37 +22,21 @@ if (
     "submit",
     async (event) => {
 
-      // Stop normal page refresh
       event.preventDefault();
 
 
-
-      // ==================================================
-      // LOADING STATE
-      // ==================================================
+      // Loading state
 
       formMessage.textContent =
         "Sending suggestion...";
 
       submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
 
-      submitButton.textContent =
-        "Sending...";
-
-
-
-      // ==================================================
-      // GET FORM DATA
-      // ==================================================
 
       const formData =
         new FormData(suggestForm);
 
-
-
-      // ==================================================
-      // SEND TO FORMSPREE
-      // ==================================================
 
       try {
 
@@ -70,11 +53,6 @@ if (
           );
 
 
-
-        // ==================================================
-        // SUCCESS
-        // ==================================================
-
         if (response.ok) {
 
           formMessage.textContent =
@@ -82,30 +60,14 @@ if (
 
           suggestForm.reset();
 
-        }
-
-
-
-        // ==================================================
-        // ERROR FROM SERVER
-        // ==================================================
-
-        else {
+        } else {
 
           formMessage.textContent =
             "Something went wrong. Please try again.";
 
         }
 
-      }
-
-
-
-      // ==================================================
-      // CONNECTION ERROR
-      // ==================================================
-
-      catch (error) {
+      } catch (error) {
 
         console.error(
           "WebShelf Suggest Error:",
@@ -115,18 +77,9 @@ if (
         formMessage.textContent =
           "Unable to send suggestion right now.";
 
-      }
-
-
-
-      // ==================================================
-      // RESTORE BUTTON
-      // ==================================================
-
-      finally {
+      } finally {
 
         submitButton.disabled = false;
-
         submitButton.textContent =
           "Submit suggestion";
 

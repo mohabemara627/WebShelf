@@ -25,13 +25,13 @@ if (
       event.preventDefault();
 
 
+      // Loading state
+
       supportMessage.textContent =
         "Sending message...";
 
       supportButton.disabled = true;
-
-      supportButton.textContent =
-        "Sending...";
+      supportButton.textContent = "Sending...";
 
 
       const formData =
@@ -80,7 +80,6 @@ if (
       } finally {
 
         supportButton.disabled = false;
-
         supportButton.textContent =
           "Send message";
 

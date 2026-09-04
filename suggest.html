@@ -11,10 +11,11 @@
 
   <title>Suggest a Site - WebShelf</title>
 
-<meta
-  name="description"
-  content="Suggest a useful website to WebShelf for review and possible inclusion in the directory."
->
+  <meta
+    name="description"
+    content="Suggest a useful website to WebShelf for review and possible inclusion in the directory."
+  >
+
   <!-- Google Font -->
   <link
     rel="preconnect"
@@ -32,14 +33,12 @@
     rel="stylesheet"
   >
 
-
   <!-- Favicon -->
   <link
     rel="icon"
     href="/images/WebShelf/WS-Logo.png"
     type="image/png"
   >
-
 
   <!-- CSS -->
   <link
@@ -72,39 +71,40 @@
       </a>
 
 
-<div class="nav-links">
+      <div class="nav-links">
 
-  <a
-    href="./index.html"
-    class="directory active"
-  >
-    Directory
-  </a>
+        <a
+          href="./index.html"
+          class="directory"
+        >
+          Directory
+        </a>
 
-  <a
-    href="./support.html"
-    class="support"
-  >
-    Support
-  </a>
+        <a
+          href="./support.html"
+          class="support"
+        >
+          Support
+        </a>
 
-  <a
-    href="./suggest.html"
-    class="suggest"
-  >
-    Suggest a site
-  </a>
+        <a
+          href="./suggest.html"
+          class="suggest active"
+        >
+          Suggest a site
+        </a>
 
-  <button
-    class="theme-toggle"
-    id="theme-toggle"
-    type="button"
-    aria-label="Toggle light mode"
-  >
-    ☀
-  </button>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle light mode"
+        >
+          ☀
+        </button>
 
-</div>
+      </div>
+
     </nav>
 
   </header>
@@ -152,19 +152,18 @@
            SUGGEST FORM
       =================================================== -->
 
-    <form
-  
-      class="suggest-form"
-      id="suggest-form"
-      action="https://formspree.io/f/xaeyjvkd"
-      method="POST"
-    >
+      <form
+        class="suggest-form"
+        id="suggest-form"
+        action="https://formspree.io/f/xaeyjvkd"
+        method="POST"
+      >
 
-  <input
-    type="hidden"
-    name="form-type"
-    value="WebShelf Suggestion"
-  >
+        <input
+          type="hidden"
+          name="form-type"
+          value="WebShelf Suggestion"
+        >
 
 
         <!-- Website URL -->
@@ -245,12 +244,12 @@
               Anime Database
             </option>
 
-            <option value="anime-schedule">
-              Anime Schedule
-            </option>
-
             <option value="TV-database">
               TV Database
+            </option>
+
+            <option value="anime-schedule">
+              Anime Schedule
             </option>
 
           </select>
@@ -298,38 +297,47 @@
           aria-live="polite"
         ></p>
 
-
       </form>
 
     </section>
 
   </main>
 
-<footer class="site-footer">
-  <div class="container footer-content">
 
-    <p>
-      © 2026 WebShelf
-    </p>
 
-    <div class="footer-links">
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
 
-  <a href="./index.html">
-    Directory
-  </a>
+  <footer class="site-footer">
 
-  <a href="./support.html">
-    Support
-  </a>
+    <div class="container footer-content">
 
-  <a href="./suggest.html">
-    Suggest a site
-  </a>
+      <p>
+        © 2026 WebShelf
+      </p>
+
+      <div class="footer-links">
+
+        <a href="./index.html">
+          Directory
+        </a>
+
+        <a href="./support.html">
+          Support
+        </a>
+
+        <a href="./suggest.html">
+          Suggest a site
+        </a>
+
+      </div>
 
     </div>
 
-  </div>
-</footer>
+  </footer>
+
+
 
   <!-- ==================================================
        JAVASCRIPT

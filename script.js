@@ -44,12 +44,12 @@ const categories = [
     sites: AnimeDatabaseSites
   },
   {
-    key: "anime-schedule",
-    sites: AnimeScheduleSites
-  },
-  {
     key: "TV-database",
     sites: TVDatabaseSites
+  },
+  {
+    key: "anime-schedule",
+    sites: AnimeScheduleSites
   }
 ];
 

@@ -10,12 +10,13 @@
   >
 
   <title>Support - WebShelf</title>
- 
- <meta
-  name="description"
-  content="Get support for WebShelf, report broken links, website issues, incorrect information, or ask a general question."
->
-  
+
+  <meta
+    name="description"
+    content="Get support for WebShelf, report broken links, website issues, incorrect information, or ask a general question."
+  >
+
+  <!-- Google Font -->
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -32,12 +33,14 @@
     rel="stylesheet"
   >
 
+  <!-- Favicon -->
   <link
     rel="icon"
     href="/images/WebShelf/WS-Logo.png"
     type="image/png"
   >
 
+  <!-- CSS -->
   <link
     rel="stylesheet"
     href="./style.css"
@@ -46,6 +49,10 @@
 
 
 <body>
+
+  <!-- ==================================================
+       NAVBAR
+  =================================================== -->
 
   <header>
 
@@ -64,48 +71,56 @@
       </a>
 
 
-<div class="nav-links">
+      <div class="nav-links">
 
-  <a
-    href="./index.html"
-    class="directory active"
-  >
-    Directory
-  </a>
+        <a
+          href="./index.html"
+          class="directory"
+        >
+          Directory
+        </a>
 
-  <a
-    href="./support.html"
-    class="support"
-  >
-    Support
-  </a>
+        <a
+          href="./support.html"
+          class="support active"
+        >
+          Support
+        </a>
 
-  <a
-    href="./suggest.html"
-    class="suggest"
-  >
-    Suggest a site
-  </a>
+        <a
+          href="./suggest.html"
+          class="suggest"
+        >
+          Suggest a site
+        </a>
 
-  <button
-    class="theme-toggle"
-    id="theme-toggle"
-    type="button"
-    aria-label="Toggle light mode"
-  >
-    ☀
-  </button>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle light mode"
+        >
+          ☀
+        </button>
 
-</div>
+      </div>
 
     </nav>
 
   </header>
 
 
+
+  <!-- ==================================================
+       MAIN
+  =================================================== -->
+
   <main class="container">
 
     <section class="support-page">
+
+
+      <!-- Back Link -->
 
       <a
         href="./index.html"
@@ -114,6 +129,9 @@
         ← Back to Directory
       </a>
 
+
+
+      <!-- Page Header -->
 
       <div class="support-page-header">
 
@@ -128,6 +146,11 @@
       </div>
 
 
+
+      <!-- ==================================================
+           SUPPORT FORM
+      =================================================== -->
+
       <form
         class="support-form"
         id="support-form"
@@ -141,6 +164,8 @@
           value="WebShelf Support"
         >
 
+
+        <!-- Support Type -->
 
         <div class="form-group">
 
@@ -183,6 +208,9 @@
         </div>
 
 
+
+        <!-- Related URL -->
+
         <div class="form-group">
 
           <label for="support-url">
@@ -198,6 +226,9 @@
 
         </div>
 
+
+
+        <!-- Message -->
 
         <div class="form-group">
 
@@ -216,6 +247,9 @@
         </div>
 
 
+
+        <!-- Submit Button -->
+
         <button
           type="submit"
           class="support-submit"
@@ -224,6 +258,9 @@
           Send message
         </button>
 
+
+
+        <!-- Form Message -->
 
         <p
           class="form-message"
@@ -237,6 +274,11 @@
 
   </main>
 
+
+
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
 
   <footer class="site-footer">
 
@@ -266,6 +308,11 @@
 
   </footer>
 
+
+
+  <!-- ==================================================
+       JAVASCRIPT
+  =================================================== -->
 
   <script src="./support.js"></script>
   <script src="./theme.js"></script>

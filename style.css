@@ -42,8 +42,8 @@
 
   /* Data */
   --anime-database: #1246d4;
-  --anime-schedule: #2563eb;
-  --TV-database: #437ad3;
+  --TV-database: #2563eb;
+  --anime-schedule: #437ad3;
 }
 
 /* ==================================================
@@ -623,7 +623,8 @@ nav a:focus-visible {
 
   background: var(--panel-header-background);
 
-  border-bottom: 1px solid #161616;
+border-bottom: 1px solid var(--row-border)
+
 }
 
 .panel-header h3 {
@@ -1848,14 +1849,14 @@ html[data-theme="light"] .site-row:hover {
 
 /* Site logos */
 
-html[data-theme="light"] .site-logo {
-  background: #2a2a30;
-  border-color: #3a3a42;
+.site-logo {
+  background: transparent;
+  border: none;
 }
 
-html[data-theme="light"] .site-logo img {
-  background: transparent;
-  border-radius: 4px;
+html[data-theme="light"] .site-logo {
+  background: #2a2a30;
+  border: 1px solid #3a3a42;
 }
 
 

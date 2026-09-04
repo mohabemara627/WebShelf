@@ -22,6 +22,11 @@ if (savedTheme) {
 
 function updateThemeButton() {
 
+  if (!themeToggle) {
+    return;
+  }
+
+
   const currentTheme =
     document.documentElement.getAttribute(
       "data-theme"

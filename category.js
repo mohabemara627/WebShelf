@@ -74,18 +74,18 @@ const CategoryConfig = {
     sites: AnimeDatabaseSites
   },
 
-  "anime-schedule": {
-    title: "Anime Schedule",
-    icon: "calendar-days",
-    color: "var(--anime-schedule)",
-    sites: AnimeScheduleSites
-  },
-
   "TV-database": {
     title: "TV Database",
     icon: "database",
     color: "var(--TV-database)",
     sites: TVDatabaseSites
+  },
+
+  "anime-schedule": {
+    title: "Anime Schedule",
+    icon: "calendar-days",
+    color: "var(--anime-schedule)",
+    sites: AnimeScheduleSites
   }
 
 };
