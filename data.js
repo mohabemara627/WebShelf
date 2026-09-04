@@ -1,862 +1,1606 @@
 // ==================================================
-// WEBSHELF DATA
+// WEBSHELF DATA — EDIT THIS FILE ONLY
 // ==================================================
 //
-// Website data only.
-// Add new websites here.
+// Add a SITE: copy one site object inside the category you want.
+// Add a CATEGORY: copy one category object and change key/group/title/icon/accent/sites.
 //
-// Each website uses:
-// {
-//   name: "Website Name",
-//   url: "https://example.com/",
-//   icon: "/images/WebShelf/example.png"
-// }
-//
+// Optional preview fields for any site:
+// description: "A short, factual description of what makes this site useful.",
+// links: [{ label: "Mirror 1", url: "https://mirror.example.com" }],
+// screenshots: ["./images/screenshots/example-1.jpg"],
+// highlights: [
+//   { type: "good", text: "Fast" },
+//   { type: "bad", text: "Heavy ads" }
+// ],
+// badges: ["Ar", "Dub", "Low Ads"],
+// collections: ["Curated Collection"],
+// addedAt: "2026-09-04T10:00:00.000Z",
+// updatedAt: "2026-09-04T10:00:00.000Z",
 // ==================================================
 
-
-
-// ==================================================
-// ANIME STREAMING
-// ==================================================
-
-const AnimeStreamingSites = [
+const WebShelfCategories = [
   {
-    name: "Anime Nexus",
-    url: "https://anime.nexus/",
-    icon: "/images/WebShelf/animenexus.png"
+    "key": "anime-streaming",
+    "group": "Streaming",
+    "title": "Anime Streaming",
+    "icon": "play",
+    "accent": "var(--anime-streaming)",
+    "sites": [
+      {
+        "name": "Anime Nexus",
+        "url": "https://anime.nexus/",
+        "icon": "./images/icons/animenexus.png"
+      },
+      {
+        "name": "AniKoto",
+        "url": "https://anikototv.to/home",
+        "icon": "./images/icons/anikoto.png"
+      },
+      {
+        "name": "Re:Anime",
+        "url": "https://reanime.to/home",
+        "icon": "./images/icons/reanime.png"
+      },
+      {
+        "name": "Miruro",
+        "url": "https://www.miruro.to/",
+        "icon": "./images/icons/miruro.png"
+      },
+      {
+        "name": "AnimeX",
+        "url": "https://animex.one/home",
+        "icon": "./images/icons/animex.png"
+      },
+      {
+        "name": "Animepahe",
+        "url": "https://animepahe.ch/",
+        "icon": "./images/icons/animepahe.png"
+      },
+      {
+        "name": "MKissa",
+        "url": "https://mkissa.to/anime",
+        "icon": "./images/icons/mkissa.png"
+      },
+      {
+        "name": "AniZone",
+        "url": "https://anizone.to/",
+        "icon": "./images/icons/anizone.ico"
+      },
+      {
+        "name": "123anime",
+        "url": "https://123animehub.cc/home",
+        "icon": "./images/icons/123anime.png"
+      },
+      {
+        "name": "2Dhive",
+        "url": "https://2dhive.com/",
+        "icon": "./images/icons/2dhive.png"
+      }
+    ]
   },
-
   {
-    name: "AniKoto",
-    url: "https://anikototv.to/home",
-    icon: "/images/WebShelf/anikoto.png"
+    "key": "TV-streaming",
+    "group": "Streaming",
+    "title": "TV Streaming",
+    "icon": "play",
+    "accent": "var(--TV-streaming)",
+    "sites": [
+      {
+        "name": "Movy",
+        "url": "https://www.movy.bz/",
+        "icon": "./images/icons/movy.png"
+      },
+      {
+        "name": "HuraWatch",
+        "url": "https://hurawatch.cz/home",
+        "icon": "./images/icons/hurawatch.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "FLIXER",
+        "url": "https://flixer.gd/?tv=&id=202555",
+        "icon": "./images/icons/flixer.png"
+      },
+      {
+        "name": "REELIX",
+        "url": "https://reelix.ac/",
+        "icon": "./images/icons/reelix.png"
+      },
+      {
+        "name": "HEXA",
+        "url": "https://hexa.su/",
+        "icon": "./images/icons/hexa.png"
+      },
+      {
+        "name": "Cinejoy",
+        "url": "https://cinejoy.to/",
+        "icon": "./images/icons/cinejoy.png"
+      },
+      {
+        "name": "CinemaOS",
+        "url": "https://cinemaos.live/",
+        "icon": "./images/icons/cinemaos.png"
+      },
+      {
+        "name": "WatchLuna",
+        "url": "https://watchluna.com/",
+        "icon": "./images/icons/watchluna.png"
+      },
+      {
+        "name": "HDToday",
+        "url": "https://hdtoday.one/",
+        "icon": "./images/icons/hdtoday.png"
+      },
+      {
+        "name": "PopcornMovies",
+        "url": "https://popcornmovies.ac/",
+        "icon": "./images/icons/popcornmovies.png"
+      }
+    ]
   },
-
   {
-    name: "Re:Anime",
-    url: "https://reanime.to/home",
-    icon: "/images/WebShelf/reanime.png"
+    "key": "sports-streaming",
+    "group": "Streaming",
+    "title": "Sports Streaming",
+    "icon": "play",
+    "accent": "var(--sports-streaming)",
+    "sites": [
+      {
+        "name": "Streamed",
+        "url": "https://streamed.pk/",
+        "icon": "./images/icons/streamed.png"
+      },
+      {
+        "name": "WatchFooty",
+        "url": "https://watchfooty.st/en",
+        "icon": "./images/icons/watchfooty.png"
+      },
+      {
+        "name": "SportsBite",
+        "url": "https://sportsbite.org/",
+        "icon": "./images/icons/sportsbite.png"
+      },
+      {
+        "name": "BinTV",
+        "url": "https://www.bintv.cc/",
+        "icon": "./images/icons/bintv.png"
+      },
+      {
+        "name": "NTV",
+        "url": "https://ntv.cx/matches/kobra",
+        "icon": "./images/icons/ntv.png"
+      },
+      {
+        "name": "PPV",
+        "url": "https://ppv.st/#34",
+        "icon": "./images/icons/ppv.ico"
+      },
+      {
+        "name": "TIMST",
+        "url": "https://timst.cfd/live-tv",
+        "icon": "./images/icons/timst.ico"
+      },
+      {
+        "name": "LiveTV",
+        "url": "https://livetv.sx/enx/",
+        "icon": "./images/icons/livetv.png"
+      },
+      {
+        "name": "DLive",
+        "url": "https://dlive.sx/",
+        "icon": "./images/icons/dlive.png"
+      },
+      {
+        "name": "RoxieStreams",
+        "url": "https://roxiestreams.su/",
+        "icon": "./images/icons/roxiestreams.png"
+      }
+    ]
   },
-
   {
-    name: "Miruro",
-    url: "https://www.miruro.to/",
-    icon: "/images/WebShelf/miruro.png"
+    "key": "manga-reading",
+    "group": "Reading",
+    "title": "Manga Reading",
+    "icon": "book-open",
+    "accent": "var(--manga-reading)",
+    "sites": [
+      {
+        "name": "MangaDotNet",
+        "url": "https://mangadot.net/",
+        "icon": "./images/icons/mangadotnet.png"
+      },
+      {
+        "name": "Atsumaru",
+        "url": "https://atsu.moe/",
+        "icon": "./images/icons/atsumaru.png"
+      },
+      {
+        "name": "Weeb Central",
+        "url": "https://weebcentral.com/",
+        "icon": "./images/icons/weeb-central.ico"
+      },
+      {
+        "name": "MKissa",
+        "url": "https://mkissa.to/manga",
+        "icon": "./images/icons/mkissa.png"
+      },
+      {
+        "name": "MangaBall",
+        "url": "https://mangaball.net/",
+        "icon": "./images/icons/mangaball.ico"
+      },
+      {
+        "name": "Chikari",
+        "url": "https://chikari.moe/",
+        "icon": "./images/icons/chikari.svg"
+      },
+      {
+        "name": "Comix",
+        "url": "https://comix.to/",
+        "icon": "./images/icons/comix.png"
+      },
+      {
+        "name": "OniSaga",
+        "url": "https://onisaga.com/",
+        "icon": "./images/icons/onisaga.png"
+      },
+      {
+        "name": "MangaGo",
+        "url": "https://www.mangago.me/",
+        "icon": "./images/icons/mangago.ico"
+      },
+      {
+        "name": "MangaFire",
+        "url": "https://mangafire.to/",
+        "icon": "./images/icons/mangafire.svg"
+      }
+    ]
   },
-
   {
-    name: "AnimeX",
-    url: "https://animex.one/home",
-    icon: "/images/WebShelf/animex.png"
+    "key": "manhwa-reading",
+    "group": "Reading",
+    "title": "Manhwa Reading",
+    "icon": "book-open",
+    "accent": "var(--manhwa-reading)",
+    "sites": [
+      {
+        "name": "WEBTOON",
+        "url": "https://www.webtoons.com/",
+        "icon": "./images/icons/webtoon.ico"
+      },
+      {
+        "name": "Asura Scans",
+        "url": "https://asuracomic.net/",
+        "icon": "./images/icons/asura-scans.png"
+      },
+      {
+        "name": "ManhwaTop",
+        "url": "https://manhwatop.com/",
+        "icon": "./images/icons/manhwatop.png"
+      },
+      {
+        "name": "ProjectSuki",
+        "url": "https://projectsuki.com/",
+        "icon": "./images/icons/projectsuki.png"
+      },
+      {
+        "name": "Diva Scans",
+        "url": "https://divatoon.com/",
+        "icon": "./images/icons/diva-scans.png"
+      },
+      {
+        "name": "KuraManga",
+        "url": "https://kuramanga.com/",
+        "icon": "./images/icons/kuramanga.png"
+      },
+      {
+        "name": "MangaGG",
+        "url": "https://mangagg.com/",
+        "icon": "./images/icons/mangagg.png"
+      },
+      {
+        "name": "Cocomics",
+        "url": "https://cocomic.co/",
+        "icon": "./images/icons/cocomics.png"
+      },
+      {
+        "name": "Galaxy Manga",
+        "url": "https://galaxymanga.io/",
+        "icon": "./images/icons/galaxy-manga.png"
+      },
+      {
+        "name": "Flame Comics",
+        "url": "https://flamecomics.xyz/",
+        "icon": "./images/icons/flame-comics.ico"
+      }
+    ]
   },
-
   {
-    name: "Animepahe",
-    url: "https://animepahe.ch/",
-    icon: "/images/WebShelf/animepahe.png"
+    "key": "novel-reading",
+    "group": "Reading",
+    "title": "Novel Reading",
+    "icon": "book-open",
+    "accent": "var(--novel-reading)",
+    "sites": [
+      {
+        "name": "NovelBuddy",
+        "url": "https://novelbuddy.me/home",
+        "icon": "./images/icons/novelbuddy.ico"
+      },
+      {
+        "name": "NovelArchive",
+        "url": "https://novelarchive.cc/",
+        "icon": "./images/icons/novelarchive.png"
+      },
+      {
+        "name": "NovelFire",
+        "url": "https://novelfire.net/home",
+        "icon": "./images/icons/novelfire.png"
+      },
+      {
+        "name": "FreeWebNovel",
+        "url": "https://freewebnovel.com/",
+        "icon": "./images/icons/freewebnovel.ico"
+      },
+      {
+        "name": "Chikari Novel",
+        "url": "https://chikari.moe/novels",
+        "icon": "./images/icons/chikari-novel.png"
+      },
+      {
+        "name": "NovelCool",
+        "url": "https://www.novelcool.com/",
+        "icon": "./images/icons/novelcool.ico"
+      },
+      {
+        "name": "Royal Road",
+        "url": "https://www.royalroad.com/",
+        "icon": "./images/icons/royal-road.png"
+      },
+      {
+        "name": "WuxiaBox",
+        "url": "https://www.wuxiabox.com/",
+        "icon": "./images/icons/wuxiabox.ico"
+      },
+      {
+        "name": "XNovel",
+        "url": "https://xnovel.me/",
+        "icon": "./images/icons/xnovel.png"
+      },
+      {
+        "name": "MVLEMPYR",
+        "url": "https://www.mvlempyr.com/",
+        "icon": "./images/icons/mvlempyr.png"
+      }
+    ]
   },
-
   {
-  name: "MKissa",
-  url: "https://mkissa.to/anime",
-  icon: "https://mkissa.to/favicon.svg"
+    "key": "anime-download",
+    "group": "Download",
+    "title": "Anime Download",
+    "icon": "download",
+    "accent": "var(--anime-download)",
+    "sites": [
+      {
+        "name": "Nyaa",
+        "url": "https://nyaa.si/",
+        "icon": "./images/icons/nyaa.png"
+      },
+      {
+        "name": "TsukiHime",
+        "url": "https://tsukihime.org/",
+        "icon": "./images/icons/tsukihime.png"
+      },
+      {
+        "name": "Anime Tosho",
+        "url": "https://animetosho.org/",
+        "icon": "./images/icons/tosho.png"
+      },
+      {
+        "name": "SubsPlease",
+        "url": "https://subsplease.org/",
+        "icon": "./images/icons/subsplease.png"
+      },
+      {
+        "name": "Tokyo Toshokan",
+        "url": "https://www.tokyotosho.info/",
+        "icon": "./images/icons/toshokan.png"
+      },
+      {
+        "name": "SeaDex",
+        "url": "https://releases.moe/",
+        "icon": "./images/icons/seadex.png"
+      },
+      {
+        "name": "NekoBT",
+        "url": "https://nekobt.to/",
+        "icon": "./images/icons/nekobt.webp"
+      },
+      {
+        "name": "AniRena",
+        "url": "https://www.anirena.com/",
+        "icon": "./images/icons/anirena.png"
+      },
+      {
+        "name": "AnimeWatch",
+        "url": "https://animewat.ch/",
+        "icon": "./images/icons/animewatch.ico"
+      },
+      {
+        "name": "Tokyo Insider",
+        "url": "https://tokyoinsider.com/",
+        "icon": "./images/icons/tokyo-insider.png"
+      }
+    ]
   },
-
   {
-  name: "AniZone",
-  url: "https://anizone.to/",
-  icon: "https://anizone.to/favicon.ico"
+    "key": "TV-download",
+    "group": "Download",
+    "title": "TV Download",
+    "icon": "download",
+    "accent": "var(--TV-download)",
+    "sites": [
+      {
+        "name": "EXT Torrents",
+        "url": "https://ext.to/",
+        "icon": "./images/icons/ext-torrents.png"
+      },
+      {
+        "name": "1337x",
+        "url": "https://1337x.to/home/",
+        "icon": "./images/icons/1337x.png"
+      },
+      {
+        "name": "The Pirate Bay",
+        "url": "https://thepiratebay.org/index.html",
+        "icon": "./images/icons/the-pirate-bay.ico"
+      },
+      {
+        "name": "TorrentGalaxy",
+        "url": "https://torrentgalaxy.info/",
+        "icon": "./images/icons/torrentgalaxy.ico"
+      },
+      {
+        "name": "EZTV",
+        "url": "https://eztv.tf/home",
+        "icon": "./images/icons/eztv.ico"
+      },
+      {
+        "name": "RARBG Dump",
+        "url": "https://rarbgdump.com/?q=daredevil",
+        "icon": "./images/icons/rarbg-dump.ico"
+      },
+      {
+        "name": "LimeTorrents",
+        "url": "https://www.limetorrents.fun/search/all/daredevil/date/1/",
+        "icon": "./images/icons/limetorrents.ico"
+      },
+      {
+        "name": "YTS",
+        "url": "https://yts.rs/",
+        "icon": "./images/icons/yts.png"
+      },
+      {
+        "name": "IPTorrents",
+        "url": "https://ipt.cool/login.php",
+        "icon": "./images/icons/iptorrents.ico"
+      },
+      {
+        "name": "Rutor",
+        "url": "https://rutor.is/",
+        "icon": "./images/icons/rutor.ico"
+      }
+    ]
   },
-
   {
-  name: "123anime",
-  url: "https://123animehub.cc/home",
-  icon: "https://123animehub.cc/assets/favicons/favicon-32x32.png"
+    "key": "subtitle-download",
+    "group": "Download",
+    "title": "Subtitle Download",
+    "icon": "download",
+    "accent": "var(--subtitle-download)",
+    "sites": [
+      {
+        "name": "OpenSubtitles",
+        "url": "https://www.opensubtitles.com/",
+        "icon": "./images/icons/opensubtitles.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "SubDL",
+        "url": "https://subdl.com/",
+        "icon": "./images/icons/subdl.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "Subtitle Cat",
+        "url": "https://subtitlecat.com/",
+        "icon": "./images/icons/subtitle-cat.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "TVSubs",
+        "url": "https://www.tvsubs.net/",
+        "icon": "./images/icons/tvsubs.ico",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "Addic7ed",
+        "url": "https://www.addic7ed.com/",
+        "icon": "./images/icons/addic7ed.ico",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "TVSubtitles",
+        "url": "https://www.tvsubtitles.net/",
+        "icon": "./images/icons/tvsubtitles.ico",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "YIFY Subtitles",
+        "url": "https://yifysubtitles.ch/",
+        "icon": "./images/icons/yify-subtitles.ico"
+      },
+      {
+        "name": "MySubs",
+        "url": "https://my-subs.co/",
+        "icon": "./images/icons/mysubs.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "SubSource",
+        "url": "https://subsource.net/",
+        "icon": "./images/icons/subsource.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "SubF2M",
+        "url": "https://subf2m.co/",
+        "icon": "./images/icons/subf2m.ico",
+        "badges": [
+          "Ar"
+        ]
+      }
+    ]
   },
-
   {
-  name: "2Dhive",
-  url: "https://2dhive.com/",
-  icon: "https://2dhive.com//faviconnew.png"
+    "key": "anime-database",
+    "group": "Databases & Schedules",
+    "title": "Anime Database",
+    "icon": "database",
+    "accent": "var(--anime-database)",
+    "sites": [
+      {
+        "name": "MyAnimeList",
+        "url": "https://myanimelist.net/",
+        "icon": "./images/icons/myanimelist.svg"
+      },
+      {
+        "name": "AniList",
+        "url": "https://anilist.co/",
+        "icon": "./images/icons/anilist.png"
+      },
+      {
+        "name": "MangaBaka",
+        "url": "https://mangabaka.org/",
+        "icon": "./images/icons/mangabaka.png"
+      },
+      {
+        "name": "Comick",
+        "url": "https://comick.dev/",
+        "icon": "./images/icons/comick.ico"
+      },
+      {
+        "name": "Anime-Planet",
+        "url": "https://www.anime-planet.com/",
+        "icon": "./images/icons/anime-planet.jpg"
+      },
+      {
+        "name": "Kitsu",
+        "url": "https://kitsu.app/",
+        "icon": "./images/icons/kitsu.ico"
+      },
+      {
+        "name": "AniSearch",
+        "url": "https://www.anisearch.com/",
+        "icon": "./images/icons/anisearch.png"
+      },
+      {
+        "name": "AniDB",
+        "url": "https://anidb.net/",
+        "icon": "./images/icons/anidb.png"
+      },
+      {
+        "name": "Anime News Network",
+        "url": "https://www.animenewsnetwork.com/",
+        "icon": "./images/icons/anime-news-network.ico"
+      },
+      {
+        "name": "Kuroiru",
+        "url": "https://kuroiru.co/app",
+        "icon": "./images/icons/kuroiru.png"
+      }
+    ]
   },
-
-
+  {
+    "key": "anime-schedule",
+    "group": "Databases & Schedules",
+    "title": "Anime Schedule",
+    "icon": "database",
+    "accent": "var(--anime-schedule)",
+    "sites": [
+      {
+        "name": "LiveChart",
+        "url": "https://www.livechart.me/",
+        "icon": "./images/icons/livechart.png"
+      },
+      {
+        "name": "AniChart",
+        "url": "https://anichart.net/",
+        "icon": "./images/icons/anichart.ico"
+      },
+      {
+        "name": "English Dubbed",
+        "url": "https://english-dubbed.com/",
+        "icon": "./images/icons/english-dubbed.png"
+      },
+      {
+        "name": "AnimeSchedule",
+        "url": "https://animeschedule.net/",
+        "icon": "./images/icons/animeschedule.png"
+      },
+      {
+        "name": "Otaku Calendar",
+        "url": "https://otakucalendar.com/",
+        "icon": "./images/icons/otaku-calendar.png"
+      },
+      {
+        "name": "AnimeAiring",
+        "url": "https://animeairing.com/",
+        "icon": "./images/icons/animeairing.png"
+      },
+      {
+        "name": "AnimeCountdown",
+        "url": "https://animecountdown.com/",
+        "icon": "./images/icons/animecountdown.ico"
+      },
+      {
+        "name": "Senpai.moe",
+        "url": "https://senpai.moe/",
+        "icon": "./images/icons/senpai-moe.ico"
+      },
+      {
+        "name": "anica.jp",
+        "url": "https://anica.jp/",
+        "icon": "./images/icons/anica-jp.png"
+      },
+      {
+        "name": "SubsPlease Schedule",
+        "url": "https://subsplease.org/schedule/",
+        "icon": "./images/icons/subsplease-schedule.ico"
+      }
+    ]
+  },
+  {
+    "key": "TV-database",
+    "group": "Databases & Schedules",
+    "title": "TV Database",
+    "icon": "database",
+    "accent": "var(--TV-database)",
+    "sites": [
+      {
+        "name": "IMDb",
+        "url": "https://www.imdb.com/",
+        "icon": "./images/icons/imdb.png"
+      },
+      {
+        "name": "TMDB",
+        "url": "https://www.themoviedb.org/",
+        "icon": "./images/icons/tmdb.png"
+      },
+      {
+        "name": "TVmaze",
+        "url": "https://www.tvmaze.com/",
+        "icon": "./images/icons/tvmaze.png"
+      },
+      {
+        "name": "TheTVDB",
+        "url": "https://thetvdb.com/",
+        "icon": "./images/icons/thetvdb.png"
+      },
+      {
+        "name": "Trakt",
+        "url": "https://trakt.tv/",
+        "icon": "./images/icons/trakt.png"
+      },
+      {
+        "name": "Letterboxd",
+        "url": "https://letterboxd.com/",
+        "icon": "./images/icons/letterboxd.ico"
+      },
+      {
+        "name": "Rotten Tomatoes",
+        "url": "https://www.rottentomatoes.com/",
+        "icon": "./images/icons/rotten-tomatoes.jpg"
+      },
+      {
+        "name": "Metacritic",
+        "url": "https://www.metacritic.com/",
+        "icon": "./images/icons/metacritic.svg"
+      },
+      {
+        "name": "JustWatch",
+        "url": "https://www.justwatch.com/",
+        "icon": "./images/icons/justwatch.png"
+      },
+      {
+        "name": "Simkl",
+        "url": "https://simkl.com/",
+        "icon": "./images/icons/simkl.ico"
+      }
+    ]
+  }
 ];
 
+// ==================================================
+// CATALOG SNAPSHOT FOR THE LOCAL MANAGER
+// ==================================================
+/* WEBSHELF_CATALOG_JSON_START
+[
+  {
+    "key": "anime-streaming",
+    "group": "Streaming",
+    "title": "Anime Streaming",
+    "icon": "play",
+    "accent": "var(--anime-streaming)",
+    "sites": [
+      {
+        "name": "Anime Nexus",
+        "url": "https://anime.nexus/",
+        "icon": "./images/icons/animenexus.png"
+      },
+      {
+        "name": "AniKoto",
+        "url": "https://anikototv.to/home",
+        "icon": "./images/icons/anikoto.png"
+      },
+      {
+        "name": "Re:Anime",
+        "url": "https://reanime.to/home",
+        "icon": "./images/icons/reanime.png"
+      },
+      {
+        "name": "Miruro",
+        "url": "https://www.miruro.to/",
+        "icon": "./images/icons/miruro.png"
+      },
+      {
+        "name": "AnimeX",
+        "url": "https://animex.one/home",
+        "icon": "./images/icons/animex.png"
+      },
+      {
+        "name": "Animepahe",
+        "url": "https://animepahe.ch/",
+        "icon": "./images/icons/animepahe.png"
+      },
+      {
+        "name": "MKissa",
+        "url": "https://mkissa.to/anime",
+        "icon": "./images/icons/mkissa.png"
+      },
+      {
+        "name": "AniZone",
+        "url": "https://anizone.to/",
+        "icon": "./images/icons/anizone.ico"
+      },
+      {
+        "name": "123anime",
+        "url": "https://123animehub.cc/home",
+        "icon": "./images/icons/123anime.png"
+      },
+      {
+        "name": "2Dhive",
+        "url": "https://2dhive.com/",
+        "icon": "./images/icons/2dhive.png"
+      }
+    ]
+  },
+  {
+    "key": "TV-streaming",
+    "group": "Streaming",
+    "title": "TV Streaming",
+    "icon": "play",
+    "accent": "var(--TV-streaming)",
+    "sites": [
+      {
+        "name": "Movy",
+        "url": "https://www.movy.bz/",
+        "icon": "./images/icons/movy.png"
+      },
+      {
+        "name": "HuraWatch",
+        "url": "https://hurawatch.cz/home",
+        "icon": "./images/icons/hurawatch.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "FLIXER",
+        "url": "https://flixer.gd/?tv=&id=202555",
+        "icon": "./images/icons/flixer.png"
+      },
+      {
+        "name": "REELIX",
+        "url": "https://reelix.ac/",
+        "icon": "./images/icons/reelix.png"
+      },
+      {
+        "name": "HEXA",
+        "url": "https://hexa.su/",
+        "icon": "./images/icons/hexa.png"
+      },
+      {
+        "name": "Cinejoy",
+        "url": "https://cinejoy.to/",
+        "icon": "./images/icons/cinejoy.png"
+      },
+      {
+        "name": "CinemaOS",
+        "url": "https://cinemaos.live/",
+        "icon": "./images/icons/cinemaos.png"
+      },
+      {
+        "name": "WatchLuna",
+        "url": "https://watchluna.com/",
+        "icon": "./images/icons/watchluna.png"
+      },
+      {
+        "name": "HDToday",
+        "url": "https://hdtoday.one/",
+        "icon": "./images/icons/hdtoday.png"
+      },
+      {
+        "name": "PopcornMovies",
+        "url": "https://popcornmovies.ac/",
+        "icon": "./images/icons/popcornmovies.png"
+      }
+    ]
+  },
+  {
+    "key": "sports-streaming",
+    "group": "Streaming",
+    "title": "Sports Streaming",
+    "icon": "play",
+    "accent": "var(--sports-streaming)",
+    "sites": [
+      {
+        "name": "Streamed",
+        "url": "https://streamed.pk/",
+        "icon": "./images/icons/streamed.png"
+      },
+      {
+        "name": "WatchFooty",
+        "url": "https://watchfooty.st/en",
+        "icon": "./images/icons/watchfooty.png"
+      },
+      {
+        "name": "SportsBite",
+        "url": "https://sportsbite.org/",
+        "icon": "./images/icons/sportsbite.png"
+      },
+      {
+        "name": "BinTV",
+        "url": "https://www.bintv.cc/",
+        "icon": "./images/icons/bintv.png"
+      },
+      {
+        "name": "NTV",
+        "url": "https://ntv.cx/matches/kobra",
+        "icon": "./images/icons/ntv.png"
+      },
+      {
+        "name": "PPV",
+        "url": "https://ppv.st/#34",
+        "icon": "./images/icons/ppv.ico"
+      },
+      {
+        "name": "TIMST",
+        "url": "https://timst.cfd/live-tv",
+        "icon": "./images/icons/timst.ico"
+      },
+      {
+        "name": "LiveTV",
+        "url": "https://livetv.sx/enx/",
+        "icon": "./images/icons/livetv.png"
+      },
+      {
+        "name": "DLive",
+        "url": "https://dlive.sx/",
+        "icon": "./images/icons/dlive.png"
+      },
+      {
+        "name": "RoxieStreams",
+        "url": "https://roxiestreams.su/",
+        "icon": "./images/icons/roxiestreams.png"
+      }
+    ]
+  },
+  {
+    "key": "manga-reading",
+    "group": "Reading",
+    "title": "Manga Reading",
+    "icon": "book-open",
+    "accent": "var(--manga-reading)",
+    "sites": [
+      {
+        "name": "MangaDotNet",
+        "url": "https://mangadot.net/",
+        "icon": "./images/icons/mangadotnet.png"
+      },
+      {
+        "name": "Atsumaru",
+        "url": "https://atsu.moe/",
+        "icon": "./images/icons/atsumaru.png"
+      },
+      {
+        "name": "Weeb Central",
+        "url": "https://weebcentral.com/",
+        "icon": "./images/icons/weeb-central.ico"
+      },
+      {
+        "name": "MKissa",
+        "url": "https://mkissa.to/manga",
+        "icon": "./images/icons/mkissa.png"
+      },
+      {
+        "name": "MangaBall",
+        "url": "https://mangaball.net/",
+        "icon": "./images/icons/mangaball.ico"
+      },
+      {
+        "name": "Chikari",
+        "url": "https://chikari.moe/",
+        "icon": "./images/icons/chikari.svg"
+      },
+      {
+        "name": "Comix",
+        "url": "https://comix.to/",
+        "icon": "./images/icons/comix.png"
+      },
+      {
+        "name": "OniSaga",
+        "url": "https://onisaga.com/",
+        "icon": "./images/icons/onisaga.png"
+      },
+      {
+        "name": "MangaGo",
+        "url": "https://www.mangago.me/",
+        "icon": "./images/icons/mangago.ico"
+      },
+      {
+        "name": "MangaFire",
+        "url": "https://mangafire.to/",
+        "icon": "./images/icons/mangafire.svg"
+      }
+    ]
+  },
+  {
+    "key": "manhwa-reading",
+    "group": "Reading",
+    "title": "Manhwa Reading",
+    "icon": "book-open",
+    "accent": "var(--manhwa-reading)",
+    "sites": [
+      {
+        "name": "WEBTOON",
+        "url": "https://www.webtoons.com/",
+        "icon": "./images/icons/webtoon.ico"
+      },
+      {
+        "name": "Asura Scans",
+        "url": "https://asuracomic.net/",
+        "icon": "./images/icons/asura-scans.png"
+      },
+      {
+        "name": "ManhwaTop",
+        "url": "https://manhwatop.com/",
+        "icon": "./images/icons/manhwatop.png"
+      },
+      {
+        "name": "ProjectSuki",
+        "url": "https://projectsuki.com/",
+        "icon": "./images/icons/projectsuki.png"
+      },
+      {
+        "name": "Diva Scans",
+        "url": "https://divatoon.com/",
+        "icon": "./images/icons/diva-scans.png"
+      },
+      {
+        "name": "KuraManga",
+        "url": "https://kuramanga.com/",
+        "icon": "./images/icons/kuramanga.png"
+      },
+      {
+        "name": "MangaGG",
+        "url": "https://mangagg.com/",
+        "icon": "./images/icons/mangagg.png"
+      },
+      {
+        "name": "Cocomics",
+        "url": "https://cocomic.co/",
+        "icon": "./images/icons/cocomics.png"
+      },
+      {
+        "name": "Galaxy Manga",
+        "url": "https://galaxymanga.io/",
+        "icon": "./images/icons/galaxy-manga.png"
+      },
+      {
+        "name": "Flame Comics",
+        "url": "https://flamecomics.xyz/",
+        "icon": "./images/icons/flame-comics.ico"
+      }
+    ]
+  },
+  {
+    "key": "novel-reading",
+    "group": "Reading",
+    "title": "Novel Reading",
+    "icon": "book-open",
+    "accent": "var(--novel-reading)",
+    "sites": [
+      {
+        "name": "NovelBuddy",
+        "url": "https://novelbuddy.me/home",
+        "icon": "./images/icons/novelbuddy.ico"
+      },
+      {
+        "name": "NovelArchive",
+        "url": "https://novelarchive.cc/",
+        "icon": "./images/icons/novelarchive.png"
+      },
+      {
+        "name": "NovelFire",
+        "url": "https://novelfire.net/home",
+        "icon": "./images/icons/novelfire.png"
+      },
+      {
+        "name": "FreeWebNovel",
+        "url": "https://freewebnovel.com/",
+        "icon": "./images/icons/freewebnovel.ico"
+      },
+      {
+        "name": "Chikari Novel",
+        "url": "https://chikari.moe/novels",
+        "icon": "./images/icons/chikari-novel.png"
+      },
+      {
+        "name": "NovelCool",
+        "url": "https://www.novelcool.com/",
+        "icon": "./images/icons/novelcool.ico"
+      },
+      {
+        "name": "Royal Road",
+        "url": "https://www.royalroad.com/",
+        "icon": "./images/icons/royal-road.png"
+      },
+      {
+        "name": "WuxiaBox",
+        "url": "https://www.wuxiabox.com/",
+        "icon": "./images/icons/wuxiabox.ico"
+      },
+      {
+        "name": "XNovel",
+        "url": "https://xnovel.me/",
+        "icon": "./images/icons/xnovel.png"
+      },
+      {
+        "name": "MVLEMPYR",
+        "url": "https://www.mvlempyr.com/",
+        "icon": "./images/icons/mvlempyr.png"
+      }
+    ]
+  },
+  {
+    "key": "anime-download",
+    "group": "Download",
+    "title": "Anime Download",
+    "icon": "download",
+    "accent": "var(--anime-download)",
+    "sites": [
+      {
+        "name": "Nyaa",
+        "url": "https://nyaa.si/",
+        "icon": "./images/icons/nyaa.png"
+      },
+      {
+        "name": "TsukiHime",
+        "url": "https://tsukihime.org/",
+        "icon": "./images/icons/tsukihime.png"
+      },
+      {
+        "name": "Anime Tosho",
+        "url": "https://animetosho.org/",
+        "icon": "./images/icons/tosho.png"
+      },
+      {
+        "name": "SubsPlease",
+        "url": "https://subsplease.org/",
+        "icon": "./images/icons/subsplease.png"
+      },
+      {
+        "name": "Tokyo Toshokan",
+        "url": "https://www.tokyotosho.info/",
+        "icon": "./images/icons/toshokan.png"
+      },
+      {
+        "name": "SeaDex",
+        "url": "https://releases.moe/",
+        "icon": "./images/icons/seadex.png"
+      },
+      {
+        "name": "NekoBT",
+        "url": "https://nekobt.to/",
+        "icon": "./images/icons/nekobt.webp"
+      },
+      {
+        "name": "AniRena",
+        "url": "https://www.anirena.com/",
+        "icon": "./images/icons/anirena.png"
+      },
+      {
+        "name": "AnimeWatch",
+        "url": "https://animewat.ch/",
+        "icon": "./images/icons/animewatch.ico"
+      },
+      {
+        "name": "Tokyo Insider",
+        "url": "https://tokyoinsider.com/",
+        "icon": "./images/icons/tokyo-insider.png"
+      }
+    ]
+  },
+  {
+    "key": "TV-download",
+    "group": "Download",
+    "title": "TV Download",
+    "icon": "download",
+    "accent": "var(--TV-download)",
+    "sites": [
+      {
+        "name": "EXT Torrents",
+        "url": "https://ext.to/",
+        "icon": "./images/icons/ext-torrents.png"
+      },
+      {
+        "name": "1337x",
+        "url": "https://1337x.to/home/",
+        "icon": "./images/icons/1337x.png"
+      },
+      {
+        "name": "The Pirate Bay",
+        "url": "https://thepiratebay.org/index.html",
+        "icon": "./images/icons/the-pirate-bay.ico"
+      },
+      {
+        "name": "TorrentGalaxy",
+        "url": "https://torrentgalaxy.info/",
+        "icon": "./images/icons/torrentgalaxy.ico"
+      },
+      {
+        "name": "EZTV",
+        "url": "https://eztv.tf/home",
+        "icon": "./images/icons/eztv.ico"
+      },
+      {
+        "name": "RARBG Dump",
+        "url": "https://rarbgdump.com/?q=daredevil",
+        "icon": "./images/icons/rarbg-dump.ico"
+      },
+      {
+        "name": "LimeTorrents",
+        "url": "https://www.limetorrents.fun/search/all/daredevil/date/1/",
+        "icon": "./images/icons/limetorrents.ico"
+      },
+      {
+        "name": "YTS",
+        "url": "https://yts.rs/",
+        "icon": "./images/icons/yts.png"
+      },
+      {
+        "name": "IPTorrents",
+        "url": "https://ipt.cool/login.php",
+        "icon": "./images/icons/iptorrents.ico"
+      },
+      {
+        "name": "Rutor",
+        "url": "https://rutor.is/",
+        "icon": "./images/icons/rutor.ico"
+      }
+    ]
+  },
+  {
+    "key": "subtitle-download",
+    "group": "Download",
+    "title": "Subtitle Download",
+    "icon": "download",
+    "accent": "var(--subtitle-download)",
+    "sites": [
+      {
+        "name": "OpenSubtitles",
+        "url": "https://www.opensubtitles.com/",
+        "icon": "./images/icons/opensubtitles.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "SubDL",
+        "url": "https://subdl.com/",
+        "icon": "./images/icons/subdl.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "Subtitle Cat",
+        "url": "https://subtitlecat.com/",
+        "icon": "./images/icons/subtitle-cat.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "TVSubs",
+        "url": "https://www.tvsubs.net/",
+        "icon": "./images/icons/tvsubs.ico",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "Addic7ed",
+        "url": "https://www.addic7ed.com/",
+        "icon": "./images/icons/addic7ed.ico",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "TVSubtitles",
+        "url": "https://www.tvsubtitles.net/",
+        "icon": "./images/icons/tvsubtitles.ico",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "YIFY Subtitles",
+        "url": "https://yifysubtitles.ch/",
+        "icon": "./images/icons/yify-subtitles.ico"
+      },
+      {
+        "name": "MySubs",
+        "url": "https://my-subs.co/",
+        "icon": "./images/icons/mysubs.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "SubSource",
+        "url": "https://subsource.net/",
+        "icon": "./images/icons/subsource.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
+        "name": "SubF2M",
+        "url": "https://subf2m.co/",
+        "icon": "./images/icons/subf2m.ico",
+        "badges": [
+          "Ar"
+        ]
+      }
+    ]
+  },
+  {
+    "key": "anime-database",
+    "group": "Databases & Schedules",
+    "title": "Anime Database",
+    "icon": "database",
+    "accent": "var(--anime-database)",
+    "sites": [
+      {
+        "name": "MyAnimeList",
+        "url": "https://myanimelist.net/",
+        "icon": "./images/icons/myanimelist.svg"
+      },
+      {
+        "name": "AniList",
+        "url": "https://anilist.co/",
+        "icon": "./images/icons/anilist.png"
+      },
+      {
+        "name": "MangaBaka",
+        "url": "https://mangabaka.org/",
+        "icon": "./images/icons/mangabaka.png"
+      },
+      {
+        "name": "Comick",
+        "url": "https://comick.dev/",
+        "icon": "./images/icons/comick.ico"
+      },
+      {
+        "name": "Anime-Planet",
+        "url": "https://www.anime-planet.com/",
+        "icon": "./images/icons/anime-planet.jpg"
+      },
+      {
+        "name": "Kitsu",
+        "url": "https://kitsu.app/",
+        "icon": "./images/icons/kitsu.ico"
+      },
+      {
+        "name": "AniSearch",
+        "url": "https://www.anisearch.com/",
+        "icon": "./images/icons/anisearch.png"
+      },
+      {
+        "name": "AniDB",
+        "url": "https://anidb.net/",
+        "icon": "./images/icons/anidb.png"
+      },
+      {
+        "name": "Anime News Network",
+        "url": "https://www.animenewsnetwork.com/",
+        "icon": "./images/icons/anime-news-network.ico"
+      },
+      {
+        "name": "Kuroiru",
+        "url": "https://kuroiru.co/app",
+        "icon": "./images/icons/kuroiru.png"
+      }
+    ]
+  },
+  {
+    "key": "anime-schedule",
+    "group": "Databases & Schedules",
+    "title": "Anime Schedule",
+    "icon": "database",
+    "accent": "var(--anime-schedule)",
+    "sites": [
+      {
+        "name": "LiveChart",
+        "url": "https://www.livechart.me/",
+        "icon": "./images/icons/livechart.png"
+      },
+      {
+        "name": "AniChart",
+        "url": "https://anichart.net/",
+        "icon": "./images/icons/anichart.ico"
+      },
+      {
+        "name": "English Dubbed",
+        "url": "https://english-dubbed.com/",
+        "icon": "./images/icons/english-dubbed.png"
+      },
+      {
+        "name": "AnimeSchedule",
+        "url": "https://animeschedule.net/",
+        "icon": "./images/icons/animeschedule.png"
+      },
+      {
+        "name": "Otaku Calendar",
+        "url": "https://otakucalendar.com/",
+        "icon": "./images/icons/otaku-calendar.png"
+      },
+      {
+        "name": "AnimeAiring",
+        "url": "https://animeairing.com/",
+        "icon": "./images/icons/animeairing.png"
+      },
+      {
+        "name": "AnimeCountdown",
+        "url": "https://animecountdown.com/",
+        "icon": "./images/icons/animecountdown.ico"
+      },
+      {
+        "name": "Senpai.moe",
+        "url": "https://senpai.moe/",
+        "icon": "./images/icons/senpai-moe.ico"
+      },
+      {
+        "name": "anica.jp",
+        "url": "https://anica.jp/",
+        "icon": "./images/icons/anica-jp.png"
+      },
+      {
+        "name": "SubsPlease Schedule",
+        "url": "https://subsplease.org/schedule/",
+        "icon": "./images/icons/subsplease-schedule.ico"
+      }
+    ]
+  },
+  {
+    "key": "TV-database",
+    "group": "Databases & Schedules",
+    "title": "TV Database",
+    "icon": "database",
+    "accent": "var(--TV-database)",
+    "sites": [
+      {
+        "name": "IMDb",
+        "url": "https://www.imdb.com/",
+        "icon": "./images/icons/imdb.png"
+      },
+      {
+        "name": "TMDB",
+        "url": "https://www.themoviedb.org/",
+        "icon": "./images/icons/tmdb.png"
+      },
+      {
+        "name": "TVmaze",
+        "url": "https://www.tvmaze.com/",
+        "icon": "./images/icons/tvmaze.png"
+      },
+      {
+        "name": "TheTVDB",
+        "url": "https://thetvdb.com/",
+        "icon": "./images/icons/thetvdb.png"
+      },
+      {
+        "name": "Trakt",
+        "url": "https://trakt.tv/",
+        "icon": "./images/icons/trakt.png"
+      },
+      {
+        "name": "Letterboxd",
+        "url": "https://letterboxd.com/",
+        "icon": "./images/icons/letterboxd.ico"
+      },
+      {
+        "name": "Rotten Tomatoes",
+        "url": "https://www.rottentomatoes.com/",
+        "icon": "./images/icons/rotten-tomatoes.jpg"
+      },
+      {
+        "name": "Metacritic",
+        "url": "https://www.metacritic.com/",
+        "icon": "./images/icons/metacritic.svg"
+      },
+      {
+        "name": "JustWatch",
+        "url": "https://www.justwatch.com/",
+        "icon": "./images/icons/justwatch.png"
+      },
+      {
+        "name": "Simkl",
+        "url": "https://simkl.com/",
+        "icon": "./images/icons/simkl.ico"
+      }
+    ]
+  }
+]
+WEBSHELF_CATALOG_JSON_END */
 
+// Flat list used by search/preview/activity helpers.
+const WebShelfSites = WebShelfCategories.flatMap((category) =>
+  category.sites.map((site) => ({
+    ...site,
+    category: category.title,
+    categoryKey: category.key,
+    group: category.group || "Other"
+  }))
+);
 
 // ==================================================
-// TV STREAMING
+// SITE METADATA HELPERS
+// ==================================================
+// Optional fields supported by every site object:
+// description: "Short factual description"
+// badges: ["Ar", "Dub", "Sub", "Low Ads", "No Signup", "Mobile"]
+// collections: ["Curated Collection"]
+// links: [{ label: "Mirror 1", url: "https://..." }]
+// screenshots: ["./images/screenshots/example-1.jpg"]
+// highlights: [{ type: "good", text: "Fast" }, { type: "bad", text: "Heavy ads" }]
+// addedAt: "2026-09-04T10:00:00.000Z"
+// updatedAt: "2026-09-04T10:00:00.000Z"
 // ==================================================
 
-const TVStreamingSites = [
-
-  {
-  name: "Movy",
-  url: "https://www.movy.bz/",
-  icon: "https://a.favicon.im/www.movy.bz?larger=true"
-  },
-
-  {
-    name: "ًhurawatch",
-    url: "https://hurawatch.cz/home",
-    icon: "https://hurawatch.cz/favicon.png"
-  },
-
-  {
-    name: "FLIXER",
-    url: "https://flixer.gd/?tv=&id=202555",
-    icon: "/images/WebShelf/flixer.png"
-  },
-
-  {
-    name: "REELIX",
-    url: "https://reelix.ac/",
-    icon: "/images/WebShelf/reelix.png"
-  },
-
-  {
-    name: "HEXA",
-    url: "https://hexa.su/",
-    icon: "/images/WebShelf/hexa.png"
-  },
-
-  {
-    name: "Cinejoy",
-    url: "https://cinejoy.to/",
-    icon: "/images/WebShelf/cinejoy.png"
-  },
-
-  {
-    name: "Cinemaos",
-    url: "https://cinemaos.live/",
-    icon: "/images/WebShelf/cinemaos.png"
-  },
-
-  {
-    name: "ًWatchLuna",
-    url: "https://cinemaos.live/",
-    icon: "https://www.google.com/s2/favicons?domain=watchluna.com&sz=128"
-  },
-
-  {
-    name: "ًHDtoday",
-    url: "https://hdtoday.one/",
-    icon: "https://hdtoday.one/images/favicon.png?v=3"
-  },
-
-    {
-    name: "ًPopcornMovies",
-    url: "https://popcornmovies.ac/",
-    icon: "https://a.favicon.im/popcornmovies.ac?larger=true"
-  },
-
-
-];
-
-
-
-// ==================================================
-// SPORTS STREAMING
-// ==================================================
-
-const SportsStreamingSites = [
-
-{
-  name: "Streamed",
-  url: "https://streamed.pk/",
-  icon: "https://a.favicon.im/streamed.pk?larger=true"
-},
-
-{
-  name: "WatchFooty",
-  url: "https://watchfooty.st/en",
-  icon: "https://a.favicon.im/watchfooty.st?larger=true"
-},
-
-{
-  name: "SportsBite",
-  url: "https://sportsbite.org/",
-  icon: "https://a.favicon.im/sportsbite.org?larger=true"
-},
-
-{
-  name: "BinTV",
-  url: "https://www.bintv.cc/",
-  icon: "https://a.favicon.im/bintv.cc?larger=true"
-},
-
-{
-  name: "NTV",
-  url: "https://ntv.cx/matches/kobra",
-  icon: "https://a.favicon.im/ntv.cx?larger=true"
-},
-
-{
-  name: "PPV",
-  url: "https://ppv.st/#34",
-  icon: "https://a.favicon.im/ppv.st?larger=true"
-},
-
-{
-  name: "TIMST",
-  url: "https://timst.cfd/live-tv",
-  icon: "https://a.favicon.im/timst.cfd?larger=true"
-},
-
-{
-  name: "LiveTV",
-  url: "https://livetv.sx/enx/",
-  icon: "https://a.favicon.im/livetv.sx?larger=true"
-},
-
-{
-  name: "DLive",
-  url: "https://dlive.sx/",
-  icon: "https://a.favicon.im/dlive.sx?larger=true"
-},
-
-{
-  name: "RoxieStreams",
-  url: "https://roxiestreams.su/",
-  icon: "https://a.favicon.im/roxiestreams.su?larger=true"
-},
-
-
-
-
-
-];
-
-
-
-// ==================================================
-// MANGA READING
-// ==================================================
-
-const MangaReadingSites = [
-  {
-    name: "MangaDotNet",
-    url: "https://mangadot.net/",
-    icon: "/images/WebShelf/mangadotnet.png"
-  },
-
-  {
-    name: "Atsumaru",
-    url: "https://atsu.moe/",
-    icon: "/images/WebShelf/atsumaru.png"
-  },
-
-  {
-    name: "Weeb Central",
-    url: "https://weebcentral.com/",
-    icon: "https://weebcentral.com/favicon.ico"
-  },
-
-  {
-  name: "MKissa",
-  url: "https://mkissa.to/manga",
-  icon: "https://mkissa.to/favicon.ico"
-  },
-
-  {
-  name: "MangaBall",
-  url: "https://mangaball.net/",
-  icon: "https://mangaball.net/favicon.ico"
-  },
-
-  {
-  name: "Chikari",
-  url: "https://chikari.moe/",
-  icon: "https://chikari.moe/favicon.svg"
-  },
-
-  {
-  name: "Comix",
-  url: "https://comix.to/",
-  icon: "https://a.favicon.im/comix.to?larger=true"
-  },
-
-  {
-  name: "OniSaga",
-  url: "https://onisaga.com/",
-  icon: "/images/WebShelf/onisaga.png"
-  },
-
-  {
-  name: "MangaGo",
-  url: "https://www.mangago.me/",
-  icon: "https://www.mangago.me/ywz.ico"
-  },
-
-  {
-  name: "MangaFire",
-  url: "https://mangafire.to/",
-  icon: "https://mangafire.to/assets/mangafire/favicon.svg"
-  },
-
-
-];
-
-
-
-// ==================================================
-// MANHWA READING
-// ==================================================
-
-const ManhwaReadingSites = [
-
-{
-  name: "WEBTOON",
-  url: "https://www.webtoons.com/",
-  icon: "https://a.favicon.im/webtoons.com?larger=true"
-},
-
-{
-  name: "Asura Scans",
-  url: "https://asuracomic.net/",
-  icon: "https://a.favicon.im/asuracomic.net?larger=true"
-},
-
-{
-  name: "ManhwaTop",
-  url: "https://manhwatop.com/",
-  icon: "https://a.favicon.im/manhwatop.com?larger=true"
-},
-
-{
-  name: "ProjectSuki",
-  url: "https://projectsuki.com/",
-  icon: "https://a.favicon.im/projectsuki.com?larger=true"
-},
-
-{
-  name: "Diva Scans",
-  url: "https://divatoon.com/",
-  icon: "https://a.favicon.im/divatoon.com?larger=true"
-},
-
-{
-  name: "KuraManga",
-  url: "https://kuramanga.com/",
-  icon: "https://a.favicon.im/kuramanga.com?larger=true"
-},
-
-{
-  name: "MangaGG",
-  url: "https://mangagg.com/",
-  icon: "https://a.favicon.im/mangagg.com?larger=true"
-},
-
-{
-  name: "Cocomics",
-  url: "https://cocomic.co/",
-  icon: "https://www.google.com/s2/favicons?domain=cocomic.co&sz=64"
-},
-
-{
-  name: "Galaxy Manga",
-  url: "https://galaxymanga.io/",
-  icon: "https://a.favicon.im/galaxymanga.io?larger=true"
-},
-
-{
-  name: "Flame Comics",
-  url: "https://flamecomics.xyz/",
-  icon: "https://a.favicon.im/flamecomics.xyz?larger=true"
-},
-
-];
-
-
-
-// ==================================================
-// NOVEL READING
-// ==================================================
-
-const NovelReadingSites = [
-
-{
-  name: "NovelBuddy",
-  url: "https://novelbuddy.me/home",
-  icon: "https://a.favicon.im/novelbuddy.com?larger=true"
-},
-
-{
-  name: "NovelArchive",
-  url: "https://novelarchive.cc/",
-  icon: "https://a.favicon.im/novelarchive.cc?larger=true"
-},
-
-{
-  name: "NovelFire",
-  url: "https://novelfire.net/home",
-  icon: "https://a.favicon.im/novelfire.net?larger=true"
-},
-
-{
-  name: "FreeWebNovel",
-  url: "https://freewebnovel.com/",
-  icon: "https://a.favicon.im/freewebnovel.com?larger=true"
-},
-
-{
-  name: "Chikari Novel",
-  url: "https://chikari.moe/novels",
-  icon: "https://a.favicon.im/chikari.moe?larger=true"
-},
-
-{
-  name: "NovelCool",
-  url: "https://www.novelcool.com/",
-  icon: "https://a.favicon.im/novelcool.com?larger=true"
-},
-
-{
-  name: "Royal Road",
-  url: "https://www.royalroad.com/",
-  icon: "https://a.favicon.im/royalroad.com?larger=true"
-},
-
-{
-  name: "WuxiaBox",
-  url: "https://www.wuxiabox.com/",
-  icon: "https://a.favicon.im/wuxiabox.com?larger=true"
-},
-
-{
-  name: "XNovel",
-  url: "https://xnovel.me/",
-  icon: "https://a.favicon.im/xnovel.me?larger=true"
-},
-
-{
-  name: "MVLEMPYR",
-  url: "https://www.mvlempyr.com/",
-  icon: "https://a.favicon.im/mvlempyr.com?larger=true"
-},
-
-
-];
-
-
-
-// ==================================================
-// ANIME DOWNLOAD
-// ==================================================
-
-const AnimeDownloadSites = [
-  {
-    name: "Nyaa",
-    url: "https://nyaa.si/",
-    icon: "/images/WebShelf/nyaa.png"
-  },
-
-  {
-    name: "TsukiHime",
-    url: "https://tsukihime.org/",
-    icon: "/images/WebShelf/tsukihime.png"
-  },
-
-  {
-    name: "Anime Tosho",
-    url: "https://animetosho.org/",
-    icon: "/images/WebShelf/tosho.png"
-  },
-
-  {
-    name: "SubsPlease",
-    url: "https://subsplease.org/",
-    icon: "/images/WebShelf/subsplease.png"
-  },
-
-  {
-    name: "Tokyo Toshokan",
-    url: "https://www.tokyotosho.info/",
-    icon: "/images/WebShelf/toshokan.png"
-  },
-
-  {
-  name: "SeaDex",
-  url: "https://releases.moe/",
-  icon: "https://a.favicon.im/releases.moe?larger=true"
-  },
-
-  {
-  name: "NekoBT",
-  url: "https://nekobt.to/",
-  icon: "https://a.favicon.im/nekobt.to?larger=true"
-  },
-
-{
-  name: "AniRena",
-  url: "https://www.anirena.com/",
-  icon: "https://www.anirena.com/content/images/favicon-32x32.png"
-},
-
-  {
-  name: "AnimeWatch",
-  url: "https://animewat.ch/",
-  icon: "https://a.favicon.im/animewat.ch?larger=true"
-  },
-
-  {
-  name: "Tokyo Insider",
-  url: "https://tokyoinsider.com/",
-  icon: "https://a.favicon.im/tokyoinsider.com?larger=true"
-  },
-
-];
-
-
-
-// ==================================================
-// TV DOWNLOAD
-// ==================================================
-
-const TVDownloadSites = [
-
-{
-  name: "EXT Torrents",
-  url: "https://ext.to/",
-  icon: "https://a.favicon.im/ext.to?larger=true"
-},
-
-{
-  name: "1337x",
-  url: "https://1337x.to/home/",
-  icon: "https://a.favicon.im/1337x.to?larger=true"
-},
-
-{
-  name: "The Pirate Bay",
-  url: "https://thepiratebay.org/index.html",
-  icon: "https://a.favicon.im/thepiratebay.org?larger=true"
-},
-
-{
-  name: "TorrentGalaxy",
-  url: "https://torrentgalaxy.info/",
-  icon: "https://a.favicon.im/torrentgalaxy.info?larger=true"
-},
-
-{
-  name: "EZTV",
-  url: "https://eztv.tf/home",
-  icon: "https://a.favicon.im/eztv.tf?larger=true"
-},
-
-{
-  name: "RARBG Dump",
-  url: "https://rarbgdump.com/?q=daredevil",
-  icon: "https://a.favicon.im/rarbgdump.com?larger=true"
-},
-
-{
-  name: "LimeTorrents",
-  url: "https://www.limetorrents.fun/search/all/daredevil/date/1/",
-  icon: "https://a.favicon.im/limetorrents.fun?larger=true"
-},
-
-{
-  name: "YTS",
-  url: "https://yts.rs/",
-  icon: "https://a.favicon.im/yts.rs?larger=true"
-},
-
-{
-  name: "IPTorrents",
-  url: "https://ipt.cool/login.php",
-  icon: "https://a.favicon.im/ipt.cool?larger=true"
-},
-
-{
-  name: "Rutor",
-  url: "https://rutor.is/",
-  icon: "https://a.favicon.im/rutor.is?larger=true"
-},
-
-
-];
-
-
-// ==================================================
-// SUBTITLE DOWNLOAD
-// ==================================================
-
-const SubtitleDownloadSites = [
-
-{
-  name: "OpenSubtitles",
-  url: "https://www.opensubtitles.com/",
-  icon: "https://a.favicon.im/opensubtitles.com?larger=true"
-},
-
-{
-  name: "SubDL",
-  url: "https://subdl.com/",
-  icon: "https://a.favicon.im/subdl.com?larger=true"
-},
-
-{
-  name: "Subtitle Cat",
-  url: "https://subtitlecat.com/",
-  icon: "https://a.favicon.im/subtitlecat.com?larger=true"
-},
-
-{
-  name: "TVSubs",
-  url: "https://www.tvsubs.net/",
-  icon: "https://a.favicon.im/tvsubs.net?larger=true"
-},
-
-{
-  name: "Addic7ed",
-  url: "https://www.addic7ed.com/",
-  icon: "https://a.favicon.im/addic7ed.com?larger=true"
-},
-
-{
-  name: "TVSubtitles",
-  url: "https://www.tvsubtitles.net/",
-  icon: "https://a.favicon.im/tvsubtitles.net?larger=true"
-},
-
-{
-  name: "YIFY Subtitles",
-  url: "https://yifysubtitles.ch/",
-  icon: "https://a.favicon.im/yifysubtitles.ch?larger=true"
-},
-
-{
-  name: "MySubs",
-  url: "https://my-subs.co/",
-  icon: "https://a.favicon.im/my-subs.co?larger=true"
-},
-
-{
-  name: "SubSource",
-  url: "https://subsource.net/",
-  icon: "https://a.favicon.im/subsource.net?larger=true"
-},
-
-
-{
-  name: "SubF2M",
-  url: "https://subf2m.co/",
-  icon: "https://a.favicon.im/subf2m.co?larger=true"
-},
-
-
-];
-
-
-
-// ==================================================
-// ANIME DATABASE
-// ==================================================
-
-const AnimeDatabaseSites = [
-
-{
-  name: "MyAnimeList",
-  url: "https://myanimelist.net/",
-  icon: "https://a.favicon.im/myanimelist.net?larger=true"
-},
-
-{
-  name: "AniList",
-  url: "https://anilist.co/",
-  icon: "https://anilist.co/img/icons/favicon-32x32.png"
-},
-
-{
-  name: "MangaBaka",
-  url: "https://mangabaka.org/",
-  icon: "https://a.favicon.im/mangabaka.org?larger=true"
-},
-
-{
-  name: "Comick",
-  url: "https://comick.dev/",
-  icon: "https://a.favicon.im/comick.dev?larger=true"
-},
-
-{
-  name: "Anime-Planet",
-  url: "https://www.anime-planet.com/",
-  icon: "https://a.favicon.im/anime-planet.com?larger=true"
-},
-
-{
-  name: "Kitsu",
-  url: "https://kitsu.app/",
-  icon: "https://a.favicon.im/kitsu.app?larger=true"
-},
-
-{
-  name: "AniSearch",
-  url: "https://www.anisearch.com/",
-  icon: "https://a.favicon.im/anisearch.com?larger=true"
-},
-
-{
-  name: "AniDB",
-  url: "https://anidb.net/",
-  icon: "https://a.favicon.im/anidb.net?larger=true"
-},
-{
-  name: "Anime News Network",
-  url: "https://www.animenewsnetwork.com/",
-  icon: "https://a.favicon.im/animenewsnetwork.com?larger=true"
-},
-
-{
-  name: "Kuroiru",
-  url: "https://kuroiru.co/app",
-  icon: "https://a.favicon.im/kuroiru.co?larger=true"
-},
-
-
-];
-
-
-
-// ==================================================
-// ANIME SCHEDULE
-// ==================================================
-
-const AnimeScheduleSites = [
-
-{
-  name: "LiveChart",
-  url: "https://www.livechart.me/",
-  icon: "https://a.favicon.im/livechart.me?larger=true"
-},
-
-{
-  name: "AniChart",
-  url: "https://anichart.net/",
-  icon: "https://anichart.net/favicon.ico"
-},
-
-{
-  name: "English Dubbed",
-  url: "https://english-dubbed.com/",
-  icon: "https://a.favicon.im/english-dubbed.com?larger=true"
-},
-
-{
-  name: "AnimeSchedule",
-  url: "https://animeschedule.net/",
-  icon: "https://a.favicon.im/animeschedule.net?larger=true"
-},
-
-{
-  name: "Otaku Calendar",
-  url: "https://otakucalendar.com/",
-  icon: "https://a.favicon.im/otakucalendar.com?larger=true"
-},
-
-{
-  name: "AnimeAiring",
-  url: "https://animeairing.com/",
-  icon: "https://a.favicon.im/animeairing.com?larger=true"
-},
-
-{
-  name: "AnimeCountdown",
-  url: "https://animecountdown.com/",
-  icon: "https://a.favicon.im/animecountdown.com?larger=true"
-},
-
-{
-  name: "Senpai.moe",
-  url: "https://senpai.moe/",
-  icon: "https://a.favicon.im/senpai.moe?larger=true"
-},
-
-{
-  name: "anica.jp",
-  url: "https://anica.jp/",
-  icon: "https://a.favicon.im/anica.jp?larger=true"
-},
-
-{
-  name: "SubsPlease Schedule",
-  url: "https://subsplease.org/schedule/",
-  icon: "https://a.favicon.im/subsplease.org?larger=true"
-},
-  
-];
-
-
-
-// ==================================================
-// TV DATABASE
-// ==================================================
-
-const TVDatabaseSites = [
-
-{
-  name: "IMDb",
-  url: "https://www.imdb.com/",
-  icon: "https://a.favicon.im/imdb.com?larger=true"
-},
-
-{
-  name: "TMDB",
-  url: "https://www.themoviedb.org/",
-  icon: "https://a.favicon.im/themoviedb.org?larger=true"
-},
-
-{
-  name: "TVmaze",
-  url: "https://www.tvmaze.com/",
-  icon: "https://a.favicon.im/tvmaze.com?larger=true"
-},
-
-{
-  name: "TheTVDB",
-  url: "https://thetvdb.com/",
-  icon: "https://a.favicon.im/thetvdb.com?larger=true"
-},
-
-{
-  name: "Trakt",
-  url: "https://trakt.tv/",
-  icon: "https://a.favicon.im/trakt.tv?larger=true"
-},
-
-{
-  name: "Letterboxd",
-  url: "https://letterboxd.com/",
-  icon: "https://a.favicon.im/letterboxd.com?larger=true"
-},
-
-{
-  name: "Rotten Tomatoes",
-  url: "https://www.rottentomatoes.com/",
-  icon: "https://a.favicon.im/rottentomatoes.com?larger=true"
-},
-
-{
-  name: "Metacritic",
-  url: "https://www.metacritic.com/",
-  icon: "https://a.favicon.im/metacritic.com?larger=true"
-},
-
-{
-  name: "JustWatch",
-  url: "https://www.justwatch.com/",
-  icon: "https://a.favicon.im/justwatch.com?larger=true"
-},
-
-{
-  name: "Simkl",
-  url: "https://simkl.com/",
-  icon: "https://a.favicon.im/simkl.com?larger=true"
-},
-
-];
+function getSiteBadges(site) {
+  return Array.isArray(site?.badges)
+    ? site.badges.filter(Boolean).map(String)
+    : [];
+}
+
+function siteHasBadge(site, badge) {
+  const wanted = String(badge || "").trim().toLowerCase();
+  return getSiteBadges(site).some(
+    (value) => value.trim().toLowerCase() === wanted
+  );
+}
+
+function getSiteCollections(site) {
+  return Array.isArray(site?.collections)
+    ? [...new Set(site.collections.filter(Boolean).map(String))]
+    : [];
+}
+
+function getAvailableCollections() {
+  const names = new Set();
+  WebShelfSites.forEach((site) => {
+    getSiteCollections(site).forEach((name) => names.add(name));
+  });
+  return [...names].sort((a, b) => a.localeCompare(b));
+}
+
+function getSitesInCollection(collectionName) {
+  const wanted = String(collectionName || "").trim().toLowerCase();
+  return WebShelfSites.filter((site) =>
+    getSiteCollections(site).some(
+      (name) => name.trim().toLowerCase() === wanted
+    )
+  );
+}
+
+function getSiteDomain(site) {
+  try {
+    return new URL(site?.url || "").hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+function escapeWebShelfText(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function renderSiteBadges(site, options = {}) {
+  const badges = getSiteBadges(site);
+  const interactive = options.interactive !== false;
+
+  if (badges.length === 0) return "";
+
+  return `
+    <span class="site-badges" aria-label="Site badges">
+      ${badges.map((badge) => {
+        const value = String(badge);
+        const safeValue = escapeWebShelfText(value);
+        const className = value.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        const interactiveAttributes = interactive
+          ? `data-badge-filter="${safeValue}" role="button" tabindex="0" title="Filter by ${safeValue}"`
+          : `aria-label="${safeValue}"`;
+
+        return `<span class="site-badge site-badge--${className}" ${interactiveAttributes}>${safeValue}</span>`;
+      }).join("")}
+    </span>
+  `;
+}

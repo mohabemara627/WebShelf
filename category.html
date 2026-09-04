@@ -9,34 +9,29 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="referrer"
+    content="strict-origin-when-cross-origin"
+  >
+
   <title>Category - WebShelf</title>
-<meta
-  name="description"
-  content="Browse curated websites by category on WebShelf."
->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
 
-  <!-- Google Font -->
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
+  <meta
+    id="category-description"
+    name="description"
+    content="Browse curated websites by category on WebShelf."
   >
-
   <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
+    id="category-canonical"
+    rel="canonical"
+    href="https://www.webshelf.link/category.html"
   >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-
-  <!-- Favicon -->
+<!-- Favicon -->
   <link
     rel="icon"
-    href="/images/WebShelf/WS-Logo.png"
+    href="./images/icons/WS-Logo.png"
     type="image/png"
   >
 
@@ -51,63 +46,71 @@
 
 <body>
 
-  <!-- ==================================================
-       NAVBAR
-  =================================================== -->
+<!-- ==================================================
+     NAVBAR
+=================================================== -->
 
-  <header>
+<header class="site-header">
 
-    <nav class="container">
+  <nav class="container">
+
+    <a
+      href="./index.html"
+      class="logo"
+    >
+      <img
+        src="./images/icons/WS-Logo.png"
+        alt="WebShelf Logo"
+      >
+
+      <span>WebShelf</span>
+    </a>
+
+
+    <div class="nav-links">
 
       <a
         href="./index.html"
-        class="logo"
+        class="directory active"
       >
-        <img
-          src="/images/WebShelf/WS-Logo.png"
-          alt="WebShelf Logo"
-        >
-
-        <span>WebShelf</span>
+        Directory
       </a>
 
+      <a
+        href="./activity.html"
+        class="activity"
+      >
+        Activity
+      </a>
 
-<div class="nav-links">
+      <a
+        href="./support.html"
+        class="support"
+      >
+        Support
+      </a>
 
-  <a
-    href="./index.html"
-    class="directory active"
-  >
-    Directory
-  </a>
+      <a
+        href="./suggest.html"
+        class="suggest"
+      >
+        Suggest a site
+      </a>
 
-  <a
-    href="./support.html"
-    class="support"
-  >
-    Support
-  </a>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle light mode"
+      >
+        ☀
+      </button>
 
-  <a
-    href="./suggest.html"
-    class="suggest"
-  >
-    Suggest a site
-  </a>
+    </div>
 
-  <button
-    class="theme-toggle"
-    id="theme-toggle"
-    type="button"
-    aria-label="Toggle light mode"
-  >
-    ☀
-  </button>
+  </nav>
 
-</div>
-    </nav>
-
-  </header>
+</header>
 
 
 
@@ -162,6 +165,14 @@
 
 
 
+      <!-- Category filters -->
+
+      <div
+        class="site-filter-bar"
+        id="category-site-filters"
+        aria-label="Filter sites in this category"
+      ></div>
+
       <!-- Category Sites -->
 
       <div
@@ -182,19 +193,23 @@
 
 <div class="footer-links">
 
-  <a href="./index.html">
-    Directory
-  </a>
+        <a href="./index.html">
+          Directory
+        </a>
 
-  <a href="./support.html">
-    Support
-  </a>
+        <a href="./activity.html">
+          Activity
+        </a>
 
-  <a href="./suggest.html">
-    Suggest a site
-  </a>
+        <a href="./support.html">
+          Support
+        </a>
 
-</div>
+        <a href="./suggest.html">
+          Suggest a site
+        </a>
+
+      </div>
 
   </div>
 </footer>
@@ -203,15 +218,26 @@
        SCRIPTS
   =================================================== -->
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- WebShelf Data -->
+  <script src="./icons.js"></script>
   <script src="./data.js"></script>
-
-  <!-- Category Page JavaScript -->
+  <script src="./hidden.js"></script>
+  <script src="./dialogs.js"></script>
+  <script src="./favorites.js"></script>
+  <script src="./recently-viewed.js"></script>
   <script src="./category.js"></script>
+  <script src="./preview.js"></script>
+  <script src="./badge-filters.js"></script>
+  <script src="./search.js"></script>
+  <script src="./navigation.js"></script>
+  <script src="./shortcuts.js"></script>
   <script src="./theme.js"></script>
+  <script src="./pwa.js"></script>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
 
 </body>
 

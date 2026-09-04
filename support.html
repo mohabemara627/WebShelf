@@ -9,34 +9,26 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="referrer"
+    content="strict-origin-when-cross-origin"
+  >
+
   <title>Support - WebShelf</title>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
 
   <meta
     name="description"
     content="Get support for WebShelf, report broken links, website issues, incorrect information, or ask a general question."
   >
 
-  <!-- Google Font -->
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Favicon -->
+  <link rel="canonical" href="https://www.webshelf.link/support.html">
+<!-- Favicon -->
   <link
     rel="icon"
-    href="/images/WebShelf/WS-Logo.png"
+    href="./images/icons/WS-Logo.png"
     type="image/png"
   >
 
@@ -50,64 +42,71 @@
 
 <body>
 
-  <!-- ==================================================
-       NAVBAR
-  =================================================== -->
+<!-- ==================================================
+     NAVBAR
+=================================================== -->
 
-  <header>
+<header class="site-header">
 
-    <nav class="container">
+  <nav class="container">
+
+    <a
+      href="./index.html"
+      class="logo"
+    >
+      <img
+        src="./images/icons/WS-Logo.png"
+        alt="WebShelf Logo"
+      >
+
+      <span>WebShelf</span>
+    </a>
+
+
+    <div class="nav-links">
 
       <a
         href="./index.html"
-        class="logo"
+        class="directory"
       >
-        <img
-          src="/images/WebShelf/WS-Logo.png"
-          alt="WebShelf Logo"
-        >
-
-        <span>WebShelf</span>
+        Directory
       </a>
 
+      <a
+        href="./activity.html"
+        class="activity"
+      >
+        Activity
+      </a>
 
-      <div class="nav-links">
+      <a
+        href="./support.html"
+        class="support active"
+      >
+        Support
+      </a>
 
-        <a
-          href="./index.html"
-          class="directory"
-        >
-          Directory
-        </a>
+      <a
+        href="./suggest.html"
+        class="suggest"
+      >
+        Suggest a site
+      </a>
 
-        <a
-          href="./support.html"
-          class="support active"
-        >
-          Support
-        </a>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle light mode"
+      >
+        ☀
+      </button>
 
-        <a
-          href="./suggest.html"
-          class="suggest"
-        >
-          Suggest a site
-        </a>
+    </div>
 
-        <button
-          class="theme-toggle"
-          id="theme-toggle"
-          type="button"
-          aria-label="Toggle light mode"
-        >
-          ☀
-        </button>
+  </nav>
 
-      </div>
-
-    </nav>
-
-  </header>
+</header>
 
 
 
@@ -294,6 +293,10 @@
           Directory
         </a>
 
+        <a href="./activity.html">
+          Activity
+        </a>
+
         <a href="./support.html">
           Support
         </a>
@@ -314,8 +317,19 @@
        JAVASCRIPT
   =================================================== -->
 
+  <script src="./data.js"></script>
+  <script src="./hidden.js"></script>
+  <script src="./dialogs.js"></script>
+  <script src="./favorites.js"></script>
+  <script src="./recently-viewed.js"></script>
   <script src="./support.js"></script>
+  <script src="./preview.js"></script>
+  <script src="./badge-filters.js"></script>
+  <script src="./search.js"></script>
+  <script src="./navigation.js"></script>
+  <script src="./shortcuts.js"></script>
   <script src="./theme.js"></script>
+  <script src="./pwa.js"></script>
 
 </body>
 

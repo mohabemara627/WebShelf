@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="referrer"
+    content="strict-origin-when-cross-origin"
+  >
+
+  <title>Activity - WebShelf</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
+
+  <meta
+    name="description"
+    content="View your local WebShelf browsing history and most visited websites."
+  >
+
+  <meta
+    name="robots"
+    content="noindex,follow"
+  >
+<link
+    rel="icon"
+    href="./images/icons/WS-Logo.png"
+    type="image/png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  >
+</head>
+
+
+<body>
+
+<!-- ==================================================
+     NAVBAR
+=================================================== -->
+
+<header class="site-header">
+
+  <nav class="container">
+
+    <a
+      href="./index.html"
+      class="logo"
+    >
+      <img
+        src="./images/icons/WS-Logo.png"
+        alt="WebShelf Logo"
+      >
+
+      <span>WebShelf</span>
+    </a>
+
+
+    <div class="nav-links">
+
+      <a
+        href="./index.html"
+        class="directory"
+      >
+        Directory
+      </a>
+
+      <a
+        href="./activity.html"
+        class="activity active"
+      >
+        Activity
+      </a>
+
+      <a
+        href="./support.html"
+        class="support"
+      >
+        Support
+      </a>
+
+      <a
+        href="./suggest.html"
+        class="suggest"
+      >
+        Suggest a site
+      </a>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle light mode"
+      >
+        ☀
+      </button>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+  <!-- ==================================================
+       ACTIVITY
+  ================================================== -->
+
+  <main class="activity-page">
+
+    <div class="activity-heading">
+
+      <div>
+        <p class="activity-eyebrow">
+          Your browsing
+        </p>
+
+        <h1>Activity</h1>
+
+        <p class="activity-description">
+          Your recently opened and most visited websites.
+        </p>
+      </div>
+
+      <div class="activity-actions">
+        <button
+          class="activity-clear"
+          id="activity-clear"
+          type="button"
+        >
+          Clear history
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="activity-tabs">
+
+      <button
+        class="activity-tab active"
+        type="button"
+        data-view="history"
+      >
+        Recent History
+      </button>
+
+      <button
+        class="activity-tab"
+        type="button"
+        data-view="most-visited"
+      >
+        Most Visited
+      </button>
+
+      <button
+        class="activity-tab"
+        id="hidden-sites-tab"
+        type="button"
+        data-view="hidden"
+        hidden
+      >
+        Hidden Sites
+      </button>
+
+    </div>
+
+    <div class="activity-periods" id="activity-periods">
+      <button class="activity-period active" type="button" data-period="all">All time</button>
+      <button class="activity-period" type="button" data-period="7">Last 7 days</button>
+      <button class="activity-period" type="button" data-period="30">Last 30 days</button>
+    </div>
+
+
+    <div
+      class="activity-info"
+      id="activity-info"
+    ></div>
+
+
+    <div
+      class="activity-list"
+      id="activity-list"
+    ></div>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 WebShelf</p>
+
+      <div class="footer-links">
+
+        <a href="./index.html">
+          Directory
+        </a>
+
+        <a href="./activity.html">
+          Activity
+        </a>
+
+        <a href="./support.html">
+          Support
+        </a>
+
+        <a href="./suggest.html">
+          Suggest a site
+        </a>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================================================
+       JAVASCRIPT
+  ================================================== -->
+
+  <script src="./data.js"></script>
+  <script src="./hidden.js"></script>
+  <script src="./dialogs.js"></script>
+  <script src="./favorites.js"></script>
+  <script src="./recently-viewed.js"></script>
+  <script src="./activity.js"></script>
+  <script src="./preview.js"></script>
+  <script src="./badge-filters.js"></script>
+  <script src="./search.js"></script>
+  <script src="./navigation.js"></script>
+  <script src="./shortcuts.js"></script>
+  <script src="./theme.js"></script>
+  <script src="./pwa.js"></script>
+
+</body>
+
+</html>

@@ -9,34 +9,26 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="referrer"
+    content="strict-origin-when-cross-origin"
+  >
+
   <title>Suggest a Site - WebShelf</title>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
 
   <meta
     name="description"
     content="Suggest a useful website to WebShelf for review and possible inclusion in the directory."
   >
 
-  <!-- Google Font -->
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Favicon -->
+  <link rel="canonical" href="https://www.webshelf.link/suggest.html">
+<!-- Favicon -->
   <link
     rel="icon"
-    href="/images/WebShelf/WS-Logo.png"
+    href="./images/icons/WS-Logo.png"
     type="image/png"
   >
 
@@ -50,64 +42,71 @@
 
 <body>
 
-  <!-- ==================================================
-       NAVBAR
-  =================================================== -->
+<!-- ==================================================
+     NAVBAR
+=================================================== -->
 
-  <header>
+<header class="site-header">
 
-    <nav class="container">
+  <nav class="container">
+
+    <a
+      href="./index.html"
+      class="logo"
+    >
+      <img
+        src="./images/icons/WS-Logo.png"
+        alt="WebShelf Logo"
+      >
+
+      <span>WebShelf</span>
+    </a>
+
+
+    <div class="nav-links">
 
       <a
         href="./index.html"
-        class="logo"
+        class="directory"
       >
-        <img
-          src="/images/WebShelf/WS-Logo.png"
-          alt="WebShelf Logo"
-        >
-
-        <span>WebShelf</span>
+        Directory
       </a>
 
+      <a
+        href="./activity.html"
+        class="activity"
+      >
+        Activity
+      </a>
 
-      <div class="nav-links">
+      <a
+        href="./support.html"
+        class="support"
+      >
+        Support
+      </a>
 
-        <a
-          href="./index.html"
-          class="directory"
-        >
-          Directory
-        </a>
+      <a
+        href="./suggest.html"
+        class="suggest active"
+      >
+        Suggest a site
+      </a>
 
-        <a
-          href="./support.html"
-          class="support"
-        >
-          Support
-        </a>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle light mode"
+      >
+        ☀
+      </button>
 
-        <a
-          href="./suggest.html"
-          class="suggest active"
-        >
-          Suggest a site
-        </a>
+    </div>
 
-        <button
-          class="theme-toggle"
-          id="theme-toggle"
-          type="button"
-          aria-label="Toggle light mode"
-        >
-          ☀
-        </button>
+  </nav>
 
-      </div>
-
-    </nav>
-
-  </header>
+</header>
 
 
 
@@ -204,54 +203,6 @@
               Select a category
             </option>
 
-            <option value="anime-streaming">
-              Anime Streaming
-            </option>
-
-            <option value="TV-streaming">
-              TV Streaming
-            </option>
-
-            <option value="sports-streaming">
-              Sports Streaming
-            </option>
-
-            <option value="manga-reading">
-              Manga Reading
-            </option>
-
-            <option value="manhwa-reading">
-              Manhwa Reading
-            </option>
-
-            <option value="novel-reading">
-              Novel Reading
-            </option>
-
-            <option value="anime-download">
-              Anime Download
-            </option>
-
-            <option value="TV-download">
-              TV Download
-            </option>
-
-            <option value="subtitle-download">
-              Subtitle Download
-            </option>
-
-            <option value="anime-database">
-              Anime Database
-            </option>
-
-            <option value="TV-database">
-              TV Database
-            </option>
-
-            <option value="anime-schedule">
-              Anime Schedule
-            </option>
-
           </select>
 
         </div>
@@ -323,6 +274,10 @@
           Directory
         </a>
 
+        <a href="./activity.html">
+          Activity
+        </a>
+
         <a href="./support.html">
           Support
         </a>
@@ -343,8 +298,19 @@
        JAVASCRIPT
   =================================================== -->
 
+  <script src="./data.js"></script>
+  <script src="./hidden.js"></script>
+  <script src="./dialogs.js"></script>
+  <script src="./favorites.js"></script>
+  <script src="./recently-viewed.js"></script>
   <script src="./suggest.js"></script>
+  <script src="./preview.js"></script>
+  <script src="./badge-filters.js"></script>
+  <script src="./search.js"></script>
+  <script src="./navigation.js"></script>
+  <script src="./shortcuts.js"></script>
   <script src="./theme.js"></script>
+  <script src="./pwa.js"></script>
 
 </body>
 

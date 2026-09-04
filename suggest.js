@@ -11,6 +11,39 @@ const formMessage =
 const submitButton =
   document.querySelector("#suggest-submit");
 
+const categorySelect =
+  document.querySelector("#site-category");
+
+
+// Keep the dropdown synced with data.js automatically.
+if (
+  categorySelect &&
+  Array.isArray(WebShelfCategories)
+) {
+
+  categorySelect.innerHTML = `
+    <option value="">
+      Select a category
+    </option>
+  `;
+
+  WebShelfCategories.forEach(
+    (category) => {
+
+      const option =
+        document.createElement("option");
+
+      option.value = category.key;
+      option.textContent =
+        category.title;
+
+      categorySelect.appendChild(option);
+
+    }
+  );
+
+}
+
 
 if (
   suggestForm &&
@@ -24,19 +57,15 @@ if (
 
       event.preventDefault();
 
-
-      // Loading state
-
       formMessage.textContent =
         "Sending suggestion...";
 
       submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-
+      submitButton.textContent =
+        "Sending...";
 
       const formData =
         new FormData(suggestForm);
-
 
       try {
 
@@ -51,7 +80,6 @@ if (
               }
             }
           );
-
 
         if (response.ok) {
 

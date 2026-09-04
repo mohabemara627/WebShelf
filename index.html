@@ -1,863 +1,184 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>WebShelf — Your Shortcut to the Web</title>
-
-<meta
-  name="description"
-  content="WebShelf is a curated directory of useful websites for streaming, reading, downloads, databases, schedules, and more."
->
-
-  <!-- Google Font -->
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Favicon -->
-  <link
-  rel="icon"
-  type="image/png"
-  sizes="48x48"
-  href="/images/WebShelf/WS-Logo.png"
-  >
-
-  <!-- CSS -->
-  <link
-    rel="stylesheet"
-    href="./style.css"
-  >
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<title>WebShelf — Your Shortcut to the Web</title>
+<meta content="WebShelf is a curated directory of useful websites for streaming, reading, downloads, databases, schedules, and more." name="description"/>
+<link href="https://www.webshelf.link/" rel="canonical"/>
+<link href="./manifest.webmanifest" rel="manifest"/>
+<meta content="#000000" name="theme-color"/>
+<!-- Favicon -->
+<link href="./images/icons/WS-Logo.png" rel="icon" sizes="48x48" type="image/png"/>
+<!-- CSS -->
+<link href="./style.css" rel="stylesheet"/>
 </head>
-
-
 <body>
-
-  <!-- ==================================================
-       NAVBAR
-  =================================================== -->
-
-  <header>
-
-    <nav class="container">
-
-      <a
-        href="./index.html"
-        class="logo"
-      >
-        <img
-          src="/images/WebShelf/WS-Logo.png"
-          alt="WebShelf Logo"
-        >
-
-        <span>WebShelf</span>
-      </a>
-
-
+<!-- ==================================================
+     NAVBAR
+=================================================== -->
+<header class="site-header">
+<nav class="container">
+<a class="logo" href="./index.html">
+<img alt="WebShelf Logo" src="./images/icons/WS-Logo.png"/>
+<span>WebShelf</span>
+</a>
 <div class="nav-links">
-
-  <a
-    href="./index.html"
-    class="directory active"
-  >
-    Directory
-  </a>
-
-  <a
-    href="./support.html"
-    class="support"
-  >
-    Support
-  </a>
-
-  <a
-    href="./suggest.html"
-    class="suggest"
-  >
-    Suggest a site
-  </a>
-
-  <button
-    class="theme-toggle"
-    id="theme-toggle"
-    type="button"
-    aria-label="Toggle light mode"
-  >
-    ☀
-  </button>
-
+<a class="directory active" href="./index.html">
+        Directory
+      </a>
+<a class="activity" href="./activity.html">
+        Activity
+      </a>
+<a class="support" href="./support.html">
+        Support
+      </a>
+<a class="suggest" href="./suggest.html">
+        Suggest a site
+      </a>
+<button aria-label="Toggle light mode" class="theme-toggle" id="theme-toggle" type="button">
+        ☀
+      </button>
 </div>
-
-    </nav>
-
-  </header>
-
-
-
-  <!-- ==================================================
+</nav>
+</header>
+<!-- ==================================================
        MAIN
   =================================================== -->
-
-  <main class="container">
-
-
-    <!-- ==================================================
+<main class="container home-main">
+<!-- ==================================================
          HERO
     =================================================== -->
-
-    <section class="hero">
-
-      <h1>
+<section class="hero">
+<h1>
         Find the Web worth keeping
       </h1>
-
-      <p>
-        A curated directory of trusted places to watch,
-        download, and read online
+<p>
+        A curated directory of useful places to watch,
+        download, read, and explore online.
       </p>
+<button aria-label="Search WebShelf" class="hero-search-trigger" id="hero-search-trigger" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="M20 20L16.5 16.5"></path>
+</svg>
+<span class="hero-search-placeholder">Search websites, categories, Arabic...</span>
+<span class="hero-search-count" id="hero-search-count">WebShelf</span>
+<kbd>F</kbd>
+</button>
+</section><div class="home-layout"><aside aria-label="Personal shortcuts" class="home-sidebar"><aside class="recently-viewed" hidden="" id="recently-viewed">
+<div class="recently-viewed-header">
+<h3>Recently Viewed</h3>
+<button class="recently-clear" id="recently-clear" type="button">
+          Clear
+        </button>
+</div>
+<div class="recently-viewed-list" id="recently-viewed-list"></div>
+</aside><section class="favorites-section sidebar-favorites" hidden="" id="favorites-section">
 
-    </section>
+<div class="sidebar-card favorites-panel">
+<div class="panel-header sidebar-panel-header"><h3>Favorites</h3><button class="favorites-clear" id="favorites-clear" type="button">Clear</button></div>
+<div class="site-list sidebar-favorites-list" id="favorites-list"></div>
+</div>
+</section><a class="hidden-sites-link" href="./activity.html#hidden" hidden><span>Hidden sites</span><span class="hidden-sites-count" data-hidden-count="">0</span></a></aside><div class="home-content"><section class="categories">
+<div class="categories-header">
+<h2>Browse by category</h2>
+</div>
+<div class="category-grid" id="category-grid"></div>
+</section><section class="collections-section" hidden="" id="collections-section">
+<div class="section-heading">
+<h2>Collections</h2>
+<p>Curated cross-category groups for faster browsing.</p>
+</div>
+<div class="collections-grid" id="collections-grid"></div>
+</section><section class="recent-changes-section" hidden="" id="recent-changes-section">
+<div class="recent-changes-heading">
+<div class="section-heading">
+<h2>What's new</h2>
+<p>Recently added and updated websites.</p>
+</div>
+<div class="recent-changes-tabs" id="recent-changes-tabs">
+<button class="recent-change-tab active" data-change-view="added" type="button">Recently Added</button>
+<button class="recent-change-tab" data-change-view="updated" type="button">Recently Updated</button>
+</div>
+</div>
+<div class="recent-changes-list" id="recent-changes-list"></div>
+</section><section class="explore">
+<div class="explore-header">
+<h2>Explore the directory</h2>
+<p id="explore-subtitle">Curated websites, organized by category.</p>
+</div>
+<div class="directory-columns" id="directory-columns"></div>
+</section></div></div>
+<!-- ==================================================
+         RECENTLY VIEWED
+    =================================================== -->
 
-
-
-    <!-- ==================================================
+<!-- ==================================================
          CATEGORIES
     =================================================== -->
 
-    <section class="categories">
-
-      <div class="categories-header">
-        <h2>Browse by category</h2>
-      </div>
-
-
-      <div class="category-grid">
-
-
-        <!-- Anime Streaming -->
-
-        <div class="category anime-streaming">
-
-          <div class="category-icon">
-            <i data-lucide="play"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Anime Streaming</h3>
-            <p id="anime-streaming-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- TV Streaming -->
-
-        <div class="category TV-streaming">
-
-          <div class="category-icon">
-            <i data-lucide="play"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>TV Streaming</h3>
-            <p id="TV-streaming-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- Sports Streaming -->
-
-        <div class="category sports-streaming">
-
-          <div class="category-icon">
-            <i data-lucide="play"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Sports Streaming</h3>
-            <p id="sports-streaming-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- Manga Reading -->
-
-        <div class="category manga-reading">
-
-          <div class="category-icon">
-            <i data-lucide="book-open"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Manga Reading</h3>
-            <p id="manga-reading-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- Manhwa Reading -->
-
-        <div class="category manhwa-reading">
-
-          <div class="category-icon">
-            <i data-lucide="book-open"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Manhwa Reading</h3>
-            <p id="manhwa-reading-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- Novel Reading -->
-
-        <div class="category novel-reading">
-
-          <div class="category-icon">
-            <i data-lucide="book-open"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Novel Reading</h3>
-            <p id="novel-reading-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- Anime Download -->
-
-        <div class="category anime-download">
-
-          <div class="category-icon">
-            <i data-lucide="download"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Anime Download</h3>
-            <p id="anime-download-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- TV Download -->
-
-        <div class="category TV-download">
-
-          <div class="category-icon">
-            <i data-lucide="download"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>TV Download</h3>
-            <p id="TV-download-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- Subtitle Download -->
-
-        <div class="category subtitle-download">
-
-          <div class="category-icon">
-            <i data-lucide="download"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Subtitle Download</h3>
-            <p id="subtitle-download-count">0 sites</p>
-          </div>
-
-          <span
-            class="category-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-
-        </div>
-
-
-
-        <!-- Anime Database -->
-
-        <div class="category anime-database">
-          <div class="category-icon">
-            <i data-lucide="database"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Anime Database</h3>
-            <p id="anime-database-count">0 sites</p>
-          </div>
-
-          <span class="category-arrow" aria-hidden="true">
-            →
-          </span>
-        </div>
-
-
-        <!-- TV Database -->
-
-        <div class="category TV-database">
-          <div class="category-icon">
-            <i data-lucide="database"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>TV Database</h3>
-            <p id="TV-database-count">0 sites</p>
-          </div>
-
-          <span class="category-arrow" aria-hidden="true">
-            →
-          </span>
-        </div>
-
-
-        <!-- Anime Schedule -->
-
-        <div class="category anime-schedule">
-          <div class="category-icon">
-            <i data-lucide="calendar-days"></i>
-          </div>
-
-          <div class="category-info">
-            <h3>Anime Schedule</h3>
-            <p id="anime-schedule-count">0 sites</p>
-          </div>
-
-          <span class="category-arrow" aria-hidden="true">
-            →
-          </span>
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ==================================================
+<!-- ==================================================
+         COLLECTIONS
+    =================================================== -->
+
+<!-- ==================================================
+         RECENT CHANGES
+    =================================================== -->
+
+<!-- ==================================================
+         FAVORITE SECTION
+    =================================================== -->
+
+<!-- ==================================================
          EXPLORE DIRECTORY
     =================================================== -->
 
-    <section class="explore">
-
-      <div class="explore-header">
-
-        <h2>
-          Explore the directory
-        </h2>
-
-        <p>
-          Top-rated websites, organized by category.
-        </p>
-
-      </div>
-
-
-      <div class="directory-columns">
-
-
-        <!-- ==================================================
-             LEFT COLUMN
-        =================================================== -->
-
-        <div class="directory-column">
-
-
-          <!-- Anime Streaming -->
-
-          <div class="directory-panel anime-streaming-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Anime Streaming</h3>
-                <p id="anime-streaming-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="anime-streaming-list"
-            ></div>
-
-            <a
-              href="./category.html?type=anime-streaming"
-              class="view-all"
-              id="anime-streaming-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- TV Streaming -->
-
-          <div class="directory-panel TV-streaming-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>TV Streaming</h3>
-                <p id="TV-streaming-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="TV-streaming-list"
-            ></div>
-
-            <a
-              href="./category.html?type=TV-streaming"
-              class="view-all"
-              id="TV-streaming-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- Sports Streaming -->
-
-          <div class="directory-panel sports-streaming-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Sports Streaming</h3>
-                <p id="sports-streaming-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="sports-streaming-list"
-            ></div>
-
-            <a
-              href="./category.html?type=sports-streaming"
-              class="view-all"
-              id="sports-streaming-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- Manga Reading -->
-
-          <div class="directory-panel manga-reading-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Manga Reading</h3>
-                <p id="manga-reading-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="manga-reading-list"
-            ></div>
-
-            <a
-              href="./category.html?type=manga-reading"
-              class="view-all"
-              id="manga-reading-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- Manhwa Reading -->
-
-          <div class="directory-panel manhwa-reading-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Manhwa Reading</h3>
-                <p id="manhwa-reading-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="manhwa-reading-list"
-            ></div>
-
-            <a
-              href="./category.html?type=manhwa-reading"
-              class="view-all"
-              id="manhwa-reading-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- Novel Reading -->
-
-          <div class="directory-panel novel-reading-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Novel Reading</h3>
-                <p id="novel-reading-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="novel-reading-list"
-            ></div>
-
-            <a
-              href="./category.html?type=novel-reading"
-              class="view-all"
-              id="novel-reading-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-        </div>
-
-
-
-        <!-- ==================================================
-             RIGHT COLUMN
-        =================================================== -->
-
-        <div class="directory-column">
-
-
-          <!-- Anime Download -->
-
-          <div class="directory-panel anime-download-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Anime Download</h3>
-                <p id="anime-download-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="anime-download-list"
-            ></div>
-
-            <a
-              href="./category.html?type=anime-download"
-              class="view-all"
-              id="anime-download-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- TV Download -->
-
-          <div class="directory-panel TV-download-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>TV Download</h3>
-                <p id="TV-download-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="TV-download-list"
-            ></div>
-
-            <a
-              href="./category.html?type=TV-download"
-              class="view-all"
-              id="TV-download-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- Subtitle Download -->
-
-          <div class="directory-panel subtitle-download-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Subtitle Download</h3>
-                <p id="subtitle-download-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="subtitle-download-list"
-            ></div>
-
-            <a
-              href="./category.html?type=subtitle-download"
-              class="view-all"
-              id="subtitle-download-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- Anime Database -->
-
-          <div class="directory-panel anime-database-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Anime Database</h3>
-                <p id="anime-database-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="anime-database-list"
-            ></div>
-
-            <a
-              href="./category.html?type=anime-database"
-              class="view-all"
-              id="anime-database-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- Anime Schedule -->
-
-          <div class="directory-panel anime-schedule-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>Anime Schedule</h3>
-                <p id="anime-schedule-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="anime-schedule-list"
-            ></div>
-
-            <a
-              href="./category.html?type=anime-schedule"
-              class="view-all"
-              id="anime-schedule-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-
-          <!-- TV Database -->
-
-          <div class="directory-panel TV-database-panel">
-
-            <div class="panel-header">
-              <div>
-                <h3>TV Database</h3>
-                <p id="TV-database-panel-count">0 sites</p>
-              </div>
-            </div>
-
-            <div
-              class="site-list"
-              id="TV-database-list"
-            ></div>
-
-            <a
-              href="./category.html?type=TV-database"
-              class="view-all"
-              id="TV-database-view-all"
-            >
-              View all 0 sites
-            </a>
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-  </main>
-
+</main>
 <footer class="site-footer">
-  <div class="container footer-content">
-
-    <p>
+<div class="container footer-content">
+<p>
       © 2026 WebShelf
     </p>
-
-    <div class="footer-links">
-
-  <a href="./index.html">
-    Directory
-  </a>
-
-  <a href="./support.html">
-    Support
-  </a>
-
-  <a href="./suggest.html">
-    Suggest a site
-  </a>
-
+<div class="footer-links">
+<a href="./index.html">
+          Directory
+        </a>
+<a href="./activity.html">
+          Activity
+        </a>
+<a href="./support.html">
+          Support
+        </a>
+<a href="./suggest.html">
+          Suggest a site
+        </a>
 </div>
-
-  </div>
+</div>
 </footer>
-
-  <!-- ==================================================
+<!-- ==================================================
        SCRIPTS
   =================================================== -->
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- WebShelf Data -->
-  <script src="./data.js"></script>
-
-  <!-- Home Page JavaScript -->
-  <script src="./script.js"></script>
-
-  <!-- Create Lucide Icons -->
-  <script>
+<script src="./icons.js"></script>
+<script src="./data.js"></script>
+<script src="./hidden.js"></script>
+<script src="./dialogs.js"></script>
+<script src="./favorites.js"></script>
+<script src="./recently-viewed.js"></script>
+<script src="./script.js"></script>
+<script src="./preview.js"></script>
+<script src="./badge-filters.js"></script>
+<script src="./search.js"></script>
+<script src="./navigation.js"></script>
+<script src="./shortcuts.js"></script>
+<script src="./theme.js"></script>
+<script src="./pwa.js"></script>
+<script>
     if (window.lucide) {
       lucide.createIcons();
     }
   </script>
-  
-<script src="./theme.js"></script>
 </body>
-
 </html>
