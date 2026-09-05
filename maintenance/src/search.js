@@ -30,7 +30,7 @@
             id="webshelf-search-title"
             aria-label="Search websites" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="webshelf-search-results"
             type="search"
-            placeholder="Search websites, categories, Arabic..."
+            placeholder="Search websites, categories..."
             autocomplete="off"
             spellcheck="false"
           >
