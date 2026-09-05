@@ -269,21 +269,138 @@ if (document.readyState === "loading") {
 
 // category.js
 // ==================================================
+
 // CATEGORY PAGE
+
 // ==================================================
 
 const urlParams = new URLSearchParams(window.location.search);
+
 const categoryType = urlParams.get("type");
-const currentCategory = WebShelfCategories.find((category) => category.key === categoryType);
+
+const currentCategory = WebShelfCategories.find(
+  (category) => category.key === categoryType
+);
 
 const pageTitle = document.querySelector("#category-page-title");
+
 const pageCount = document.querySelector("#category-page-count");
+
 const pageList = document.querySelector("#category-page-list");
+
 const pageIcon = document.querySelector("#category-page-icon");
+
 const lucideIcon = document.querySelector("#category-page-lucide");
+
 const categoryCanonical = document.querySelector("#category-canonical");
+
 const categoryDescription = document.querySelector("#category-description");
+
+const categoryPageDescription = document.querySelector(
+  "#category-page-description"
+);
+
 const siteFilters = document.querySelector("#category-site-filters");
+
+
+const CATEGORY_SEO = {
+  "anime-streaming": {
+    title: "Best Anime Streaming Sites - Watch Anime Online | WebShelf",
+    description:
+      "Discover curated anime streaming sites to watch anime online. Explore popular platforms, alternatives, and useful anime streaming websites on WebShelf.",
+    intro:
+      "Discover curated anime streaming websites for watching anime online. Browse popular platforms, alternatives, and useful streaming options in one place."
+  },
+
+  "tv-streaming": {
+    title: "Best TV Streaming Sites - Watch TV Online | WebShelf",
+    description:
+      "Discover curated TV streaming sites for watching shows and series online. Explore streaming platforms and alternatives on WebShelf.",
+    intro:
+      "Browse curated TV streaming websites for watching shows and series online, including popular platforms and useful alternatives."
+  },
+
+  "sports-streaming": {
+    title: "Best Sports Streaming Sites - Watch Sports Online | WebShelf",
+    description:
+      "Discover curated sports streaming sites for watching live sports online. Explore football, basketball, motorsports, and other streaming options.",
+    intro:
+      "Browse curated sports streaming websites for watching live sports online, including football, basketball, motorsports, and more."
+  },
+
+  "manga-reading": {
+    title: "Best Manga Reading Sites - Read Manga Online | WebShelf",
+    description:
+      "Discover curated manga reading sites to read manga online. Explore popular manga websites, databases, and useful alternatives on WebShelf.",
+    intro:
+      "Discover manga reading websites for reading manga online, finding new series, and exploring useful alternatives."
+  },
+
+  "manhwa-reading": {
+    title: "Best Manhwa Reading Sites - Read Manhwa Online | WebShelf",
+    description:
+      "Discover curated manhwa reading sites to read manhwa and webtoons online. Explore popular platforms and alternatives on WebShelf.",
+    intro:
+      "Browse curated websites for reading manhwa and webtoons online, including popular platforms and useful alternatives."
+  },
+
+  "novel-reading": {
+    title: "Best Novel Reading Sites - Read Novels Online | WebShelf",
+    description:
+      "Discover curated websites for reading novels and light novels online. Explore novel reading platforms and useful alternatives.",
+    intro:
+      "Browse websites for reading novels and light novels online and discover new platforms and alternatives."
+  },
+
+  "anime-download": {
+    title: "Anime Download Sites - Download Anime | WebShelf",
+    description:
+      "Discover curated anime download sites and resources for finding downloadable anime releases on WebShelf.",
+    intro:
+      "Browse curated anime download websites and resources for finding downloadable anime releases."
+  },
+
+  "tv-download": {
+    title: "TV Download Sites - Download TV Shows | WebShelf",
+    description:
+      "Discover curated TV download sites and resources for finding downloadable TV shows and series.",
+    intro:
+      "Browse curated websites and resources for finding downloadable TV shows and series."
+  },
+
+  "subtitle-download": {
+    title: "Best Subtitle Download Sites | WebShelf",
+    description:
+      "Discover curated subtitle download sites for movies, TV shows, and anime in multiple languages.",
+    intro:
+      "Browse subtitle websites for movies, TV series, and anime across multiple languages."
+  },
+
+  "anime-database": {
+    title: "Best Anime Database Websites | WebShelf",
+    description:
+      "Explore curated anime database websites for ratings, information, characters, staff, recommendations, and more.",
+    intro:
+      "Explore anime database websites for ratings, series information, characters, staff, recommendations, and discovery."
+  },
+
+  "anime-schedule": {
+    title: "Anime Release Schedule Sites | WebShelf",
+    description:
+      "Discover anime schedule websites for tracking upcoming episodes, release dates, seasonal anime, and airing times.",
+    intro:
+      "Track anime episode releases, airing dates, seasonal schedules, and upcoming shows with these curated websites."
+  },
+
+  "tv-database": {
+    title: "Best TV & Movie Database Websites | WebShelf",
+    description:
+      "Explore curated TV and movie database websites for ratings, cast information, release dates, reviews, and discovery.",
+    intro:
+      "Explore TV and movie database websites for ratings, cast information, release dates, reviews, and discovery."
+  }
+};
+
 
 let activeSiteFilter = "all";
 
@@ -428,9 +545,28 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
     </div>
   `;
 } else {
-  document.title = `${currentCategory.title} - WebShelf`;
-  if (categoryCanonical) categoryCanonical.href = `https://www.webshelf.link/category.html?type=${encodeURIComponent(currentCategory.key)}`;
-  if (categoryDescription) categoryDescription.content = `Browse curated ${currentCategory.title} websites on WebShelf.`;
+  const seo = CATEGORY_SEO[currentCategory.key];
+
+  document.title =
+    seo?.title || `${currentCategory.title} - WebShelf`;
+
+  if (categoryCanonical) {
+    categoryCanonical.href =
+      `https://www.webshelf.link/category.html?type=${encodeURIComponent(currentCategory.key)}`;
+  }
+
+  if (categoryDescription) {
+    categoryDescription.content =
+      seo?.description ||
+      `Browse curated ${currentCategory.title} websites on WebShelf.`;
+  }
+
+  if (categoryPageDescription) {
+    categoryPageDescription.textContent =
+      seo?.intro ||
+      `Browse curated ${currentCategory.title} websites on WebShelf.`;
+  }
+
   pageTitle.textContent = currentCategory.title;
   pageIcon.style.color = currentCategory.accent || "var(--brand-purple)";
   lucideIcon.setAttribute("data-lucide", currentCategory.icon || "folder");
@@ -446,7 +582,6 @@ siteFilters?.addEventListener("click", (event) => {
 
 document.addEventListener("webshelf-hidden-changed", renderCategorySites);
 window.lucide?.createIcons?.();
-
 ;
 
 // preview.js
