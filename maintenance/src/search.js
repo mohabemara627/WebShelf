@@ -76,19 +76,26 @@
     heroSearchCount.textContent = `${getSearchSites().length} websites`;
   }
 
-  function normalizeQuery(value) {
-    const raw = String(value || "").trim().toLowerCase();
-    if (!raw) return "";
-    const aliases = new Map([
-      ["arabic", "ar"],
-      ["arabic subtitles", "ar"],
-      ["arabic subtitle", "ar"],
-      ["عربي", "ar"],
-      ["العربي", "ar"],
-      ["العربية", "ar"]
-    ]);
-    return aliases.get(raw) || raw;
-  }
+    function normalizeQuery(value) {
+      const raw = String(value || "").trim().toLowerCase();
+      if (!raw) return "";
+
+      // Partial Arabic search:
+      // ara / arab / arabi / arabic → AR badge
+      if (raw.length >= 3 && "arabic".startsWith(raw)) {
+        return "ar";
+      }
+
+      const aliases = new Map([
+        ["arabic subtitles", "ar"],
+        ["arabic subtitle", "ar"],
+        ["عربي", "ar"],
+        ["العربي", "ar"],
+        ["العربية", "ar"]
+      ]);
+
+      return aliases.get(raw) || raw;
+    }
 
   function siteSearchText(site) {
     return {
