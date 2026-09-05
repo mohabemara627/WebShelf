@@ -76,7 +76,7 @@
     ]
   },
   {
-    "key": "tV-streaming",
+    "key": "tv-streaming",
     "group": "Streaming",
     "title": "TV Streaming",
     "icon": "play",
@@ -474,7 +474,7 @@
     ]
   },
   {
-    "key": "tV-download",
+    "key": "tv-download",
     "group": "Download",
     "title": "TV Download",
     "icon": "download",
@@ -722,7 +722,7 @@
     ]
   },
   {
-    "key": "tV-database",
+    "key": "tv-database",
     "group": "Databases & Schedules",
     "title": "TV Database",
     "icon": "database",

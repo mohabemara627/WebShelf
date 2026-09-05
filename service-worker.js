@@ -1,6 +1,6 @@
 const SCOPE_PATH = new URL(self.registration.scope).pathname;
 const CACHE_PREFIX = 'webshelf-' + SCOPE_PATH + '-';
-const CACHE_NAME = CACHE_PREFIX + '68eb3c951599';
+const CACHE_NAME = CACHE_PREFIX + 'cb273d3df3ca';
 const CORE = [
   "./",
   "./style.css",
