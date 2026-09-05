@@ -824,7 +824,7 @@ document.addEventListener("webshelf-theme-changed", () => {
             id="webshelf-search-title"
             aria-label="Search websites" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="webshelf-search-results"
             type="search"
-            placeholder="Search websites, categories, Arabic..."
+            placeholder="Search websites, categories..."
             autocomplete="off"
             spellcheck="false"
           >
@@ -870,19 +870,26 @@ document.addEventListener("webshelf-theme-changed", () => {
     heroSearchCount.textContent = `${getSearchSites().length} websites`;
   }
 
-  function normalizeQuery(value) {
-    const raw = String(value || "").trim().toLowerCase();
-    if (!raw) return "";
-    const aliases = new Map([
-      ["arabic", "ar"],
-      ["arabic subtitles", "ar"],
-      ["arabic subtitle", "ar"],
-      ["عربي", "ar"],
-      ["العربي", "ar"],
-      ["العربية", "ar"]
-    ]);
-    return aliases.get(raw) || raw;
-  }
+    function normalizeQuery(value) {
+      const raw = String(value || "").trim().toLowerCase();
+      if (!raw) return "";
+
+      // Partial Arabic search:
+      // ara / arab / arabi / arabic → AR badge
+      if (raw.length >= 3 && "arabic".startsWith(raw)) {
+        return "ar";
+      }
+
+      const aliases = new Map([
+        ["arabic subtitles", "ar"],
+        ["arabic subtitle", "ar"],
+        ["عربي", "ar"],
+        ["العربي", "ar"],
+        ["العربية", "ar"]
+      ]);
+
+      return aliases.get(raw) || raw;
+    }
 
   function siteSearchText(site) {
     return {
