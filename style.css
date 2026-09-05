@@ -2989,10 +2989,9 @@ body.search-open {
 ================================================== */
 
 .category-grid {
-  grid-template-rows: none;
-  grid-auto-flow: row;
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
 }
 
 .category .category-icon {
