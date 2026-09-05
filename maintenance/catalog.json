@@ -9,17 +9,27 @@
       {
         "name": "Anime Nexus",
         "url": "https://anime.nexus/",
-        "icon": "./images/icons/animenexus.png"
+        "icon": "./images/icons/animenexus.png",
+        "badges": [
+          "Ar"
+        ]
+
       },
       {
         "name": "AniKoto",
         "url": "https://anikototv.to/home",
-        "icon": "./images/icons/anikoto.png"
+        "icon": "./images/icons/anikoto.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "Re:Anime",
         "url": "https://reanime.to/home",
-        "icon": "./images/icons/reanime.png"
+        "icon": "./images/icons/reanime.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "Miruro",
@@ -27,25 +37,32 @@
         "icon": "./images/icons/miruro.png"
       },
       {
+        "name": "Animepahe",
+        "url": "https://animepahe.ch/",
+        "icon": "./images/icons/animepahe.png",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
         "name": "AnimeX",
         "url": "https://animex.one/home",
         "icon": "./images/icons/animex.png"
       },
       {
-        "name": "Animepahe",
-        "url": "https://animepahe.ch/",
-        "icon": "./images/icons/animepahe.png"
+        "name": "AniZone",
+        "url": "https://anizone.to/",
+        "icon": "./images/icons/anizone.ico",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "MKissa",
         "url": "https://mkissa.to/anime",
         "icon": "./images/icons/mkissa.ico"
       },
-      {
-        "name": "AniZone",
-        "url": "https://anizone.to/",
-        "icon": "./images/icons/anizone.ico"
-      },
+
       {
         "name": "123anime",
         "url": "https://123animehub.cc/home",
@@ -68,7 +85,19 @@
       {
         "name": "Movy",
         "url": "https://www.movy.bz/",
-        "icon": "./images/icons/movy.png"
+        "icon": "./images/icons/movy.png",
+        "badges": [
+          "Ar"
+        ]
+        
+      },
+      {
+        "name": "Cinejoy",
+        "url": "https://cinejoy.to/",
+        "icon": "./images/icons/cinejoy.ico",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "HuraWatch",
@@ -81,7 +110,10 @@
       {
         "name": "FLIXER",
         "url": "https://flixer.gd/?tv=&id=202555",
-        "icon": "./images/icons/flixer.png"
+        "icon": "./images/icons/flixer.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "REELIX",
@@ -94,11 +126,6 @@
         "icon": "./images/icons/hexa.png"
       },
       {
-        "name": "Cinejoy",
-        "url": "https://cinejoy.to/",
-        "icon": "./images/icons/cinejoy.ico"
-      },
-      {
         "name": "CinemaOS",
         "url": "https://cinemaos.live/",
         "icon": "./images/icons/cinemaos.png"
@@ -106,7 +133,11 @@
       {
         "name": "WatchLuna",
         "url": "https://watchluna.com/",
-        "icon": "./images/icons/watchluna.png"
+        "icon": "./images/icons/watchluna.png",
+        "badges": [
+          "Ar"
+        ]
+        
       },
       {
         "name": "HDToday",
@@ -116,7 +147,10 @@
       {
         "name": "PopcornMovies",
         "url": "https://popcornmovies.ac/",
-        "icon": "./images/icons/popcornmovies.png"
+        "icon": "./images/icons/popcornmovies.png",
+        "badges": [
+          "Ar"
+        ]
       }
     ]
   },
@@ -248,7 +282,10 @@
       {
         "name": "WEBTOON",
         "url": "https://www.webtoons.com/",
-        "icon": "./images/icons/webtoon.ico"
+        "icon": "./images/icons/webtoon.ico",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "Asura Scans",
@@ -337,7 +374,10 @@
       {
         "name": "Royal Road",
         "url": "https://www.royalroad.com/",
-        "icon": "./images/icons/royal-road.png"
+        "icon": "./images/icons/royal-road.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "WuxiaBox",
@@ -366,7 +406,10 @@
       {
         "name": "Nyaa",
         "url": "https://nyaa.si/",
-        "icon": "./images/icons/nyaa.png"
+        "icon": "./images/icons/nyaa.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "TsukiHime",
@@ -376,7 +419,10 @@
       {
         "name": "Anime Tosho",
         "url": "https://animetosho.org/",
-        "icon": "./images/icons/tosho.ico"
+        "icon": "./images/icons/tosho.ico",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "SubsPlease",
@@ -386,7 +432,10 @@
       {
         "name": "Tokyo Toshokan",
         "url": "https://www.tokyotosho.info/",
-        "icon": "./images/icons/toshokan.png"
+        "icon": "./images/icons/toshokan.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "SeaDex",
@@ -396,12 +445,18 @@
       {
         "name": "NekoBT",
         "url": "https://nekobt.to/",
-        "icon": "./images/icons/nekobt.webp"
+        "icon": "./images/icons/nekobt.webp",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "AniRena",
         "url": "https://www.anirena.com/",
-        "icon": "./images/icons/anirena.png"
+        "icon": "./images/icons/anirena.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "AnimeWatch",
@@ -411,7 +466,10 @@
       {
         "name": "Tokyo Insider",
         "url": "https://tokyoinsider.com/",
-        "icon": "./images/icons/tokyo-insider.png"
+        "icon": "./images/icons/tokyo-insider.png",
+        "badges": [
+          "Ar"
+        ]
       }
     ]
   },
@@ -425,7 +483,10 @@
       {
         "name": "EXT Torrents",
         "url": "https://ext.to/",
-        "icon": "./images/icons/ext-torrents.png"
+        "icon": "./images/icons/ext-torrents.png",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "1337x",
@@ -445,7 +506,10 @@
       {
         "name": "EZTV",
         "url": "https://eztv.tf/home",
-        "icon": "./images/icons/eztv.ico"
+        "icon": "./images/icons/eztv.ico",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "RARBG Dump",
@@ -470,7 +534,10 @@
       {
         "name": "Rutor",
         "url": "https://rutor.is/",
-        "icon": "./images/icons/rutor.ico"
+        "icon": "./images/icons/rutor.ico",
+        "badges": [
+          "Ar"
+        ]
       }
     ]
   },
@@ -484,50 +551,32 @@
       {
         "name": "OpenSubtitles",
         "url": "https://www.opensubtitles.com/",
-        "icon": "./images/icons/opensubtitles.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/opensubtitles.png"
       },
       {
         "name": "SubDL",
         "url": "https://subdl.com/",
-        "icon": "./images/icons/subdl.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/subdl.png"
       },
       {
         "name": "Subtitle Cat",
         "url": "https://subtitlecat.com/",
-        "icon": "./images/icons/subtitle-cat.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/subtitle-cat.png"
       },
       {
         "name": "TVSubs",
         "url": "https://www.tvsubs.net/",
-        "icon": "./images/icons/tvsubs.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/tvsubs.ico"
       },
       {
         "name": "Addic7ed",
         "url": "https://www.addic7ed.com/",
-        "icon": "./images/icons/addic7ed.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/addic7ed.ico"
       },
       {
         "name": "TVSubtitles",
         "url": "https://www.tvsubtitles.net/",
-        "icon": "./images/icons/tvsubtitles.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/tvsubtitles.ico"
       },
       {
         "name": "YIFY Subtitles",
@@ -537,26 +586,17 @@
       {
         "name": "MySubs",
         "url": "https://my-subs.co/",
-        "icon": "./images/icons/mysubs.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/mysubs.png"
       },
       {
         "name": "SubSource",
         "url": "https://subsource.net/",
-        "icon": "./images/icons/subsource.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/subsource.png"
       },
       {
         "name": "SubF2M",
         "url": "https://subf2m.co/",
-        "icon": "./images/icons/subf2m.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/subf2m.ico"
       }
     ]
   },
@@ -585,7 +625,10 @@
       {
         "name": "Comick",
         "url": "https://comick.dev/",
-        "icon": "./images/icons/comick.ico"
+        "icon": "./images/icons/comick.ico",
+        "badges": [
+          "Ar"
+        ]
       },
       {
         "name": "Anime-Planet",
