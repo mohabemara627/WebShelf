@@ -1,0 +1,75 @@
+{
+  "categories": 12,
+  "sites": 120,
+  "catalogDataAndOrderPreservedExceptRepairedIconReferences": true,
+  "originalBundleReconstruction": "7/7 byte-identical before requested browser-chrome change",
+  "finalPageBundlesByteIdentical": 6,
+  "commonChange": "theme-color synchronization only",
+  "cssByteIdentical": true,
+  "htmlBodiesByteIdentical": true,
+  "serviceWorkerStrategyByteIdenticalExceptCacheVersion": true,
+  "sitemapByteIdentical": true,
+  "deterministicBuild": true,
+  "validatorErrors": [],
+  "gitCheck": "Git tracked paths: skipped (project not tracked)",
+  "iconRepairs": [
+    {
+      "from": "./images/icons/mkissa.png",
+      "to": "./images/icons/mkissa.ico",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/cinejoy.png",
+      "to": "./images/icons/cinejoy.ico",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/mangadotnet.png",
+      "to": "./images/icons/mangadotnet.ico",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/atsumaru.png",
+      "to": "./images/icons/atsumaru.ico",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/flame-comics.ico",
+      "to": "./images/icons/flame-comics.png",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/tsukihime.png",
+      "to": "./images/icons/tsukihime.ico",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/tosho.png",
+      "to": "./images/icons/tosho.ico",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/subsplease.png",
+      "to": "./images/icons/subsplease.ico",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/yts.png",
+      "to": "./images/icons/yts.webp",
+      "bytesUnchanged": true
+    },
+    {
+      "from": "./images/icons/the-pirate-bay.ico",
+      "to": "./images/icons/the-pirate-bay.png",
+      "conversion": "24-bit BMP to lossless RGB PNG",
+      "width": 16,
+      "height": 16,
+      "pixelsPreserved": true
+    }
+  ],
+  "removedProvenOrphans": [
+    "images/icons/favicon.png",
+    "images/icons/releasesmoe.png",
+    "images/icons/WS-Logo.png"
+  ]
+}

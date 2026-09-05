@@ -1,6 +1,4 @@
-/* ==================================================
-   VARIABLES
-================================================== */
+/* VARIABLES */
 
 :root {
   /* Base */
@@ -46,9 +44,7 @@
   --anime-schedule: #437ad3;
 }
 
-/* ==================================================
-   LIGHT MODE
-================================================== */
+/* LIGHT MODE */
 
 html[data-theme="light"] {
   --background: #f5f5f7;
@@ -68,9 +64,7 @@ html[data-theme="light"] {
   --text-muted: #85858e;
 }
 
-/* ==================================================
-   RESET
-================================================== */
+/* RESET */
 
 * {
   box-sizing: border-box;
@@ -114,10 +108,7 @@ main {
   flex: 1;
 }
 
-
-/* ==================================================
-   CONTAINER
-================================================== */
+/* CONTAINER */
 
 .container {
   width: calc(100% - 64px);
@@ -126,11 +117,7 @@ main {
   margin: 0 auto;
 }
 
-
-
-/* ==================================================
-   NAVBAR
-================================================== */
+/* NAVBAR */
 
 header {
   background: var(--navbar-background);
@@ -153,8 +140,6 @@ nav a {
 
   transition: color 0.2s ease;
 }
-
-
 
 /* Logo */
 
@@ -181,8 +166,6 @@ nav a {
   border-radius: 50%;
 }
 
-
-
 /* Navigation Links */
 
 .nav-links {
@@ -207,8 +190,6 @@ nav a {
   color: var(--text-primary);
 }
 
-
-
 /* Active Link */
 
 .nav-links a.active::after {
@@ -229,8 +210,6 @@ nav a {
   transform: translateX(-50%);
 }
 
-
-
 /* Focus */
 
 nav a:focus-visible {
@@ -240,11 +219,7 @@ nav a:focus-visible {
   border-radius: 4px;
 }
 
-
-
-/* ==================================================
-   HERO
-================================================== */
+/* HERO */
 
 .hero {
   padding: 42px 0 20px;
@@ -269,11 +244,7 @@ nav a:focus-visible {
   line-height: 1.6;
 }
 
-
-
-/* ==================================================
-   CATEGORIES
-================================================== */
+/* CATEGORIES */
 
 .categories {
   width: 100%;
@@ -311,11 +282,7 @@ nav a:focus-visible {
   border-radius: 999px;
 }
 
-
-
-/* ==================================================
-   CATEGORY GRID
-================================================== */
+/* CATEGORY GRID */
 
 .category-grid {
   width: 100%;
@@ -329,11 +296,7 @@ nav a:focus-visible {
   gap: 12px;
 }
 
-
-
-/* ==================================================
-   CATEGORY CARD
-================================================== */
+/* CATEGORY CARD */
 
 .category {
   width: 100%;
@@ -367,11 +330,7 @@ nav a:focus-visible {
   transform: translateY(-1px);
 }
 
-
-
-/* ==================================================
-   CATEGORY ICON
-================================================== */
+/* CATEGORY ICON */
 
 .category-icon {
   width: 38px;
@@ -394,11 +353,7 @@ nav a:focus-visible {
   stroke-width: 2;
 }
 
-
-
-/* ==================================================
-   CATEGORY TEXT
-================================================== */
+/* CATEGORY TEXT */
 
 .category-info {
   min-width: 0;
@@ -430,11 +385,7 @@ nav a:focus-visible {
   line-height: 1.2;
 }
 
-
-
-/* ==================================================
-   CATEGORY ARROW
-================================================== */
+/* CATEGORY ARROW */
 
 .category-arrow {
   margin-left: auto;
@@ -458,11 +409,7 @@ nav a:focus-visible {
   transform: translateX(3px);
 }
 
-
-
-/* ==================================================
-   CATEGORY COLORS
-================================================== */
+/* CATEGORY COLORS */
 
 /* Streaming */
 
@@ -478,7 +425,6 @@ nav a:focus-visible {
   color: var(--sports-streaming);
 }
 
-
 /* Reading */
 
 .manga-reading .category-icon {
@@ -492,7 +438,6 @@ nav a:focus-visible {
 .novel-reading .category-icon {
   color: var(--novel-reading);
 }
-
 
 /* Download */
 
@@ -508,7 +453,6 @@ nav a:focus-visible {
   color: var(--subtitle-download);
 }
 
-
 /* Data */
 
 .anime-database .category-icon {
@@ -523,11 +467,7 @@ nav a:focus-visible {
   color: var(--TV-database);
 }
 
-
-
-/* ==================================================
-   EXPLORE
-================================================== */
+/* EXPLORE */
 
 .explore {
   width: 100%;
@@ -557,11 +497,7 @@ nav a:focus-visible {
   line-height: 1.5;
 }
 
-
-
-/* ==================================================
-   DIRECTORY COLUMNS
-================================================== */
+/* DIRECTORY COLUMNS */
 
 .directory-columns {
   width: 100%;
@@ -585,11 +521,7 @@ nav a:focus-visible {
   gap: 16px;
 }
 
-
-
-/* ==================================================
-   DIRECTORY PANEL
-================================================== */
+/* DIRECTORY PANEL */
 
 .directory-panel {
   min-width: 0;
@@ -606,11 +538,7 @@ nav a:focus-visible {
     box-shadow 0.3s ease;
 }
 
-
-
-/* ==================================================
-   PANEL HEADER
-================================================== */
+/* PANEL HEADER */
 
 .panel-header {
   min-height: 68px;
@@ -664,11 +592,7 @@ nav a:focus-visible {
   line-height: 1.2;
 }
 
-
-
-/* ==================================================
-   PANEL COLORS
-================================================== */
+/* PANEL COLORS */
 
 /* Streaming */
 
@@ -684,7 +608,6 @@ nav a:focus-visible {
   background: var(--sports-streaming);
 }
 
-
 /* Reading */
 
 .manga-reading-panel .panel-header h3::after {
@@ -698,7 +621,6 @@ nav a:focus-visible {
 .novel-reading-panel .panel-header h3::after {
   background: var(--novel-reading);
 }
-
 
 /* Download */
 
@@ -714,7 +636,6 @@ nav a:focus-visible {
   background: var(--subtitle-download);
 }
 
-
 /* Data */
 
 .anime-database-panel .panel-header h3::after {
@@ -729,28 +650,17 @@ nav a:focus-visible {
   background: var(--TV-database);
 }
 
-
-
-/* ==================================================
-   SITE LIST
-================================================== */
+/* SITE LIST */
 
 .site-list {
   display: flex;
   flex-direction: column;
 }
 
-
-
-/* ==================================================
-   SITE ROW
-================================================== */
+/* SITE ROW */
 
 .site-row {
   min-height: 52px;
-
-  display: flex;
-  align-items: center;
   gap: 12px;
 
   padding: 0 16px;
@@ -776,11 +686,7 @@ nav a:focus-visible {
   background: #101010;
 }
 
-
-
-/* ==================================================
-   RANK
-================================================== */
+/* RANK */
 
 .rank {
   width: 24px;
@@ -795,11 +701,7 @@ nav a:focus-visible {
   user-select: none;
 }
 
-
-
-/* ==================================================
-   SITE LOGO
-================================================== */
+/* SITE LOGO */
 
 .site-logo {
   width: 30px;
@@ -835,11 +737,7 @@ nav a:focus-visible {
   object-fit: contain;
 }
 
-
-
-/* ==================================================
-   SITE NAME
-================================================== */
+/* SITE NAME */
 
 .site-name {
   min-width: 0;
@@ -858,11 +756,7 @@ nav a:focus-visible {
   white-space: nowrap;
 }
 
-
-
-/* ==================================================
-   VIEW ALL
-================================================== */
+/* VIEW ALL */
 
 .view-all {
   min-height: 46px;
@@ -911,11 +805,7 @@ nav a:focus-visible {
   outline-offset: -2px;
 }
 
-
-
-/* ==================================================
-   CATEGORY PAGE
-================================================== */
+/* CATEGORY PAGE */
 
 .category-page {
   width: 100%;
@@ -924,8 +814,6 @@ nav a:focus-visible {
   margin: 48px auto 0;
   padding-bottom: 80px;
 }
-
-
 
 /* Back Link */
 
@@ -959,8 +847,6 @@ nav a:focus-visible {
   border-radius: 4px;
 }
 
-
-
 /* Category Header */
 
 .category-page-header {
@@ -992,8 +878,6 @@ nav a:focus-visible {
   line-height: 1.4;
 }
 
-
-
 /* Category Page Icon */
 
 .category-page-icon {
@@ -1019,11 +903,7 @@ nav a:focus-visible {
   stroke-width: 2;
 }
 
-
-
-/* ==================================================
-   CATEGORY PAGE LIST
-================================================== */
+/* CATEGORY PAGE LIST */
 
 .category-page-list {
   overflow: hidden;
@@ -1038,20 +918,13 @@ nav a:focus-visible {
   border-bottom: 0;
 }
 
-
-
-/* ==================================================
-   RESPONSIVE - TABLET
-================================================== */
+/* RESPONSIVE - TABLET */
 
 @media (max-width: 900px) {
 
   .category-grid {
     grid-template-rows: none;
     grid-auto-flow: row;
-
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
   }
 
   .directory-columns {
@@ -1060,11 +933,7 @@ nav a:focus-visible {
 
 }
 
-
-
-/* ==================================================
-   RESPONSIVE - MOBILE
-================================================== */
+/* RESPONSIVE - MOBILE */
 
 @media (max-width: 600px) {
 
@@ -1072,11 +941,9 @@ nav a:focus-visible {
     width: calc(100% - 32px);
   }
 
-
   nav {
     gap: 16px;
   }
-
 
   .logo {
     font-size: 19px;
@@ -1086,7 +953,6 @@ nav a:focus-visible {
     width: 38px;
     height: 38px;
   }
-
 
   .nav-links {
     gap: 18px;
@@ -1099,7 +965,6 @@ nav a:focus-visible {
     white-space: nowrap;
   }
 
-
   .hero {
     padding-top: 34px;
   }
@@ -1108,34 +973,24 @@ nav a:focus-visible {
     font-size: 30px;
   }
 
-
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
-
-
   .category {
     min-height: 68px;
 
     padding: 12px 14px;
   }
 
-
   .explore {
     margin-top: 38px;
   }
-
 
   .category-page {
     margin-top: 32px;
     padding-bottom: 60px;
   }
 
-
   .back-link {
     margin-bottom: 24px;
   }
-
 
   .category-page-header {
     gap: 14px;
@@ -1144,7 +999,6 @@ nav a:focus-visible {
   .category-page-header h1 {
     font-size: 26px;
   }
-
 
   .category-page-icon {
     width: 44px;
@@ -1156,18 +1010,13 @@ nav a:focus-visible {
     height: 20px;
   }
 
-
   .site-row {
     padding: 0 14px;
   }
 
 }
 
-
-
-/* ==================================================
-   REDUCED MOTION
-================================================== */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1184,9 +1033,7 @@ nav a:focus-visible {
 
 }
 
-/* ==================================================
-   SUGGEST PAGE
-================================================== */
+/* SUGGEST PAGE */
 
 .suggest-page {
   width: 100%;
@@ -1195,7 +1042,6 @@ nav a:focus-visible {
   margin: 48px auto 0;
   padding-bottom: 80px;
 }
-
 
 .suggest-page-header {
   margin-bottom: 28px;
@@ -1222,11 +1068,7 @@ nav a:focus-visible {
   line-height: 1.6;
 }
 
-
-
-/* ==================================================
-   SUGGEST FORM
-================================================== */
+/* SUGGEST FORM */
 
 .suggest-form {
   display: flex;
@@ -1241,13 +1083,11 @@ nav a:focus-visible {
   border-radius: 10px;
 }
 
-
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 
 .form-group label {
   color: var(--text-primary);
@@ -1255,7 +1095,6 @@ nav a:focus-visible {
   font-size: 13px;
   font-weight: 500;
 }
-
 
 .form-group input,
 .form-group select,
@@ -1281,26 +1120,22 @@ nav a:focus-visible {
     box-shadow 0.2s ease;
 }
 
-
 .form-group textarea {
   min-height: 120px;
 
   resize: vertical;
 }
 
-
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: var(--text-muted);
 }
-
 
 .form-group input:hover,
 .form-group select:hover,
 .form-group textarea:hover {
   border-color: #343434;
 }
-
 
 .form-group input:focus,
 .form-group select:focus,
@@ -1311,22 +1146,16 @@ nav a:focus-visible {
     0 0 0 3px rgba(139, 44, 245, 0.08);
 }
 
-
 .form-group select {
   cursor: pointer;
 }
-
 
 .form-group option {
   background: #080808;
   color: var(--text-primary);
 }
 
-
-
-/* ==================================================
-   SUBMIT BUTTON
-================================================== */
+/* SUBMIT BUTTON */
 
 .suggest-submit {
   min-width: 170px;
@@ -1360,7 +1189,6 @@ nav a:focus-visible {
     transform 0.2s ease;
 }
 
-
 .suggest-submit::after {
   content: "→";
 
@@ -1370,7 +1198,6 @@ nav a:focus-visible {
 
   transition: transform 0.2s ease;
 }
-
 
 .suggest-submit:hover {
   background: rgba(139, 44, 245, 0.08);
@@ -1383,16 +1210,13 @@ nav a:focus-visible {
   transform: translateY(-1px);
 }
 
-
 .suggest-submit:hover::after {
   transform: translateX(3px);
 }
 
-
 .suggest-submit:active {
   transform: translateY(0);
 }
-
 
 .suggest-submit:focus-visible {
   outline: 2px solid var(--brand-purple);
@@ -1407,9 +1231,7 @@ nav a:focus-visible {
   transform: none;
 }
 
-/* ==================================================
-   FORM MESSAGE
-================================================== */
+/* FORM MESSAGE */
 
 .form-message {
   min-height: 18px;
@@ -1422,11 +1244,7 @@ nav a:focus-visible {
   line-height: 1.5;
 }
 
-
-
-/* ==================================================
-   SUGGEST PAGE - MOBILE
-================================================== */
+/* SUGGEST PAGE - MOBILE */
 
 @media (max-width: 600px) {
 
@@ -1450,9 +1268,7 @@ nav a:focus-visible {
 
 }
 
-/* ==================================================
-   FOOTER
-================================================== */
+/* FOOTER */
 
 .site-footer {
   border-top: 1px solid var(--border-purple);
@@ -1507,9 +1323,7 @@ nav a:focus-visible {
 
 }
 
-/* ==================================================
-   SUPPORT PAGE
-================================================== */
+/* SUPPORT PAGE */
 
 .support-page {
   width: 100%;
@@ -1519,11 +1333,9 @@ nav a:focus-visible {
   padding-bottom: 80px;
 }
 
-
 .support-page-header {
   margin-bottom: 28px;
 }
-
 
 .support-page-header h1 {
   margin: 0 0 10px;
@@ -1537,7 +1349,6 @@ nav a:focus-visible {
   letter-spacing: -0.02em;
 }
 
-
 .support-page-header p {
   margin: 0;
 
@@ -1547,11 +1358,7 @@ nav a:focus-visible {
   line-height: 1.6;
 }
 
-
-
-/* ==================================================
-   SUPPORT FORM
-================================================== */
+/* SUPPORT FORM */
 
 .support-form {
   display: flex;
@@ -1566,11 +1373,7 @@ nav a:focus-visible {
   border-radius: 10px;
 }
 
-
-
-/* ==================================================
-   SUPPORT BUTTON
-================================================== */
+/* SUPPORT BUTTON */
 
 .support-submit {
   min-width: 150px;
@@ -1604,7 +1407,6 @@ nav a:focus-visible {
     transform 0.2s ease;
 }
 
-
 .support-submit::after {
   content: "→";
 
@@ -1615,7 +1417,6 @@ nav a:focus-visible {
   transition:
     transform 0.2s ease;
 }
-
 
 .support-submit:hover {
   background: rgba(139, 44, 245, 0.08);
@@ -1628,22 +1429,18 @@ nav a:focus-visible {
   transform: translateY(-1px);
 }
 
-
 .support-submit:hover::after {
   transform: translateX(3px);
 }
-
 
 .support-submit:active {
   transform: translateY(0);
 }
 
-
 .support-submit:focus-visible {
   outline: 2px solid var(--brand-purple);
   outline-offset: 3px;
 }
-
 
 .support-submit:disabled {
   opacity: 0.55;
@@ -1653,11 +1450,7 @@ nav a:focus-visible {
   transform: none;
 }
 
-
-
-/* ==================================================
-   SUPPORT MOBILE
-================================================== */
+/* SUPPORT MOBILE */
 
 @media (max-width: 600px) {
 
@@ -1666,16 +1459,13 @@ nav a:focus-visible {
     padding-bottom: 60px;
   }
 
-
   .support-page-header h1 {
     font-size: 26px;
   }
 
-
   .support-form {
     padding: 18px;
   }
-
 
   .support-submit {
     width: 100%;
@@ -1692,9 +1482,7 @@ nav a:focus-visible {
 
 }
 
-/* ==================================================
-   CATEGORY EMPTY STATE
-================================================== */
+/* CATEGORY EMPTY STATE */
 
 .category-empty {
   padding: 48px 24px;
@@ -1752,9 +1540,7 @@ nav a:focus-visible {
   border-color: var(--brand-purple);
 }
 
-/* ==================================================
-   THEME TOGGLE
-================================================== */
+/* THEME TOGGLE */
 
 .theme-toggle {
   width: 34px;
@@ -1788,9 +1574,7 @@ nav a:focus-visible {
   border-color: var(--border-hover);
 }
 
-/* ==================================================
-   LIGHT MODE FIXES
-================================================== */
+/* LIGHT MODE FIXES */
 
 html[data-theme="light"] .site-list .site-row:nth-child(odd of .site-row) {
   background: #ffffff;
@@ -1804,7 +1588,6 @@ html[data-theme="light"] .site-list .site-row:hover {
   background: #ececf1;
 }
 
-
 /* Site logos */
 
 .site-logo {
@@ -1817,7 +1600,6 @@ html[data-theme="light"] .site-logo {
   border: 1px solid #3a3a42;
 }
 
-
 /* View all */
 
 html[data-theme="light"] .view-all {
@@ -1829,7 +1611,6 @@ html[data-theme="light"] .view-all:hover {
   background: #f1f1f3;
   color: #18181b;
 }
-
 
 /* Buttons */
 
@@ -1850,7 +1631,6 @@ html[data-theme="light"] .category-empty-link:hover {
   border-color: var(--brand-purple);
 }
 
-
 /* Form fields */
 
 html[data-theme="light"] .form-group input,
@@ -1867,9 +1647,7 @@ html[data-theme="light"] .form-group option {
   color: #18181b;
 }
 
-/* ==================================================
-   FAVORITES
-================================================== */
+/* FAVORITES */
 
 .site-row {
   display: flex;
@@ -1927,9 +1705,7 @@ html[data-theme="light"] .form-group option {
   color: var(--brand-purple);
 }
 
-/* ==================================================
-   FAVORITES SECTION
-================================================== */
+/* FAVORITES SECTION */
 
 .favorites-section {
   margin-top: 36px;
@@ -1944,9 +1720,7 @@ html[data-theme="light"] .form-group option {
   margin-top: 16px;
 }
 
-/* ==================================================
-   RECENTLY VIEWED
-================================================== */
+/* RECENTLY VIEWED */
 
 .recently-viewed {
   position: static;
@@ -2042,24 +1816,14 @@ html[data-theme="light"] .form-group option {
   text-overflow: ellipsis;
 }
 
-/* ==================================================
-   RECENTLY VIEWED - VIEW ALL
-================================================== */
+/* RECENTLY VIEWED - VIEW ALL */
 
 .recently-view-all {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
   min-height: 38px;
   margin-left: 2px;
   padding: 0 10px;
   background: transparent;
-  color: var(--text-muted);
   border: 0;
-  border-left: 1px solid var(--border-default);
-  text-decoration: none;
-  white-space: nowrap;
-  font-size: 11px;
   font-weight: 500;
   cursor: pointer;
   transition: color 0.2s ease, background-color 0.2s ease;
@@ -2070,9 +1834,7 @@ html[data-theme="light"] .form-group option {
   background: var(--hover-background);
 }
 
-/* ==================================================
-   SEARCH OVERLAY
-================================================== */
+/* SEARCH OVERLAY */
 
 .search-overlay {
   position: fixed;
@@ -2099,10 +1861,7 @@ body.search-open {
   overflow: hidden;
 }
 
-
-/* ==================================================
-   SEARCH MODAL
-================================================== */
+/* SEARCH MODAL */
 
 .search-modal {
   width: 100%;
@@ -2123,10 +1882,7 @@ body.search-open {
     rgba(0, 0, 0, 0.35);
 }
 
-
-/* ==================================================
-   SEARCH HEADER
-================================================== */
+/* SEARCH HEADER */
 
 .search-header {
   display: flex;
@@ -2223,10 +1979,7 @@ body.search-open {
   background: var(--hover-background);
 }
 
-
-/* ==================================================
-   SEARCH INFO
-================================================== */
+/* SEARCH INFO */
 
 .search-info {
   padding: 10px 16px;
@@ -2240,10 +1993,7 @@ body.search-open {
     var(--border-default);
 }
 
-
-/* ==================================================
-   SEARCH RESULTS
-================================================== */
+/* SEARCH RESULTS */
 
 .search-results {
   max-height: 440px;
@@ -2327,8 +2077,6 @@ body.search-open {
 
   color: var(--text-muted);
 
-  font-size: 11px;
-
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -2351,10 +2099,7 @@ body.search-open {
   text-align: center;
 }
 
-
-/* ==================================================
-   SEARCH MOBILE
-================================================== */
+/* SEARCH MOBILE */
 
 @media (max-width: 600px) {
 
@@ -2382,9 +2127,7 @@ body.search-open {
 
 }
 
-/* ==================================================
-   ACTIVITY PAGE
-================================================== */
+/* ACTIVITY PAGE */
 
 .activity-page {
   width: min(
@@ -2400,10 +2143,7 @@ body.search-open {
     80px;
 }
 
-
-/* ==================================================
-   ACTIVITY HEADING
-================================================== */
+/* ACTIVITY HEADING */
 
 .activity-heading {
   display: flex;
@@ -2451,10 +2191,7 @@ body.search-open {
   font-size: 13px;
 }
 
-
-/* ==================================================
-   CLEAR
-================================================== */
+/* CLEAR */
 
 .activity-clear {
   flex-shrink: 0;
@@ -2490,10 +2227,7 @@ body.search-open {
     var(--hover-background);
 }
 
-
-/* ==================================================
-   ACTIVITY TABS
-================================================== */
+/* ACTIVITY TABS */
 
 .activity-tabs {
   display: inline-flex;
@@ -2546,10 +2280,7 @@ body.search-open {
     var(--hover-background);
 }
 
-
-/* ==================================================
-   ACTIVITY INFO
-================================================== */
+/* ACTIVITY INFO */
 
 .activity-info {
   margin-bottom: 10px;
@@ -2559,10 +2290,7 @@ body.search-open {
   font-size: 11px;
 }
 
-
-/* ==================================================
-   ACTIVITY LIST
-================================================== */
+/* ACTIVITY LIST */
 
 .activity-list {
   overflow: hidden;
@@ -2679,10 +2407,7 @@ body.search-open {
   font-size: 14px;
 }
 
-
-/* ==================================================
-   EMPTY ACTIVITY
-================================================== */
+/* EMPTY ACTIVITY */
 
 .activity-empty {
   padding:
@@ -2714,10 +2439,7 @@ body.search-open {
   font-size: 12px;
 }
 
-
-/* ==================================================
-   ACTIVITY MOBILE
-================================================== */
+/* ACTIVITY MOBILE */
 
 @media (max-width: 600px) {
 
@@ -2755,14 +2477,9 @@ body.search-open {
 
 }
 
-/* ==================================================
-   WEBSHELF FEATURE BATCH
-   Mobile nav + Quick Preview + Activity actions
-================================================== */
+/* WEBSHELF FEATURE BATCH Mobile nav + Quick Preview + Activity actions */
 
-/* ==================================================
-   INLINE SITE PREVIEW
-================================================== */
+/* INLINE SITE PREVIEW */
 
 .site-preview-toggle {
   width: 34px;
@@ -2988,9 +2705,7 @@ body.search-open {
   color: #d57878;
 }
 
-/* ==================================================
-   ACTIVITY ROW ACTIONS
-================================================== */
+/* ACTIVITY ROW ACTIONS */
 
 .activity-link {
   min-width: 0;
@@ -3036,7 +2751,6 @@ body.search-open {
   background: var(--hover-background);
 }
 
-
 /* ==================================================
    RECENTLY VIEWED -> ACTIVITY LINK
 ================================================== */
@@ -3044,13 +2758,9 @@ body.search-open {
 .recently-view-all {
   display: block;
   text-align: center;
-  text-decoration: none;
 }
 
-
-/* ==================================================
-   MOBILE NAVIGATION
-================================================== */
+/* MOBILE NAVIGATION */
 
 .site-header {
   position: relative;
@@ -3219,7 +2929,6 @@ body.search-open {
 
 }
 
-
 /* ==================================================
    DATA-DRIVEN DIRECTORY
    New categories added in data.js appear automatically.
@@ -3256,9 +2965,7 @@ body.search-open {
   }
 }
 
-/* ==================================================
-   SITE BADGES
-================================================== */
+/* SITE BADGES */
 
 .site-name-line,
 .activity-site-name-line,
@@ -3337,10 +3044,7 @@ html[data-theme="light"] .site-badge {
   }
 }
 
-
-/* ==================================================
-   ACTIVITY DATA ACTIONS
-================================================== */
+/* ACTIVITY DATA ACTIONS */
 
 .activity-actions {
   display: flex;
@@ -3368,9 +3072,7 @@ html[data-theme="light"] .site-badge {
   border-color: var(--border-hover);
 }
 
-/* ==================================================
-   FINAL RESPONSIVE POLISH
-================================================== */
+/* FINAL RESPONSIVE POLISH */
 
 @media (max-width: 900px) {
   .categories-header {
@@ -3436,10 +3138,7 @@ html[data-theme="light"] .site-badge {
 
 }
 
-
-/* ==================================================
-   FAVORITES SCALE POLISH
-================================================== */
+/* FAVORITES SCALE POLISH */
 
 .favorites-view-all {
   width: 100%;
@@ -3458,10 +3157,7 @@ html[data-theme="light"] .site-badge {
   background: var(--hover-background);
 }
 
-
-/* ==================================================
-   LARGE CATALOG PERFORMANCE
-================================================== */
+/* LARGE CATALOG PERFORMANCE */
 
 .dynamic-directory-panel {
   content-visibility: auto;
@@ -3473,73 +3169,7 @@ html[data-theme="light"] .site-badge {
   contain-intrinsic-size: 72px;
 }
 
-/* ==================================================
-   COLLECTIONS
-================================================== */
-
-.collections-section,
-.recent-changes-section {
-  margin: 34px 0;
-}
-
-.collections-section[hidden],
-.recent-changes-section[hidden] {
-  display: none;
-}
-
-.collections-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.collection-card {
-  position: relative;
-  min-height: 105px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  padding: 16px 42px 16px 16px;
-  color: var(--text-primary);
-  background: var(--panel-background);
-  border: 1px solid var(--border-default);
-  border-radius: 10px;
-  text-decoration: none;
-  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
-}
-
-.collection-card:hover {
-  border-color: rgba(139, 44, 245, .52);
-  background: var(--hover-background);
-  transform: translateY(-1px);
-}
-
-.collection-card-kicker {
-  color: var(--brand-purple);
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-}
-
-.collection-card strong {
-  font-size: 13px;
-}
-
-.collection-card > span:not(.collection-card-kicker):not(.collection-card-arrow) {
-  color: var(--text-muted);
-  font-size: 10px;
-}
-
-.collection-card-arrow {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  color: var(--text-muted);
-  transform: translateY(-50%);
-}
+/* COLLECTIONS */
 
 .collection-site-category {
   margin-left: auto;
@@ -3549,18 +3179,8 @@ html[data-theme="light"] .site-badge {
   white-space: nowrap;
 }
 
-/* ==================================================
-   RECENTLY ADDED / UPDATED
-================================================== */
+/* RECENTLY ADDED / UPDATED */
 
-.recent-changes-heading {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.recent-changes-tabs,
 .activity-periods {
   display: inline-flex;
   gap: 4px;
@@ -3570,7 +3190,6 @@ html[data-theme="light"] .site-badge {
   border-radius: 9px;
 }
 
-.recent-change-tab,
 .activity-period {
   padding: 7px 10px;
   background: transparent;
@@ -3583,88 +3202,17 @@ html[data-theme="light"] .site-badge {
   cursor: pointer;
 }
 
-.recent-change-tab:hover,
-.recent-change-tab.active,
 .activity-period:hover,
 .activity-period.active {
   color: var(--text-primary);
   background: var(--hover-background);
 }
 
-.recent-change-tab.active,
 .activity-period.active {
   box-shadow: inset 0 0 0 1px rgba(139, 44, 245, .28);
 }
 
-.recent-changes-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 9px;
-  margin-top: 14px;
-}
-
-.recent-change-item {
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  color: inherit;
-  background: var(--panel-background);
-  border: 1px solid var(--border-default);
-  border-radius: 9px;
-  text-decoration: none;
-}
-
-.recent-change-item:hover {
-  background: var(--hover-background);
-  border-color: var(--border-hover);
-}
-
-.recent-change-logo {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border-radius: 6px;
-}
-
-.recent-change-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.recent-change-item > div:nth-child(2) {
-  min-width: 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.recent-change-item strong {
-  overflow: hidden;
-  font-size: 11px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.recent-change-item > div:nth-child(2) span {
-  color: var(--text-muted);
-  font-size: 9px;
-}
-
-.recent-change-arrow {
-  color: var(--text-muted);
-  font-size: 11px;
-}
-
-/* ==================================================
-   CATEGORY / COLLECTION SITE FILTERS
-================================================== */
+/* CATEGORY / COLLECTION SITE FILTERS */
 
 .site-filter-bar {
   display: flex;
@@ -3714,9 +3262,7 @@ html[data-theme="light"] .site-badge {
   outline: none;
 }
 
-/* ==================================================
-   PREVIEW PERSONAL ACTIONS + MIRRORS
-================================================== */
+/* PREVIEW PERSONAL ACTIONS + MIRRORS */
 
 .site-preview-mirrors {
   margin-top: 10px;
@@ -3765,9 +3311,7 @@ html[data-theme="light"] .site-badge {
   border-color: rgba(213, 120, 120, .45);
 }
 
-/* ==================================================
-   ACTIVITY PERIODS / HIDDEN
-================================================== */
+/* ACTIVITY PERIODS / HIDDEN */
 
 .activity-periods {
   margin: 0 0 16px;
@@ -3783,9 +3327,7 @@ html[data-theme="light"] .site-badge {
   font-size: 9px;
 }
 
-/* ==================================================
-   PWA INSTALL
-================================================== */
+/* PWA INSTALL */
 
 .install-app-button {
   min-height: 32px;
@@ -3814,22 +3356,7 @@ html[data-theme="light"] .site-badge {
   text-align: left;
 }
 
-@media (max-width: 1050px) {
-  .collections-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .recent-changes-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-
 @media (max-width: 700px) {
-  .collections-grid,
-  .recent-changes-list { grid-template-columns: 1fr; }
-
-  .recent-changes-heading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .recent-changes-tabs { width: 100%; }
-  .recent-change-tab { flex: 1; }
   .collection-site-category { display: none; }
 
   .nav-links > .install-app-button {
@@ -3849,9 +3376,7 @@ html[data-theme="light"] .site-badge {
   }
 }
 
-/* ==================================================
-   POLISH + SPEED PASS
-================================================== */
+/* POLISH + SPEED PASS */
 
 .sr-only {
   position: absolute;
@@ -4051,17 +3576,6 @@ html[data-theme="light"] .site-badge {
   cursor: pointer;
 }
 
-.recent-changes-empty {
-  grid-column: 1 / -1;
-  padding: 24px 16px;
-  color: var(--text-muted);
-  background: var(--panel-background);
-  border: 1px solid var(--border-default);
-  border-radius: 9px;
-  text-align: center;
-  font-size: 11px;
-}
-
 /* Readability: keep the dense style, remove unnecessarily tiny text. */
 .site-name,
 .activity-site-name {
@@ -4078,10 +3592,7 @@ html[data-theme="light"] .site-badge {
 
 .site-preview-subheading,
 .site-preview-action,
-.favorite-list-chip,
-.favorite-list-add,
-.activity-period,
-.recent-change-tab {
+.activity-period {
   font-size: 10px;
 }
 
@@ -4228,10 +3739,7 @@ html[data-theme="light"] .site-badge {
   background: transparent;
 }
 
-
-/* ==================================================
-   SIMPLE UX PASS — SEARCH / FAVORITES / RECENT / DIALOGS
-================================================== */
+/* SIMPLE UX PASS — SEARCH / FAVORITES / RECENT / DIALOGS */
 
 /* Give the site name a little breathing room from the logo. */
 .site-name-line {
@@ -4365,9 +3873,7 @@ body.dialog-open {
   }
 }
 
-/* ==================================================
-   FINAL SIDEBAR + VISIBILITY FIXES
-================================================== */
+/* FINAL SIDEBAR + VISIBILITY FIXES */
 
 /* Homepage: personal shortcuts live in the empty left column without overlaying content. */
 .home-layout {
@@ -4633,9 +4139,7 @@ html[data-theme="light"] .sidebar-favorites .site-row:hover {
   grid-template-columns: minmax(0, 1fr);
 }
 
-/* =========================================
-   FINAL ROW STRIPING OVERRIDE
-========================================= */
+/* FINAL ROW STRIPING OVERRIDE */
 
 .directory-panel .site-list .site-row:nth-child(odd of .site-row),
 .category-page .site-list .site-row:nth-child(odd of .site-row) {
@@ -4667,3 +4171,10 @@ html[data-theme="light"] .directory-panel .site-list .site-row:hover,
 html[data-theme="light"] .category-page .site-list .site-row:hover {
   background: #e9e9ee !important;
 }
+
+/* Accessible navigation and image failure states. */
+.logo-fallback { display:inline-flex; align-items:center; justify-content:center; width:100%; height:100%; min-width:24px; min-height:24px; font-style:normal; font-weight:700; color:var(--text-primary, #ddd); }
+.logo > .logo-fallback { width:36px; height:36px; border:1px solid currentColor; border-radius:8px; }
+.skip-link { position:fixed; top:8px; left:8px; transform:translateY(-200%); z-index:10000; padding:12px 18px; color:#fff; background:#39206a; border-radius:8px; }
+.skip-link:focus { transform:translateY(0); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:0.01ms !important; transition-duration:0.01ms !important; } }

@@ -1,27 +1,7 @@
 const SCOPE_PATH = new URL(self.registration.scope).pathname;
 const CACHE_PREFIX = 'webshelf-' + SCOPE_PATH + '-';
-const CACHE_NAME = CACHE_PREFIX + '335eb0f61d51';
-const CORE = [
-  "./",
-  "./style.css",
-  "./data.js",
-  "./common.js",
-  "./manifest.webmanifest",
-  "./index.html",
-  "./index.bundle.js",
-  "./category.html",
-  "./category.bundle.js",
-  "./collection.html",
-  "./collection.bundle.js",
-  "./activity.html",
-  "./activity.bundle.js",
-  "./support.html",
-  "./support.bundle.js",
-  "./suggest.html",
-  "./suggest.bundle.js",
-  "./images/icons/WS-Logo-192.png",
-  "./images/icons/WS-Logo-512.png"
-];
+const CACHE_NAME = CACHE_PREFIX + '__VERSION__';
+const CORE = __CORE__;
 const corePaths = new Set(CORE.map(value => new URL(value, self.registration.scope).pathname));
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));

@@ -3,6 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#000000">
+  <script id="theme-bootstrap">
+    (function () {
+      var theme = "dark";
+      try { if (localStorage.getItem("webshelf-theme") === "light") theme = "light"; } catch (_) {}
+      document.documentElement.setAttribute("data-theme", theme);
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "light" ? "#f5f5f7" : "#000000");
+    })();
+  </script>
 
   <meta
     name="viewport"
@@ -16,7 +25,6 @@
 
   <title>Category - WebShelf</title>
   <link rel="manifest" href="./manifest.webmanifest">
-  <meta name="theme-color" content="#000000">
 
   <meta
     id="category-description"
@@ -31,7 +39,7 @@
 <!-- Favicon -->
   <link
     rel="icon"
-    href="./images/icons/WS-Logo.png"
+    href="./images/icons/WS-Logo-192.png"
     type="image/png"
   >
 
@@ -45,6 +53,7 @@
 
 
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- ==================================================
      NAVBAR
@@ -59,7 +68,7 @@
       class="logo"
     >
       <img
-        src="./images/icons/WS-Logo.png"
+        src="./images/icons/WS-Logo-192.png"
         alt="WebShelf Logo"
       >
 
@@ -118,7 +127,7 @@
        MAIN
   =================================================== -->
 
-  <main class="container">
+  <main tabindex="-1" id="main-content" class="container">
 
     <section class="category-page">
 
@@ -218,27 +227,9 @@
        SCRIPTS
   =================================================== -->
 
-  <script src="./icons.js"></script>
   <script src="./data.js"></script>
-  <script src="./hidden.js"></script>
-  <script src="./dialogs.js"></script>
-  <script src="./favorites.js"></script>
-  <script src="./recently-viewed.js"></script>
-  <script src="./category.js"></script>
-  <script src="./preview.js"></script>
-  <script src="./badge-filters.js"></script>
-  <script src="./search.js"></script>
-  <script src="./navigation.js"></script>
-  <script src="./shortcuts.js"></script>
-  <script src="./theme.js"></script>
-  <script src="./pwa.js"></script>
-
-  <script>
-    if (window.lucide) {
-      lucide.createIcons();
-    }
-  </script>
-
+<script src="./common.js"></script>
+<script src="./category.bundle.js"></script>
 </body>
 
 </html>

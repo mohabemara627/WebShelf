@@ -2,20 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#000000">
+  <script id="theme-bootstrap">
+    (function () {
+      var theme = "dark";
+      try { if (localStorage.getItem("webshelf-theme") === "light") theme = "light"; } catch (_) {}
+      document.documentElement.setAttribute("data-theme", theme);
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "light" ? "#f5f5f7" : "#000000");
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Collection - WebShelf</title>
   <meta id="collection-description" name="description" content="Browse a curated WebShelf collection.">
   <link id="collection-canonical" rel="canonical" href="https://www.webshelf.link/collection.html">
   <link rel="manifest" href="./manifest.webmanifest">
-  <meta name="theme-color" content="#000000">
-<link rel="icon" href="./images/icons/WS-Logo.png" type="image/png">
+<link rel="icon" href="./images/icons/WS-Logo-192.png" type="image/png">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <nav class="container">
-      <a href="./index.html" class="logo"><img src="./images/icons/WS-Logo.png" alt="WebShelf Logo"><span>WebShelf</span></a>
+      <a href="./index.html" class="logo"><img src="./images/icons/WS-Logo-192.png" alt="WebShelf Logo"><span>WebShelf</span></a>
       <div class="nav-links">
         <a href="./index.html" class="directory active">Directory</a>
         <a href="./activity.html" class="activity">Activity</a>
@@ -26,7 +35,7 @@
     </nav>
   </header>
 
-  <main class="container">
+  <main tabindex="-1" id="main-content" class="container">
     <section class="category-page collection-page">
       <a href="./index.html" class="back-link">← Back to Directory</a>
       <div class="category-page-header">
@@ -51,20 +60,8 @@
     </div>
   </footer>
 
-  <script src="./icons.js"></script>
   <script src="./data.js"></script>
-  <script src="./hidden.js"></script>
-  <script src="./dialogs.js"></script>
-  <script src="./favorites.js"></script>
-  <script src="./recently-viewed.js"></script>
-  <script src="./collection.js"></script>
-  <script src="./preview.js"></script>
-  <script src="./badge-filters.js"></script>
-  <script src="./search.js"></script>
-  <script src="./navigation.js"></script>
-  <script src="./shortcuts.js"></script>
-  <script src="./theme.js"></script>
-  <script src="./pwa.js"></script>
-  <script>window.lucide?.createIcons?.();</script>
+<script src="./common.js"></script>
+<script src="./collection.bundle.js"></script>
 </body>
 </html>

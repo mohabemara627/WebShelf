@@ -1,0 +1,6 @@
+maintenance/node_modules/
+maintenance/.transaction/
+maintenance/.lock
+maintenance/import-report.json
+*.tmp
+public/

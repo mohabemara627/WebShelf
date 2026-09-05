@@ -1,0 +1,41 @@
+// ==================================================
+// SUPPORT FORM
+// ==================================================
+
+const supportForm = document.querySelector("#support-form");
+const supportMessage = document.querySelector("#support-message-status");
+const supportButton = document.querySelector("#support-submit");
+const supportType = document.querySelector("#support-type");
+const supportUrl = document.querySelector("#support-url");
+const supportTextarea = document.querySelector("#support-message");
+
+function applySupportPrefill() {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+  const site = params.get("site");
+  const url = params.get("url");
+
+  if (type && supportType && [...supportType.options].some((option) => option.value === type)) {
+    supportType.value = type;
+  }
+
+  if (url && supportUrl) {
+    try {
+      const parsed = new URL(url);
+      if (parsed.protocol === "http:" || parsed.protocol === "https:") supportUrl.value = parsed.href;
+    } catch {
+      // Ignore malformed URLs from the query string.
+    }
+  }
+
+  if (site && supportTextarea && !supportTextarea.value) {
+    supportTextarea.value = `Problem with ${site}: `;
+    supportTextarea.setSelectionRange(supportTextarea.value.length, supportTextarea.value.length);
+  }
+}
+
+applySupportPrefill();
+
+WebShelfRuntime.bindForm(supportForm, supportMessage, supportButton, {
+  sending: 'Sending message...', success: 'Message sent successfully.', failure: 'Unable to send your message right now.'
+});

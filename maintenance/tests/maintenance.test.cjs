@@ -1,0 +1,59 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),vm=require('node:vm'),http=require('node:http'),cp=require('node:child_process');
+const L=require('../lib.cjs'),I=require('../image.cjs'),F=require('../favicon.cjs'),B=require('../build.cjs'),V=require('../validate.cjs'),T=require('../transaction.cjs'),Import=require('../import-sites.cjs');
+function copy(){const root=fs.mkdtempSync(path.join(os.tmpdir(),'webshelf-test-'));for(const file of [...L.publicFiles(L.ROOT),...L.walk(path.join(L.ROOT,'maintenance')).filter(f=>!f.startsWith('.')&&!f.startsWith('node_modules/')).map(f=>'maintenance/'+f)]){const dest=path.join(root,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(L.ROOT,file),dest);}return root;}
+function clean(root){assert.ok(path.resolve(root).startsWith(path.join(os.tmpdir(),'webshelf-test-')));fs.rmSync(root,{recursive:true});}
+function hashes(root){return Object.fromEntries([...L.publicFiles(root),'maintenance/catalog.json'].sort().map(f=>[f,L.digest(fs.readFileSync(path.join(root,f)))]));}
+test('final catalog integrity and deterministic build',()=>{assert.ok(L.readCatalog().length > 0);assert.ok(L.flatten(L.readCatalog()).length > 0);assert.deepEqual(V.validate(L.ROOT,{quiet:true}).errors,[]);const root=copy();try{B.build(root);const first=hashes(root);B.build(root);assert.deepEqual(hashes(root),first);}finally{clean(root);}});
+test('normalization catches URL variants without conflating path case or query values',()=>{assert.equal(L.urlKey('EXAMPLE.com:443'),L.urlKey('https://example.com/'));});
+test('safe URLs and duplicate detection',()=>{
+ for(const s of ['javascript:alert(1)','https://u:p@example.com/','https://example.com/\\evil','https://example.com/a b','file:///test',''])assert.throws(()=>L.normalizeURL(s));
+ assert.equal(L.urlKey('https://EXAMPLE.com:443/x/?b=2&a=1#frag'),L.urlKey('https://example.com/x?a=1&b=2'));assert.notEqual(L.urlKey('https://example.com/A'),L.urlKey('https://example.com/a'));
+ const catalog=L.readCatalog();catalog[0].sites.push({...catalog[0].sites[0]});assert.match(L.checkCatalog(catalog).join(' '),/Duplicate URL/);
+});
+test('CSV quoting and import categorization',()=>{
+ const rows=Import.csv('name,url,category,description,badges\r\n"Example, One",example.com,Anime Streaming,"line 1\nline 2","Ar, HD"\r\n');assert.equal(rows[0].description,'line 1\nline 2');assert.throws(()=>Import.csv('name,url,category\n"broken'));
+ const result=Import.prepare([...rows,{name:'copy',url:L.readCatalog()[0].sites[0].url,category:'anime-streaming'},{name:'bad',url:'javascript:x',category:'anime-streaming'},{name:'badcat',url:'https://example.org',category:'oops'}],L.readCatalog());assert.deepEqual(result.report.map(r=>r.status),['planned','duplicate','invalid_url','invalid_category']);
+});
+test('favicon content detection rejects HTML, broken containers and active SVG',()=>{
+ const png=fs.readFileSync(path.join(L.ROOT,'images/icons/WS-Logo-192.png'));assert.equal(I.inspect(png).type,'png');assert.throws(()=>I.inspect(Buffer.from('<html>not an image</html>')));assert.throws(()=>I.inspect(png.subarray(0,50)));
+ for(const content of ['<script>alert(1)</script>','<rect onload="alert(1)"/>','<foreignObject/>','<image href="javascript:alert(1)"/>','<image href="https://evil.example/x"/>','<style><![CDATA[@import "https://evil.example/x";]]></style>'])assert.throws(()=>I.inspect(Buffer.from('<svg xmlns="http://www.w3.org/2000/svg">'+content+'</svg>')));
+ assert.equal(I.inspect(Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"><rect fill="url(\'#safe\')"/></svg>')).type,'svg');
+});
+test('favicon HTML parser handles relative links, base, entities and raster preference',()=>{const urls=F.candidates('<base href="/assets/"><link REL="shortcut icon" href="a?x=1&amp;y=2"><link rel="icon" type="image/svg+xml" href="x.svg"><link rel="apple-touch-icon" sizes="180x180" href="large">','https://example.com/path/');assert.equal(urls[0],'https://example.com/assets/large');assert.ok(urls.includes('https://example.com/assets/a?x=1&y=2'));assert.equal(urls.at(-1),'https://example.com/assets/x.svg');});
+test('favicon redirects, signatures independent of MIME, invalid candidates and fallback',async()=>{
+ const png=fs.readFileSync(path.join(L.ROOT,'images/icons/WS-Logo-192.png'));
+ const server=http.createServer((req,res)=>{if(req.url==='/start')return res.writeHead(302,{Location:'/page'}).end();if(req.url==='/page')return res.end('<link rel="icon" sizes="256x256" href="/bad"><link rel="icon" href="/image">');if(req.url==='/bad')return res.end('<html>bad</html>');if(req.url==='/image')return res.writeHead(200,{'Content-Type':'application/octet-stream'}).end(png);res.writeHead(404).end();});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));try{const base='http://127.0.0.1:'+server.address().port;const result=await F.resolveIcon(base+'/start');assert.equal(result.info.type,'png');assert.ok(result.bytes.equals(png));assert.ok(result.failures.some(f=>f.includes('/bad')));}finally{server.closeAllConnections();await new Promise(r=>server.close(r));}
+});
+test('icon filenames never overwrite existing or pending icons',()=>{const pending=new Map(),result={bytes:Buffer.from('x'),info:{extension:'png'}};const a=F.allocate(L.ROOT,'WS Logo 192',result,pending),b=F.allocate(L.ROOT,'WS Logo 192',result,pending);assert.notEqual(a,b);assert.match(a,/images\/icons\/ws-logo-192-2\.png/);});
+test('dry-run changes no files and makes no favicon requests',async()=>{const root=copy();try{const before=hashes(root);let requests=0;const report=await Import.importRows([{name:'Temporary',url:'https://example.com/',category:'anime-streaming'}],{root,dryRun:true,resolver:async()=>{requests++;}});assert.equal(report.summary.planned,1);assert.equal(requests,0);assert.deepEqual(hashes(root),before);assert.ok(!fs.existsSync(path.join(root,'maintenance/import-report.json')));}finally{clean(root);}});
+test('temporary add, rebuild, remove and exact restore with transactional rollback',()=>{
+ const root=copy();try{const original=L.readCatalog(root),before=hashes(root),catalog=structuredClone(original);catalog[0].sites.push({name:'Temporary',url:'https://example.com/',icon:''});
+  for(const testFailure of ['validation','commit']){assert.throws(()=>T.commit(catalog,{root,testFailure}));assert.deepEqual(hashes(root),before);}
+  T.commit(catalog,{root});assert.equal(L.flatten(L.readCatalog(root)).length,121);assert.deepEqual(V.validate(root,{quiet:true,git:false}).errors,[]);T.commit(original,{root});assert.deepEqual(hashes(root),before);
+ }finally{clean(root);}
+});
+test('bulk import commits good rows together despite favicon failures',async()=>{const root=copy();try{const report=await Import.importRows([{name:'Temporary1',url:'https://example.com/',category:'anime-streaming'},{name:'Temporary2',url:'https://example.org/',category:'TV-streaming'},{name:'duplicate',url:'https://example.com/#x',category:'TV-streaming'}],{root,resolver:async()=>{throw Error('offline test');}});assert.equal(report.summary.successfullyAdded,2);assert.equal(report.summary.faviconFailures,2);assert.equal(report.summary.skippedDuplicates,1);assert.deepEqual(V.validate(root,{quiet:true,git:false}).errors,[]);}finally{clean(root);}});
+test('validator detects stale data, missing icon, signature mismatch and remains read-only',()=>{const root=copy();try{fs.appendFileSync(path.join(root,'data.js'),'// stale');const icon=path.join(root,'images/icons/animenexus.png');fs.writeFileSync(icon,'<html>oops</html>');const before=hashes(root),result=V.validate(root,{quiet:true,git:false});assert.ok(result.errors.some(e=>e.includes('stale')));assert.ok(result.errors.some(e=>e.includes('intact image')));assert.deepEqual(hashes(root),before);fs.unlinkSync(icon);assert.ok(V.validate(root,{quiet:true,git:false}).errors.some(e=>e.includes('missing')));}finally{clean(root);}});
+test('Git index casing is checked independently of Windows filesystem casing',()=>{const root=copy();try{cp.execFileSync('git',['init','-q'],{cwd:root});cp.execFileSync('git',['add','images/icons/animenexus.png'],{cwd:root});const oid=cp.execFileSync('git',['hash-object','images/icons/animenexus.png'],{cwd:root,encoding:'utf8'}).trim();cp.execFileSync('git',['update-index','--add','--cacheinfo','100644,'+oid+',images/Icons/animenexus.png'],{cwd:root});assert.ok(V.validate(root,{quiet:true}).errors.some(e=>e.includes('Git tracks incorrect icon casing')));}finally{clean(root);}});
+test('head bootstrap and toggle synchronize browser chrome in both themes and cross-tab events',()=>{
+ for(const page of Object.keys(L.pages).filter(p=>p!=='common')){const html=fs.readFileSync(path.join(L.ROOT,page+'.html'),'utf8'),script=html.match(/<script id="theme-bootstrap">([\s\S]*?)<\/script>/)[1];assert.ok(html.indexOf('charset=')<html.indexOf('theme-bootstrap'));assert.ok(html.indexOf('theme-bootstrap')<html.indexOf('style.css'));
+  for(const saved of ['light','dark',null,'invalid','blocked']){let theme,color;const document={documentElement:{setAttribute:(k,v)=>theme=v},querySelector:()=>({setAttribute:(k,v)=>color=v})};vm.runInNewContext(script,{document,localStorage:{getItem:()=>{if(saved==='blocked')throw Error();return saved;}}});assert.equal(theme,saved==='light'?'light':'dark');assert.equal(color,saved==='light'?'#f5f5f7':'#000000');}
+ }
+ let theme='light',saved='light',color,click,changed;const button={setAttribute(){},addEventListener:(n,f)=>click=f},meta={setAttribute:(k,v)=>color=v},document={querySelector:s=>s==='#theme-toggle'?button:meta,documentElement:{getAttribute:()=>theme,setAttribute:(k,v)=>theme=v},addEventListener:(n,f)=>changed=f};
+ vm.runInNewContext(fs.readFileSync(path.join(L.ROOT,'maintenance/src/theme.js'),'utf8'),{document,WebShelfRuntime:{storage:{getItem:()=>saved,setItem:(k,v)=>saved=v}}});assert.equal(color,'#f5f5f7');click();assert.equal(color,'#000000');saved='light';changed();assert.equal(color,'#f5f5f7');
+});
+test('icon replacement changes only its reference and worker version, and preserves shared icons',()=>{
+ const root=copy();try{const catalog=L.readCatalog(root),old=catalog[0].sites[0].icon,icons=new Map(),bytes=fs.readFileSync(path.join(root,'images/icons/WS-Logo-192.png'));
+  catalog[0].sites[0].icon=F.allocate(root,'Replacement', {bytes,info:I.inspect(bytes)},icons);const worker=fs.readFileSync(path.join(root,'service-worker.js'),'utf8');
+  T.commit(catalog,{root,icons,removeIcons:[old.replace(/^\.\//,'')]});assert.ok(!fs.existsSync(path.join(root,old)));assert.notEqual(fs.readFileSync(path.join(root,'service-worker.js'),'utf8'),worker);
+  const next=L.readCatalog(root),shared=next[0].sites[0].icon;next[0].sites[1].icon=shared;T.commit(next,{root});next[0].sites.shift();T.commit(next,{root,removeIcons:[shared.replace(/^\.\//,'')]});assert.ok(fs.existsSync(path.join(root,shared)));
+ }finally{clean(root);}
+});
+test('editing and reordering preserves unrelated relative order; changed categories update sitemap',()=>{
+ const root=copy();try{const catalog=L.readCatalog(root),original=catalog[0].sites.map(s=>s.url),site=catalog[0].sites.splice(3,1)[0];site.description='Edited in test';catalog[0].sites.splice(1,0,site);T.commit(catalog,{root});assert.deepEqual(L.readCatalog(root)[0].sites.filter(s=>s.url!==site.url).map(s=>s.url),original.filter(u=>u!==site.url));
+  const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');assert.equal(sitemap,fs.readFileSync(path.join(L.ROOT,'sitemap.xml'),'utf8'));
+  catalog.push({key:'new-category',title:'New Category',group:'Reading',icon:'folder',accent:'var(--brand-purple)',sites:[]});T.commit(catalog,{root});assert.ok(fs.readFileSync(path.join(root,'sitemap.xml'),'utf8').includes('type=new-category'));assert.deepEqual(V.validate(root,{quiet:true,git:false}).errors,[]);
+ }finally{clean(root);}
+});
+
