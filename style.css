@@ -3691,23 +3691,53 @@ html[data-theme="light"] .site-badge {
     gap: 8px;
   }
 
-  .category-grid .category:nth-child(1)  { order: 1; }
-  .category-grid .category:nth-child(3)  { order: 2; }
+.category[data-category-key="anime-streaming"] {
+  order: 1;
+}
 
-  .category-grid .category:nth-child(5)  { order: 3; }
-  .category-grid .category:nth-child(7)  { order: 4; }
+.category[data-category-key="anime-download"] {
+  order: 2;
+}
 
-  .category-grid .category:nth-child(9)  { order: 5; }
-  .category-grid .category:nth-child(11) { order: 6; }
+.category[data-category-key="tv-streaming"] {
+  order: 3;
+}
 
-  .category-grid .category:nth-child(2)  { order: 7; }
-  .category-grid .category:nth-child(4)  { order: 8; }
+.category[data-category-key="tv-download"] {
+  order: 4;
+}
 
-  .category-grid .category:nth-child(6)  { order: 9; }
-  .category-grid .category:nth-child(8)  { order: 10; }
+.category[data-category-key="sports-streaming"] {
+  order: 5;
+}
 
-  .category-grid .category:nth-child(10) { order: 11; }
-  .category-grid .category:nth-child(12) { order: 12; }
+.category[data-category-key="subtitle-download"] {
+  order: 6;
+}
+
+.category[data-category-key="manga-reading"] {
+  order: 7;
+}
+
+.category[data-category-key="anime-database"] {
+  order: 8;
+}
+
+.category[data-category-key="manhwa-reading"] {
+  order: 9;
+}
+
+.category[data-category-key="anime-schedule"] {
+  order: 10;
+}
+
+.category[data-category-key="novel-reading"] {
+  order: 11;
+}
+
+.category[data-category-key="tv-database"] {
+  order: 12;
+}
 
   .category {
     min-height: 56px;
