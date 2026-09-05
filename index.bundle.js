@@ -355,9 +355,21 @@ const exploreSubtitle = document.querySelector("#explore-subtitle");
 
 
 const HOMEPAGE_CATEGORY_CARD_ORDER = [
-  "anime-streaming", "manga-reading", "anime-download", "anime-database",
-  "TV-streaming", "manhwa-reading", "TV-download", "TV-database",
-  "sports-streaming", "novel-reading", "subtitle-download", "anime-schedule"
+  "anime-streaming",
+  "manga-reading",
+  "anime-download",
+
+  "anime-database",
+  "tv-streaming",
+  "manhwa-reading",
+
+  "tv-download",
+  "tv-database",
+  "sports-streaming",
+
+  "novel-reading",
+  "subtitle-download",
+  "anime-schedule"
 ];
 
 function orderedHomepageCategories(categories) {
