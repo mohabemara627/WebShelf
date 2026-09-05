@@ -257,10 +257,7 @@
       {
         "name": "WEBTOON",
         "url": "https://www.webtoons.com/",
-        "icon": "./images/icons/webtoon.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/webtoon.ico"
       },
       {
         "name": "Asura Scans",
@@ -349,10 +346,7 @@
       {
         "name": "Royal Road",
         "url": "https://www.royalroad.com/",
-        "icon": "./images/icons/royal-road.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/royal-road.png"
       },
       {
         "name": "WuxiaBox",
@@ -381,10 +375,7 @@
       {
         "name": "Nyaa",
         "url": "https://nyaa.si/",
-        "icon": "./images/icons/nyaa.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/nyaa.png"
       },
       {
         "name": "TsukiHime",
@@ -394,10 +385,7 @@
       {
         "name": "Anime Tosho",
         "url": "https://animetosho.org/",
-        "icon": "./images/icons/tosho.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/tosho.ico"
       },
       {
         "name": "SubsPlease",
@@ -407,10 +395,7 @@
       {
         "name": "Tokyo Toshokan",
         "url": "https://www.tokyotosho.info/",
-        "icon": "./images/icons/toshokan.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/toshokan.png"
       },
       {
         "name": "SeaDex",
@@ -420,18 +405,12 @@
       {
         "name": "NekoBT",
         "url": "https://nekobt.to/",
-        "icon": "./images/icons/nekobt.webp",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/nekobt.webp"
       },
       {
         "name": "AniRena",
         "url": "https://www.anirena.com/",
-        "icon": "./images/icons/anirena.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/anirena.png"
       },
       {
         "name": "AnimeWatch",
@@ -441,10 +420,7 @@
       {
         "name": "Tokyo Insider",
         "url": "https://tokyoinsider.com/",
-        "icon": "./images/icons/tokyo-insider.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/tokyo-insider.png"
       }
     ]
   },
@@ -458,10 +434,7 @@
       {
         "name": "EXT Torrents",
         "url": "https://ext.to/",
-        "icon": "./images/icons/ext-torrents.png",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/ext-torrents.png"
       },
       {
         "name": "1337x",
@@ -481,10 +454,7 @@
       {
         "name": "EZTV",
         "url": "https://eztv.tf/home",
-        "icon": "./images/icons/eztv.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/eztv.ico"
       },
       {
         "name": "RARBG Dump",
@@ -509,10 +479,7 @@
       {
         "name": "Rutor",
         "url": "https://rutor.is/",
-        "icon": "./images/icons/rutor.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/rutor.ico"
       }
     ]
   },
@@ -600,10 +567,7 @@
       {
         "name": "Comick",
         "url": "https://comick.dev/",
-        "icon": "./images/icons/comick.ico",
-        "badges": [
-          "Ar"
-        ]
+        "icon": "./images/icons/comick.ico"
       },
       {
         "name": "Anime-Planet",
