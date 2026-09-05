@@ -134,15 +134,15 @@
 <span class="hero-search-count" id="hero-search-count">WebShelf</span>
 <kbd>F</kbd>
 </button>
-</section><div class="home-layout"><aside aria-label="Personal shortcuts" class="home-sidebar"><aside class="recently-viewed" hidden="" id="recently-viewed">
+</section><div class="home-layout"><aside aria-label="Personal shortcuts" class="home-sidebar"><section class="recently-viewed" hidden="" id="recently-viewed" aria-labelledby="recently-viewed-title">
 <div class="recently-viewed-header">
-<h3>Recently Viewed</h3>
+<h3 id="recently-viewed-title">Recently Viewed</h3>
 <button class="recently-clear" id="recently-clear" type="button">
           Clear
         </button>
 </div>
 <div class="recently-viewed-list" id="recently-viewed-list"></div>
-</aside><section class="favorites-section sidebar-favorites" hidden="" id="favorites-section">
+</section><section class="favorites-section sidebar-favorites" hidden="" id="favorites-section">
 
 <div class="sidebar-card favorites-panel">
 <div class="panel-header sidebar-panel-header"><h3>Favorites</h3><button class="favorites-clear" id="favorites-clear" type="button">Clear</button></div>
@@ -204,15 +204,6 @@
 <script src="./data.js"></script>
 <script src="./common.js"></script>
 <script src="./index.bundle.js"></script>
-<script>
-  window.va =
-    window.va ||
-    function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-</script>
-
-<script defer src="/_vercel/insights/script.js"></script>
 <script>
   window.va =
     window.va ||

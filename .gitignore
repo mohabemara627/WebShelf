@@ -4,3 +4,4 @@ maintenance/.lock
 maintenance/import-report.json
 *.tmp
 public/
+.webshelf-export-*/

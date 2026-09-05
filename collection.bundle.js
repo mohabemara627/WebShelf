@@ -279,7 +279,6 @@ if (document.readyState === "loading") {
   const count = document.querySelector("#collection-page-count");
   const list = document.querySelector("#collection-page-list");
   const filters = document.querySelector("#collection-site-filters");
-  const canonical = document.querySelector("#collection-canonical");
   const description = document.querySelector("#collection-description");
 
   let activeGroup = "All";
@@ -333,6 +332,11 @@ if (document.readyState === "loading") {
   }
 
   function renderFilters() {
+    const focused = filters.contains(document.activeElement) ? document.activeElement : null;
+    const focusAttribute = focused?.hasAttribute("data-collection-group")
+      ? "data-collection-group"
+      : "data-collection-badge";
+    const focusValue = focused?.getAttribute(focusAttribute);
     const sites = allSourceSites();
     const groups = ["All", ...new Set(sites.map((site) => site.group || "Other"))];
     const badges = [...new Set(sites.flatMap((site) => getSiteBadges(site)))].sort();
@@ -340,25 +344,27 @@ if (document.readyState === "loading") {
       ...groups.map((group) => `<button class="site-filter-chip ${activeGroup === group ? "active" : ""}" type="button" aria-pressed="${activeGroup === group}" data-collection-group="${escapeWebShelfText(group)}">${escapeWebShelfText(group)}</button>`),
       ...badges.map((badge) => `<button class="site-filter-chip ${activeBadge.toLowerCase() === badge.toLowerCase() ? "active" : ""}" type="button" aria-pressed="${activeBadge.toLowerCase() === badge.toLowerCase()}" data-collection-badge="${escapeWebShelfText(badge)}">${escapeWebShelfText(badge)}</button>`)
     ].join("");
+    if (focusValue != null) {
+      const buttons = [...filters.querySelectorAll(".site-filter-chip")];
+      (buttons.find(button => button.getAttribute(focusAttribute) === focusValue) || buttons[0])?.focus({ preventScroll: true });
+    }
   }
 
   function render() {
+    list?.setAttribute("aria-busy", "true");
     const sites = filteredSites();
     const displayTitle = (badgeName ? `${badgeName} sites` : "Collection");
     title.textContent = displayTitle;
     count.textContent = `${sites.length} ${sites.length === 1 ? "site" : "sites"}`;
     document.title = `${displayTitle} - WebShelf`;
     if (description) description.content = `Browse ${displayTitle} websites on WebShelf.`;
-    if (canonical) {
-      const query = `badge=${encodeURIComponent(badgeName || "")}`;
-      canonical.href = `https://www.webshelf.link/collection.html?${query}`;
-    }
 
     list.innerHTML = sites.length
       ? sites.map(siteRow).join("")
       : `<div class="category-empty"><h2>No matching sites</h2><p>Try another filter or return to the directory.</p></div>`;
     setupFavorites(sites);
     renderFilters();
+    list?.setAttribute("aria-busy", "false");
     document.dispatchEvent(new CustomEvent("webshelf-sites-rendered"));
   }
 

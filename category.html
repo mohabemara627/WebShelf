@@ -163,7 +163,7 @@
           Category
         </h1>
 
-        <p id="category-page-count">
+        <p id="category-page-count" role="status" aria-live="polite" aria-atomic="true">
           0 sites
         </p>
 
@@ -191,6 +191,8 @@
       <div
         class="category-page-list"
         id="category-page-list"
+        aria-live="polite"
+        aria-busy="false"
       ></div>
 
     </section>
@@ -220,15 +222,6 @@
   <script src="./data.js"></script>
 <script src="./common.js"></script>
 <script src="./category.bundle.js"></script>
-<script>
-  window.va =
-    window.va ||
-    function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-</script>
-
-<script defer src="/_vercel/insights/script.js"></script>
 <script>
   window.va =
     window.va ||

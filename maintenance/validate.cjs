@@ -147,6 +147,7 @@ function validate(root = L.ROOT, { quiet = false, git = true } = {}) {
   for (
     const file of [
       'index.html',
+      '404.html',
       'category.html',
       'activity.html',
       'support.html',
@@ -303,6 +304,17 @@ function validate(root = L.ROOT, { quiet = false, git = true } = {}) {
       }
     }
   );
+
+  check('HTML scripts and nested error-page paths', () => {
+    const { checkScripts, checkErrorPaths } = require('./html-checks.cjs');
+    const issues = [];
+    for (const file of L.publicFiles(root).filter(file => file.endsWith('.html'))) {
+      const text = fs.readFileSync(path.join(root, file), 'utf8');
+      issues.push(...checkScripts(text, file).map(issue => file + ': ' + issue));
+      if (file === '404.html') issues.push(...checkErrorPaths(text));
+    }
+    if (issues.length) throw Error(issues.join('; '));
+  });
 
   check('HTML theme bootstrap order', () => {
     for (

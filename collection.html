@@ -13,9 +13,9 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex,follow">
   <title>Collection - WebShelf</title>
   <meta id="collection-description" name="description" content="Browse a curated WebShelf collection.">
-  <link id="collection-canonical" rel="canonical" href="https://www.webshelf.link/collection.html">
   <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./images/icons/WS-Logo-192.png" type="image/png">
   <link rel="stylesheet" href="./style.css">
@@ -43,11 +43,11 @@
         <div>
           <p class="activity-eyebrow">Collection</p>
           <h1 id="collection-page-title">Collection</h1>
-          <p id="collection-page-count">0 sites</p>
+          <p id="collection-page-count" role="status" aria-live="polite" aria-atomic="true">0 sites</p>
         </div>
       </div>
       <div class="site-filter-bar" id="collection-site-filters" aria-label="Filter collection"></div>
-      <div class="category-page-list" id="collection-page-list"></div>
+      <div class="category-page-list" id="collection-page-list" aria-live="polite" aria-busy="false"></div>
     </section>
   </main>
 
@@ -66,15 +66,6 @@
   <script src="./data.js"></script>
 <script src="./common.js"></script>
 <script src="./collection.bundle.js"></script>
-<script>
-  window.va =
-    window.va ||
-    function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-</script>
-
-<script defer src="/_vercel/insights/script.js"></script>
 <script>
   window.va =
     window.va ||

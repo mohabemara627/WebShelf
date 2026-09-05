@@ -1,0 +1,36 @@
+name: Website checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [22, 24]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: maintenance/package-lock.json
+      - name: Install pinned maintenance dependencies
+        run: npm ci --prefix maintenance --ignore-scripts
+      - name: Validate committed generated assets
+        run: node maintenance/validate.cjs
+      - name: Run regression tests
+        run: npm test --prefix maintenance
+      - name: Check reproducible build
+        run: |
+          node maintenance/build.cjs
+          git diff --exit-code
+      - name: Export production assets
+        run: node maintenance/export.cjs

@@ -9,6 +9,15 @@ let currentActivityPeriod = "all";
 const activityList = document.querySelector("#activity-list");
 const activityInfo = document.querySelector("#activity-info");
 const activityPeriods = document.querySelector("#activity-periods");
+
+function syncActivityControlState() {
+  document.querySelectorAll(".activity-tab").forEach((tab) => {
+    tab.setAttribute("aria-pressed", String(tab.dataset.view === currentActivityView));
+  });
+  activityPeriods?.querySelectorAll(".activity-period").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.period === currentActivityPeriod));
+  });
+}
 const hiddenSitesTab = document.querySelector("#hidden-sites-tab");
 
 const safeText = (value) => typeof escapeWebShelfText === "function"
@@ -25,6 +34,7 @@ function syncHiddenActivityTab() {
     document.querySelectorAll(".activity-tab").forEach((tab) => {
       tab.classList.toggle("active", tab.dataset.view === "history");
     });
+    syncActivityControlState();
   }
 }
 
@@ -33,6 +43,7 @@ function applyActivityHash() {
     if (currentActivityView === "hidden") {
       currentActivityView = "history";
       document.querySelectorAll(".activity-tab").forEach(tab => tab.classList.toggle("active", tab.dataset.view === "history"));
+      syncActivityControlState();
     }
     return;
   }
@@ -42,6 +53,7 @@ function applyActivityHash() {
   document.querySelectorAll(".activity-tab").forEach((tab) => {
     tab.classList.toggle("active", tab === hiddenSitesTab);
   });
+  syncActivityControlState();
 }
 
 function canonicalSite(url) {
@@ -148,6 +160,7 @@ function activityRow(site, index) {
 
 function renderActivity() {
   if (!activityList || !activityInfo) return;
+  activityList.setAttribute("aria-busy", "true");
   syncHiddenActivityTab();
   const sites = getRenderedSites();
   if (activityPeriods) activityPeriods.hidden = currentActivityView === "hidden";
@@ -170,6 +183,8 @@ function renderActivity() {
     ? `${sites.length} hidden ${sites.length === 1 ? "website" : "websites"}`
     : `${sites.length} ${sites.length === 1 ? "website" : "websites"} · ${periodLabel()}`;
   activityList.innerHTML = sites.map(activityRow).join("");
+  activityList.setAttribute("aria-busy", "false");
+  syncActivityControlState();
   document.dispatchEvent(new CustomEvent("webshelf-sites-rendered"));
 }
 
@@ -186,6 +201,7 @@ document.querySelectorAll(".activity-tab").forEach((button) => {
   button.addEventListener("click", () => {
     currentActivityView = button.dataset.view;
     document.querySelectorAll(".activity-tab").forEach((tab) => tab.classList.toggle("active", tab === button));
+    syncActivityControlState();
     renderActivity();
   });
 });
@@ -195,6 +211,7 @@ activityPeriods?.addEventListener("click", (event) => {
   if (!button) return;
   currentActivityPeriod = button.dataset.period;
   activityPeriods.querySelectorAll(".activity-period").forEach((item) => item.classList.toggle("active", item === button));
+  syncActivityControlState();
   renderActivity();
 });
 

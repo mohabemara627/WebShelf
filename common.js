@@ -738,8 +738,10 @@ document.addEventListener("webshelf-theme-changed", () => {
 
 (() => {
   if ("serviceWorker" in navigator && location.protocol !== "file:") {
+    // Resolve from the shared bundle, not a possibly nested missing-page URL.
+    const workerUrl = new URL("./service-worker.js", document.currentScript?.src || document.baseURI);
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+      navigator.serviceWorker.register(workerUrl.href).catch(() => {});
     });
   }
 

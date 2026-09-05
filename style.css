@@ -282,18 +282,75 @@ nav a:focus-visible {
   border-radius: 999px;
 }
 
-/* CATEGORY GRID */
+/* CATEGORY GRID + RESPONSIVE ORDER
+   Keep all grid placement/order rules here. The DOM order in script.js remains
+   unchanged for keyboard navigation. Preserve the existing 700px/701px split,
+   including the base grid at fractional viewport widths between those limits. */
 
 .category-grid {
   width: 100%;
-
   display: grid;
-
   grid-template-rows: repeat(3, 1fr);
   grid-auto-flow: column;
   grid-auto-columns: minmax(0, 1fr);
-
   gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 701px) {
+  .category-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+  }
+
+  .category[data-category-key="anime-streaming"] { order: 1; }
+  .category[data-category-key="manga-reading"] { order: 2; }
+  .category[data-category-key="anime-download"] { order: 3; }
+  .category[data-category-key="anime-database"] { order: 4; }
+  .category[data-category-key="tv-streaming"] { order: 5; }
+  .category[data-category-key="manhwa-reading"] { order: 6; }
+  .category[data-category-key="tv-download"] { order: 7; }
+  .category[data-category-key="tv-database"] { order: 8; }
+  .category[data-category-key="sports-streaming"] { order: 9; }
+  .category[data-category-key="novel-reading"] { order: 10; }
+  .category[data-category-key="subtitle-download"] { order: 11; }
+  .category[data-category-key="anime-schedule"] { order: 12; }
+}
+
+@media (max-width: 700px) {
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    gap: 8px;
+  }
+
+  .category[data-category-key="anime-streaming"] { order: 1; }
+  .category[data-category-key="anime-download"] { order: 2; }
+  .category[data-category-key="tv-streaming"] { order: 3; }
+  .category[data-category-key="tv-download"] { order: 4; }
+  .category[data-category-key="sports-streaming"] { order: 5; }
+  .category[data-category-key="subtitle-download"] { order: 6; }
+  .category[data-category-key="manga-reading"] { order: 7; }
+  .category[data-category-key="anime-database"] { order: 8; }
+  .category[data-category-key="manhwa-reading"] { order: 9; }
+  .category[data-category-key="anime-schedule"] { order: 10; }
+  .category[data-category-key="novel-reading"] { order: 11; }
+  .category[data-category-key="tv-database"] { order: 12; }
+}
+
+@media (max-width: 420px) {
+  .category-grid {
+    gap: 7px;
+  }
 }
 
 /* CATEGORY CARD */
@@ -922,11 +979,6 @@ nav a:focus-visible {
 
 @media (max-width: 900px) {
 
-  .category-grid {
-    grid-template-rows: none;
-    grid-auto-flow: row;
-  }
-
   .directory-columns {
     grid-template-columns: 1fr;
   }
@@ -982,61 +1034,6 @@ nav a:focus-visible {
   .explore {
     margin-top: 38px;
   }
-
-/* Mobile-only category ordering */
-
-.category-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-flow: row;
-}
-
-.category[data-category-key="anime-streaming"] {
-  order: 1;
-}
-
-.category[data-category-key="anime-download"] {
-  order: 2;
-}
-
-.category[data-category-key="tv-streaming"] {
-  order: 3;
-}
-
-.category[data-category-key="tv-download"] {
-  order: 4;
-}
-
-.category[data-category-key="sports-streaming"] {
-  order: 5;
-}
-
-.category[data-category-key="subtitle-download"] {
-  order: 6;
-}
-
-.category[data-category-key="manga-reading"] {
-  order: 7;
-}
-
-.category[data-category-key="anime-database"] {
-  order: 8;
-}
-
-.category[data-category-key="manhwa-reading"] {
-  order: 9;
-}
-
-.category[data-category-key="anime-schedule"] {
-  order: 10;
-}
-
-.category[data-category-key="novel-reading"] {
-  order: 11;
-}
-
-.category[data-category-key="tv-database"] {
-  order: 12;
-}
 
 .category-page {
   margin-top: 32px;
@@ -2988,12 +2985,6 @@ body.search-open {
    New categories added in data.js appear automatically.
 ================================================== */
 
-.category-grid {
-  grid-template-rows: repeat(3, 1fr);
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
-}
-
 .category .category-icon {
   color:
     var(--category-accent, var(--brand-purple));
@@ -3003,19 +2994,6 @@ body.search-open {
 .panel-header h3::after {
   background:
     var(--category-accent, var(--brand-purple));
-}
-
-@media (max-width: 900px) {
-  .category-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* SITE BADGES */
@@ -3682,62 +3660,6 @@ html[data-theme="light"] .site-badge {
     margin-top: 14px;
   }
 
-  .category-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: none;
-    grid-auto-flow: row;
-    grid-auto-columns: auto;
-    gap: 8px;
-  }
-
-.category[data-category-key="anime-streaming"] {
-  order: 1;
-}
-
-.category[data-category-key="anime-download"] {
-  order: 2;
-}
-
-.category[data-category-key="tv-streaming"] {
-  order: 3;
-}
-
-.category[data-category-key="tv-download"] {
-  order: 4;
-}
-
-.category[data-category-key="sports-streaming"] {
-  order: 5;
-}
-
-.category[data-category-key="subtitle-download"] {
-  order: 6;
-}
-
-.category[data-category-key="manga-reading"] {
-  order: 7;
-}
-
-.category[data-category-key="anime-database"] {
-  order: 8;
-}
-
-.category[data-category-key="manhwa-reading"] {
-  order: 9;
-}
-
-.category[data-category-key="anime-schedule"] {
-  order: 10;
-}
-
-.category[data-category-key="novel-reading"] {
-  order: 11;
-}
-
-.category[data-category-key="tv-database"] {
-  order: 12;
-}
-
   .category {
     min-height: 56px;
     gap: 9px;
@@ -3787,10 +3709,6 @@ html[data-theme="light"] .site-badge {
 }
 
 @media (max-width: 420px) {
-  .category-grid {
-    gap: 7px;
-  }
-
   .category {
     padding: 8px;
   }
@@ -4261,68 +4179,6 @@ html[data-theme="light"] .category-page .site-list .site-row:hover {
 .skip-link { position:fixed; top:8px; left:8px; transform:translateY(-200%); z-index:10000; padding:12px 18px; color:#fff; background:#39206a; border-radius:8px; }
 .skip-link:focus { transform:translateY(0); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:0.01ms !important; transition-duration:0.01ms !important; } }
-
-/* FINAL DESKTOP CATEGORY ORDER */
-
-@media (min-width: 701px) {
-
-  .category-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: none;
-    grid-auto-flow: row;
-    grid-auto-columns: auto;
-  }
-
-  .category[data-category-key="anime-streaming"] {
-    order: 1;
-  }
-
-  .category[data-category-key="manga-reading"] {
-    order: 2;
-  }
-
-  .category[data-category-key="anime-download"] {
-    order: 3;
-  }
-
-  .category[data-category-key="anime-database"] {
-    order: 4;
-  }
-
-  .category[data-category-key="tv-streaming"] {
-    order: 5;
-  }
-
-  .category[data-category-key="manhwa-reading"] {
-    order: 6;
-  }
-
-  .category[data-category-key="tv-download"] {
-    order: 7;
-  }
-
-  .category[data-category-key="tv-database"] {
-    order: 8;
-  }
-
-  .category[data-category-key="sports-streaming"] {
-    order: 9;
-  }
-
-  .category[data-category-key="novel-reading"] {
-    order: 10;
-  }
-
-  .category[data-category-key="subtitle-download"] {
-    order: 11;
-  }
-
-  .category[data-category-key="anime-schedule"] {
-    order: 12;
-  }
-
-}
-
 
 /* LEGAL + 404 PAGES */
 

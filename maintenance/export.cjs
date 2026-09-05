@@ -1,4 +1,43 @@
 #!/usr/bin/env node
-// Dependency-free static export for hosting. Build/validate the master locally first.
-const fs=require('node:fs'),path=require('node:path'),L=require('./lib.cjs');
-try{const target=path.join(L.ROOT,'public');if(fs.existsSync(target))throw Error('public already exists; remove/move the previous export before exporting again.');fs.mkdirSync(target);for(const file of L.publicFiles(L.ROOT)){const out=path.join(target,file);fs.mkdirSync(path.dirname(out),{recursive:true});fs.copyFileSync(path.join(L.ROOT,file),out);}console.log('Production-only export: public/');}catch(e){console.error(e.message);process.exitCode=1;}
+// Dependency-free static export. Full validation still runs separately in CI.
+const fs = require('node:fs');
+const path = require('node:path');
+const L = require('./lib.cjs');
+const { outputs } = require('./build.cjs');
+
+function exportSite(root = L.ROOT) {
+  const target = path.join(root, 'public');
+  if (fs.lstatSync(target, { throwIfNoEntry: false })) {
+    throw Error('public already exists; remove/move the previous export before exporting again.');
+  }
+  // Never publish catalog/source changes with stale generated assets.
+  for (const [file, expected] of Object.entries(outputs(root))) {
+    if (!fs.existsSync(path.join(root, file)) || fs.readFileSync(path.join(root, file), 'utf8') !== expected) {
+      throw Error(file + ' is stale; run node maintenance/build.cjs before exporting.');
+    }
+  }
+  const staging = fs.mkdtempSync(path.join(root, '.webshelf-export-'));
+  try {
+    for (const file of L.publicFiles(root)) {
+      const out = path.join(staging, file);
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      fs.copyFileSync(path.join(root, file), out);
+    }
+    fs.renameSync(staging, target);
+    return target;
+  } finally {
+    // A failed copy must never leave a half-built public directory.
+    fs.rmSync(staging, { recursive: true, force: true });
+  }
+}
+
+if (require.main === module) {
+  try {
+    exportSite();
+    console.log('Production-only export: public/');
+  } catch (error) {
+    console.error(error.message);
+    process.exitCode = 1;
+  }
+}
+module.exports = { exportSite };

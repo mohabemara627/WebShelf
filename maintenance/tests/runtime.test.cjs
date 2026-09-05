@@ -76,8 +76,9 @@ test('offline navigation falls back to the requested document, never a different
  const w=worker({fetch:async()=>{throw Error('offline');},match:async key=>{if(typeof key!=='string')return undefined;return match(key);}});
  assert.equal(await (await w.request('/support.html')).text(),'support');assert.equal(await (await w.request('/category.html?type=TV-streaming')).text(),'category');
 });
-test('each page has exactly three external scripts and all bundles parse',()=>{
- for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){const s=read(file);assert.equal([...s.matchAll(/<script src=/g)].length,3,file);for(const m of s.matchAll(/<script src="\.\/([^"]+)"/g))assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);}
+test('each page has its required scripts exactly once and all bundles parse',()=>{
+ const {checkScripts}=require('../html-checks.cjs');
+ for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html'))) assert.deepEqual(checkScripts(read(file),file),[],file);
  for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.js')))new vm.Script(read(file),{filename:file});
 });
 test('forms omit favorite and preview modules while retaining search/history',()=>{

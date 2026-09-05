@@ -157,6 +157,7 @@
         class="activity-tab active"
         type="button"
         data-view="history"
+        aria-pressed="true"
       >
         Recent History
       </button>
@@ -165,6 +166,7 @@
         class="activity-tab"
         type="button"
         data-view="most-visited"
+        aria-pressed="false"
       >
         Most Visited
       </button>
@@ -174,6 +176,7 @@
         id="hidden-sites-tab"
         type="button"
         data-view="hidden"
+        aria-pressed="false"
         hidden
       >
         Hidden Sites
@@ -182,21 +185,26 @@
     </div>
 
     <div class="activity-periods" id="activity-periods">
-      <button class="activity-period active" type="button" data-period="all">All time</button>
-      <button class="activity-period" type="button" data-period="7">Last 7 days</button>
-      <button class="activity-period" type="button" data-period="30">Last 30 days</button>
+      <button class="activity-period active" type="button" data-period="all" aria-pressed="true">All time</button>
+      <button class="activity-period" type="button" data-period="7" aria-pressed="false">Last 7 days</button>
+      <button class="activity-period" type="button" data-period="30" aria-pressed="false">Last 30 days</button>
     </div>
 
 
     <div
       class="activity-info"
       id="activity-info"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
     ></div>
 
 
     <div
       class="activity-list"
       id="activity-list"
+      aria-live="polite"
+      aria-busy="false"
     ></div>
 
   </main>
@@ -223,15 +231,6 @@
   <script src="./data.js"></script>
 <script src="./common.js"></script>
 <script src="./activity.bundle.js"></script>
-<script>
-  window.va =
-    window.va ||
-    function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-</script>
-
-<script defer src="/_vercel/insights/script.js"></script>
 <script>
   window.va =
     window.va ||

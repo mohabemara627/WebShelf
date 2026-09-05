@@ -32,6 +32,26 @@ const categoryPageDescription = document.querySelector(
 
 const siteFilters = document.querySelector("#category-site-filters");
 
+// Set attributes through the DOM; category/query text never becomes HTML.
+function setCategoryMeta(attribute, key, content) {
+  let meta = document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute(attribute, key);
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+}
+
+// Do not put a blanket noindex in the static shell: valid categories must remain
+// indexable. Unknown, missing and wrong-case keys are excluded after resolution.
+if (!currentCategory) {
+  setCategoryMeta("name", "robots", "noindex,follow");
+  categoryCanonical?.remove();
+  categoryDescription?.remove();
+  document.head.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]').forEach(meta => meta.remove());
+}
+
 
 const CATEGORY_SEO = {
   "anime-streaming": {
@@ -206,6 +226,9 @@ function getFilterOptions() {
 function renderFilters() {
   if (!siteFilters || !currentCategory) return;
   const options = getFilterOptions();
+  const focusedKey = siteFilters.contains(document.activeElement)
+    ? document.activeElement.dataset.siteFilter
+    : undefined;
   if (options.length <= 1) {
     siteFilters.hidden = true;
     siteFilters.innerHTML = "";
@@ -220,10 +243,17 @@ function renderFilters() {
       aria-pressed="${option.key === activeSiteFilter}" data-site-filter="${escapeWebShelfText(option.key)}"
     >${escapeWebShelfText(option.label)}</button>
   `).join("");
+
+  // Replacing the filter buttons must not send keyboard focus back to <body>.
+  if (focusedKey !== undefined) {
+    const buttons = [...siteFilters.querySelectorAll("[data-site-filter]")];
+    (buttons.find(button => button.dataset.siteFilter === focusedKey) || buttons[0])?.focus({ preventScroll: true });
+  }
 }
 
 function renderCategorySites() {
   if (!currentCategory || !pageList) return;
+  pageList.setAttribute("aria-busy", "true");
   const allVisible = visibleSites(currentCategory.sites);
   const filtered = allVisible.filter((site) => siteMatchesFilter(site, activeSiteFilter));
 
@@ -244,6 +274,7 @@ function renderCategorySites() {
     document.dispatchEvent(new CustomEvent("webshelf-sites-rendered"));
   }
 
+  pageList.setAttribute("aria-busy", "false");
   renderFilters();
 }
 
@@ -277,19 +308,20 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
 } else {
   const seo = CATEGORY_SEO[currentCategory.key];
 
-  document.title =
-    seo?.title || `${currentCategory.title} - WebShelf`;
+  const title = seo?.title || `${currentCategory.title} - WebShelf`;
+  const description = seo?.description || `Browse curated ${currentCategory.title} websites on WebShelf.`;
+  const canonicalUrl = `https://www.webshelf.link/category.html?type=${encodeURIComponent(currentCategory.key)}`;
 
-  if (categoryCanonical) {
-    categoryCanonical.href =
-      `https://www.webshelf.link/category.html?type=${encodeURIComponent(currentCategory.key)}`;
-  }
+  document.title = title;
+  if (categoryCanonical) categoryCanonical.href = canonicalUrl;
+  if (categoryDescription) categoryDescription.content = description;
 
-  if (categoryDescription) {
-    categoryDescription.content =
-      seo?.description ||
-      `Browse curated ${currentCategory.title} websites on WebShelf.`;
-  }
+  setCategoryMeta("name", "robots", "index,follow");
+  setCategoryMeta("property", "og:title", title);
+  setCategoryMeta("property", "og:description", description);
+  setCategoryMeta("property", "og:url", canonicalUrl);
+  setCategoryMeta("name", "twitter:title", title);
+  setCategoryMeta("name", "twitter:description", description);
 
   if (categoryPageDescription) {
     categoryPageDescription.textContent =
