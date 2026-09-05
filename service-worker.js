@@ -1,6 +1,6 @@
 const SCOPE_PATH = new URL(self.registration.scope).pathname;
 const CACHE_PREFIX = 'webshelf-' + SCOPE_PATH + '-';
-const CACHE_NAME = CACHE_PREFIX + '45b21d992139';
+const CACHE_NAME = CACHE_PREFIX + '11ea0f2352fa';
 const CORE = [
   "./",
   "./style.css",
@@ -19,6 +19,7 @@ const CORE = [
   "./support.bundle.js",
   "./suggest.html",
   "./suggest.bundle.js",
+  "./404.html",
   "./images/icons/WS-Logo-192.png",
   "./images/icons/WS-Logo-512.png"
 ];
