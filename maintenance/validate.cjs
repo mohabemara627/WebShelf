@@ -14,10 +14,13 @@ function references(root) {
   const refs = new Set();
   const missing = [];
 
-  const add = (value, file) => {
-    if (!value || /^(?:[a-z][\w+.-]*:|\/\/|#|data:)/i.test(value)) return;
+const add = (value, file) => {
+  if (!value || /^(?:[a-z][\w+.-]*:|\/\/|#|data:)/i.test(value)) return;
 
-    let rel;
+  // Vercel provides these virtual routes at runtime.
+  if (value.startsWith('/_vercel/')) return;
+
+  let rel;
 
     try {
       rel = decodeURIComponent(value.split(/[?#]/)[0]);
