@@ -880,13 +880,16 @@ document.addEventListener("webshelf-theme-changed", () => {
         return "ar";
       }
 
-      const aliases = new Map([
-        ["arabic subtitles", "ar"],
-        ["arabic subtitle", "ar"],
-        ["عربي", "ar"],
-        ["العربي", "ar"],
-        ["العربية", "ar"]
-      ]);
+        const aliases = new Map([
+          ["arabic subtitles", "ar"],
+          ["arabic subtitle", "ar"],
+
+          ["عر", "ar"],
+          ["عرب", "ar"],
+          ["عربي", "ar"],
+          ["العربي", "ar"],
+          ["العربية", "ar"]
+        ]);
 
       return aliases.get(raw) || raw;
     }
