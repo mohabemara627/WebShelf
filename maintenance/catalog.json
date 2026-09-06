@@ -170,6 +170,11 @@
         "icon": "./images/icons/ntv.png"
       },
       {
+        "name": "Watch Footy",
+        "url": "https://watchfooty.st/",
+        "icon": "./images/icons/watchfooty.png"
+      },
+      {
         "name": "PPV",
         "url": "https://ppv.st/#34",
         "icon": "./images/icons/ppv.ico"
