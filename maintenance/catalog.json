@@ -197,20 +197,6 @@
     ]
   },
   {
-    "key": "hentai-streaming",
-    "group": "Streaming",
-    "title": "Hentai Streaming",
-    "icon": "play",
-    "accent": "var(--hentai-streaming)",
-    "sites": [
-        {
-          "name": "HAnime",
-          "url": "https://youtu.be/Aq5WXmQQooo?si=C9NfBPHxOQHkgr6g",
-          "icon": "./images/icons/hanime.ico"
-        }
-    ]
-  },
-  {
     "key": "manga-reading",
     "group": "Reading",
     "title": "Manga Reading",
