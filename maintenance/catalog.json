@@ -110,6 +110,14 @@
         ]
       },
       {
+        "name": "ABDX",
+        "url": "https://abdx.tv/",
+        "icon": "./images/icons/abdx.ico",
+        "badges": [
+          "Ar"
+        ]
+      },
+      {
         "name": "REELIX",
         "url": "https://reelix.ac/",
         "icon": "./images/icons/reelix.png"
