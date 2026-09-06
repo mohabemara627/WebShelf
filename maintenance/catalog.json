@@ -197,6 +197,20 @@
     ]
   },
   {
+    "key": "hentai-streaming",
+    "group": "Streaming",
+    "title": "Hentai Streaming",
+    "icon": "play",
+    "accent": "var(--hentai-streaming)",
+    "sites": [
+      {
+        "name": "HAnime",
+        "url": "https://streamed.pk/",
+        "icon": "./images/icons/streamed.png"
+      }
+    ]
+  },
+  {
     "key": "manga-reading",
     "group": "Reading",
     "title": "Manga Reading",
@@ -254,6 +268,9 @@
         "icon": "./images/icons/mangafire.svg"
       }
     ]
+
+
+    
   },
   {
     "key": "manhwa-reading",
