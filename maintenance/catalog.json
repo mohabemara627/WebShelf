@@ -203,11 +203,11 @@
     "icon": "play",
     "accent": "var(--hentai-streaming)",
     "sites": [
-      {
-        "name": "HAnime",
-        "url": "https://streamed.pk/",
-        "icon": "./images/icons/streamed.png"
-      }
+        {
+          "name": "HAnime",
+          "url": "https://hanime.tv/",
+          "icon": "./images/icons/hanime.ico"
+        }
     ]
   },
   {
