@@ -310,7 +310,7 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
 
   const title = seo?.title || `${currentCategory.title} - WebShelf`;
   const description = seo?.description || `Browse curated ${currentCategory.title} websites on WebShelf.`;
-  const canonicalUrl = `https://www.webshelf.link/category.html?type=${encodeURIComponent(currentCategory.key)}`;
+  const canonicalUrl = `https://www.webshelf.link/${encodeURIComponent(currentCategory.key)}.html`;
 
   document.title = title;
   if (categoryCanonical) categoryCanonical.href = canonicalUrl;

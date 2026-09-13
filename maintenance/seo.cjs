@@ -4,8 +4,8 @@ const path = require('node:path');
 const vm = require('node:vm');
 const ORIGIN = 'https://www.webshelf.link';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const urlFor = key => `${ORIGIN}/category.html?type=${encodeURIComponent(key)}`;
-const fileFor = key => `category-${key}.html`;
+const fileFor = key => `${key}.html`;
+const urlFor = key => `${ORIGIN}/${fileFor(key)}`;
 function slot(html, id, value) {
   const re = new RegExp(`(<([a-z0-9]+)\\b[^>]*\\bid="${id}"[^>]*>)[\\s\\S]*?(<\\/\\2>)`, 'i');
   if (!re.test(html)) throw Error('Missing SEO template slot: '+id);
@@ -64,18 +64,24 @@ function generate(root, catalog) {
   }
   let home = fs.readFileSync(path.join(root,'maintenance/templates/home.html'),'utf8');
   home = home.replace(/<h1>[\s\S]*?<\/h1>/,'<h1>WebShelf — Find the Web worth keeping</h1>');
-  const cards = catalog.map(c=>`<a class="category" href="./category.html?type=${encodeURIComponent(c.key)}" style="--category-accent:${escape(c.accent)}"><div class="category-icon"><i data-lucide="${escape(c.icon)}"></i></div><div class="category-info"><h3>${escape(c.title)}</h3><p>${c.sites.length} sites</p></div><span class="category-arrow" aria-hidden="true">→</span></a>`).join('');
+  const cards = catalog.map(c=>`<a class="category" href="./${fileFor(c.key)}" style="--category-accent:${escape(c.accent)}"><div class="category-icon"><i data-lucide="${escape(c.icon)}"></i></div><div class="category-info"><h3>${escape(c.title)}</h3><p>${c.sites.length} sites</p></div><span class="category-arrow" aria-hidden="true">→</span></a>`).join('');
   home = slot(home,'category-grid',cards);
-  const panel=c=>`<div class="directory-panel dynamic-directory-panel" style="--category-accent:${escape(c.accent)}"><div class="panel-header"><div><h3>${escape(c.title)}</h3><p>${c.sites.length} sites</p></div></div><div class="site-list">${rows(c.sites.slice(0,5))}</div><a class="view-all" href="./category.html?type=${encodeURIComponent(c.key)}">View all ${c.sites.length} sites</a></div>`;
+  const panel=c=>`<div class="directory-panel dynamic-directory-panel" style="--category-accent:${escape(c.accent)}"><div class="panel-header"><div><h3>${escape(c.title)}</h3><p>${c.sites.length} sites</p></div></div><div class="site-list">${rows(c.sites.slice(0,5))}</div><a class="view-all" href="./${fileFor(c.key)}">View all ${c.sites.length} sites</a></div>`;
   const split=Math.ceil(catalog.length/2);
   home = slot(home,'directory-columns',`<div class="directory-column">${catalog.slice(0,split).map(panel).join('')}</div><div class="directory-column">${catalog.slice(split).map(panel).join('')}</div>`);
   home = home.replace('</main>','<section class="seo-guide"><h2>About WebShelf</h2><p>WebShelf is a curated website directory for streaming, reading, downloads, databases and release schedules. Browse by category, search for a site, and save favorites in this browser. WebShelf links to external services rather than hosting their content.</p><p>Found a broken link? <a href="/support.html">Report it</a>. Know a useful resource? <a href="/suggest.html">Suggest a website</a>. Check each destination for current availability, terms and licensing.</p></section></main>');
   home = home.replace('"@type": "WebSite",','"@type": "WebSite",\n  "@id": "https://www.webshelf.link/#website",');
   out['index.html'] = home;
   const config = JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
-  const isCategoryRule = r=>r.source==='/category.html' && r.has?.some(h=>h.key==='type');
-  config.rewrites=[...(config.rewrites||[]).filter(r=>!isCategoryRule(r)),...catalog.map(c=>({source:'/category.html',has:[{type:'query',key:'type',value:c.key}],destination:'/'+fileFor(c.key)}))];
-  config.redirects=[...(config.redirects||[]).filter(r=>!isCategoryRule(r)),...catalog.filter(c=>c.key.startsWith('tv-')).map(c=>({source:'/category.html',has:[{type:'query',key:'type',value:c.key.replace('tv-','TV-')}],destination:'/category.html?type='+c.key,permanent:true}))];
+  const isCategoryRule = r=>(r.source==='/category.html' && r.has?.some(h=>h.key==='type')) || /^\/category-[a-z0-9-]+\.html$/.test(r.source||'');
+  config.rewrites=(config.rewrites||[]).filter(r=>!isCategoryRule(r));
+  const legacy=[];
+  for(const c of catalog) {
+    legacy.push({source:'/category-'+c.key+'.html',destination:'/'+fileFor(c.key),permanent:true});
+    legacy.push({source:'/category.html',has:[{type:'query',key:'type',value:c.key}],destination:'/'+fileFor(c.key),permanent:true});
+    if(c.key.startsWith('tv-')) legacy.push({source:'/category.html',has:[{type:'query',key:'type',value:c.key.replace('tv-','TV-')}],destination:'/'+fileFor(c.key),permanent:true});
+  }
+  config.redirects=[...(config.redirects||[]).filter(r=>!isCategoryRule(r)),...legacy];
   out['vercel.json']=JSON.stringify(config,null,2)+'\n';
   return out;
 }

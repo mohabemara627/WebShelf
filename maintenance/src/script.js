@@ -86,7 +86,7 @@ function createCategoryCard(category) {
   const sites = visibleSites(category.sites);
   const card = document.createElement("a");
   card.className = "category";
-  card.href = `./category.html?type=${encodeURIComponent(category.key)}`;
+  card.href = `./${encodeURIComponent(category.key)}.html`;
   card.dataset.categoryKey = category.key;
   card.style.setProperty("--category-accent", category.accent || "var(--brand-purple)");
   card.innerHTML = `
@@ -114,7 +114,7 @@ function createDirectoryPanel(category) {
       </div>
     </div>
     <div class="site-list">${sites.slice(0, 5).map(homepageSiteRow).join("")}</div>
-    <a href="./category.html?type=${encodeURIComponent(category.key)}" class="view-all">View all ${sites.length} ${sites.length === 1 ? "site" : "sites"}</a>`;
+    <a href="./${encodeURIComponent(category.key)}.html" class="view-all">View all ${sites.length} ${sites.length === 1 ? "site" : "sites"}</a>`;
 
   setupFavoriteButtons(panel, sites);
   return panel;

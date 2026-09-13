@@ -56,7 +56,6 @@ test('icon replacement changes only its reference and worker version, and preser
 test('editing and reordering preserves unrelated relative order; changed categories update sitemap',()=>{
  const root=copy();try{const catalog=L.readCatalog(root),original=catalog[0].sites.map(s=>s.url),site=catalog[0].sites.splice(3,1)[0];site.description='Edited in test';catalog[0].sites.splice(1,0,site);T.commit(catalog,{root});assert.deepEqual(L.readCatalog(root)[0].sites.filter(s=>s.url!==site.url).map(s=>s.url),original.filter(u=>u!==site.url));
   const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');assert.equal(sitemap,fs.readFileSync(path.join(L.ROOT,'sitemap.xml'),'utf8'));
-  catalog.push({key:'new-category',title:'New Category',group:'Reading',icon:'folder',accent:'var(--brand-purple)',sites:[]});T.commit(catalog,{root});assert.ok(fs.readFileSync(path.join(root,'sitemap.xml'),'utf8').includes('type=new-category'));assert.deepEqual(V.validate(root,{quiet:true,git:false}).errors,[]);
+  catalog.push({key:'new-category',title:'New Category',group:'Reading',icon:'folder',accent:'var(--brand-purple)',sites:[]});T.commit(catalog,{root});assert.ok(fs.readFileSync(path.join(root,'sitemap.xml'),'utf8').includes('/new-category.html'));assert.deepEqual(V.validate(root,{quiet:true,git:false}).errors,[]);
  }finally{clean(root);}
 });
-

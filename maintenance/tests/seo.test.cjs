@@ -43,7 +43,7 @@ for (const category of L.readCatalog()) test('category sharing metadata reuses C
   assert.equal(e.document.title, seo.title);
   assert.equal(e.description.content, seo.description);
   assert.equal(e.meta('robots'), 'index,follow');
-  assert.equal(e.canonical.href, 'https://www.webshelf.link/category.html?type=' + encodeURIComponent(category.key));
+  assert.equal(e.canonical.href, 'https://www.webshelf.link/' + encodeURIComponent(category.key) + '.html');
   assert.equal(e.meta('og:title', 'property'), seo.title);
   assert.equal(e.meta('og:description', 'property'), seo.description);
   assert.equal(e.meta('og:url', 'property'), e.canonical.href);

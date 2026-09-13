@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.webshelf.link/</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=anime-streaming</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=tv-streaming</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=sports-streaming</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=manga-reading</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=manhwa-reading</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=novel-reading</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=anime-download</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=tv-download</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=subtitle-download</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=anime-database</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=anime-schedule</loc></url>
-  <url><loc>https://www.webshelf.link/category.html?type=tv-database</loc></url>
+  <url><loc>https://www.webshelf.link/anime-streaming.html</loc></url>
+  <url><loc>https://www.webshelf.link/tv-streaming.html</loc></url>
+  <url><loc>https://www.webshelf.link/sports-streaming.html</loc></url>
+  <url><loc>https://www.webshelf.link/manga-reading.html</loc></url>
+  <url><loc>https://www.webshelf.link/manhwa-reading.html</loc></url>
+  <url><loc>https://www.webshelf.link/novel-reading.html</loc></url>
+  <url><loc>https://www.webshelf.link/anime-download.html</loc></url>
+  <url><loc>https://www.webshelf.link/tv-download.html</loc></url>
+  <url><loc>https://www.webshelf.link/subtitle-download.html</loc></url>
+  <url><loc>https://www.webshelf.link/anime-database.html</loc></url>
+  <url><loc>https://www.webshelf.link/anime-schedule.html</loc></url>
+  <url><loc>https://www.webshelf.link/tv-database.html</loc></url>
   <url><loc>https://www.webshelf.link/suggest.html</loc></url>
   <url><loc>https://www.webshelf.link/support.html</loc></url>
 </urlset>

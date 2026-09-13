@@ -12,8 +12,9 @@ function outputs(root=L.ROOT,catalog=L.readCatalog(root)){
  // Keep sitemap bytes/dates untouched when internal category URLs have not changed.
  const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
  const matches=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
- const expected=catalog.map(c=>'https://www.webshelf.link/category.html?type='+encodeURIComponent(c.key));
- const current=matches.filter(u=>u.includes('/category.html?'));
+ const SEO=require('./seo.cjs');
+ const expected=catalog.map(c=>SEO.urlFor(c.key));
+ const current=matches.filter(u=>catalog.some(c=>u===SEO.urlFor(c.key)) || u.includes('/category.html?'));
  if(JSON.stringify([...current].sort())!==JSON.stringify([...expected].sort())){
   const urls=['https://www.webshelf.link/',...expected,'https://www.webshelf.link/suggest.html','https://www.webshelf.link/support.html'];
   out['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>'  <url><loc>'+u.replaceAll('&','&amp;')+'</loc></url>').join('\n')+'\n</urlset>\n';

@@ -61,7 +61,7 @@ function publicFiles(root) {
   }
  }
  images('images');
- if(fs.existsSync(path.join(root,'maintenance/catalog.json')) && fs.readdirSync(root).some(f=>/^category-.+\.html$/.test(f))) {
+ if(fs.existsSync(path.join(root,'maintenance/catalog.json')) && fs.existsSync(path.join(root,'maintenance/seo.cjs'))) {
   for(const c of readCatalog(root)) {
    const file=require('./seo.cjs').fileFor(c.key);
    if(fs.existsSync(path.join(root,file))) files.push(file);

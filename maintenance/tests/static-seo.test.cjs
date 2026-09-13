@@ -25,23 +25,31 @@ for(const cat of catalog) test('static SEO and Vercel mapping: '+cat.key,()=>{
   assert.equal(data.length,1);
   assert.equal(data[0]['@graph'].find(n=>n['@type']==='ItemList').numberOfItems,cat.sites.length);
   assert.equal(H.attributes(nodes.find(n=>n.tagName==='body'))['data-category'],cat.key);
-  const rule=config.rewrites.find(r=>r.has?.some(h=>h.value===cat.key));
+  const rule=config.redirects.find(r=>r.has?.some(h=>h.value===cat.key));
   assert.equal(rule.source,'/category.html');
   assert.equal(rule.destination,'/'+SEO.fileFor(cat.key));
+  assert.equal(rule.permanent,true);
   assert.ok(L.publicFiles(L.ROOT).includes(SEO.fileFor(cat.key)));
   assert.deepEqual(H.checkScripts(html,SEO.fileFor(cat.key)),[]);
 });
 test('home contains all category links and useful listings without JavaScript',()=>{
   const nodes=H.elements(read('index.html'));
   const links=nodes.filter(n=>n.tagName==='a').map(H.attributes);
-  for(const cat of catalog) assert.ok(links.some(a=>a.href==='./category.html?type='+cat.key));
+  for(const cat of catalog) assert.ok(links.some(a=>a.href==='./'+SEO.fileFor(cat.key)));
   assert.equal(nodes.filter(n=>H.attributes(n).class==='site-row').length,60);
   assert.match(text(nodes.find(n=>n.tagName==='h1')),/WebShelf/);
 });
-test('legacy uppercase TV URLs redirect only to their lowercase counterpart',()=>{
+test('legacy uppercase TV URLs redirect to their static category page',()=>{
   for(const cat of catalog.filter(c=>c.key.startsWith('tv-'))){
     const rule=config.redirects.find(r=>r.has?.some(h=>h.value===cat.key.replace('tv-','TV-')));
-    assert.equal(rule.destination,'/category.html?type='+cat.key);
+    assert.equal(rule.destination,'/'+SEO.fileFor(cat.key));
+    assert.equal(rule.permanent,true);
+  }
+});
+test('obsolete first-export filenames redirect to canonical category pages',()=>{
+  for(const cat of catalog){
+    const rule=config.redirects.find(r=>r.source==='/category-'+cat.key+'.html');
+    assert.equal(rule.destination,'/'+SEO.fileFor(cat.key));
     assert.equal(rule.permanent,true);
   }
 });

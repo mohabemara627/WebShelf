@@ -497,12 +497,10 @@ function validate(root = L.ROOT, { quiet = false, git = true } = {}) {
           );
         }
 
-        if (
-          u.pathname === '/category.html'
-        ) {
-          cats.push(
-            u.searchParams.get('type')
-          );
+        if (u.pathname === '/category.html') cats.push(u.searchParams.get('type'));
+        else {
+          const key = catalog.find(c => require('./seo.cjs').fileFor(c.key) === u.pathname.slice(1))?.key;
+          if (key) cats.push(key);
         }
       }
 
