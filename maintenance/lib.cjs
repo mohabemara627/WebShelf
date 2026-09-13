@@ -61,6 +61,12 @@ function publicFiles(root) {
   }
  }
  images('images');
+ if(fs.existsSync(path.join(root,'maintenance/catalog.json')) && fs.readdirSync(root).some(f=>/^category-.+\.html$/.test(f))) {
+  for(const c of readCatalog(root)) {
+   const file=require('./seo.cjs').fileFor(c.key);
+   if(fs.existsSync(path.join(root,file))) files.push(file);
+  }
+ }
  return files.sort();
 }
 module.exports={ROOT,pages,fileFor,digest,atomic,readCatalog,normalizeURL,urlKey,nameKey,flatten,checkCatalog,checksum,generateData,walk,exactPath,publicFiles};

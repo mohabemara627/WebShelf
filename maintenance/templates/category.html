@@ -23,22 +23,25 @@
     content="strict-origin-when-cross-origin"
   >
 
-  <title>Suggest a Site - WebShelf</title>
-
+  <title>Category - WebShelf</title>
   <link rel="manifest" href="./manifest.webmanifest">
 
   <meta
+    id="category-description"
     name="description"
-    content="Suggest a useful website to WebShelf for review and possible inclusion in the directory."
+    content="Browse curated websites by category on WebShelf."
   >
-
-  <link rel="canonical" href="https://www.webshelf.link/suggest.html">
+    <link
+      id="category-canonical"
+      rel="canonical"
+    >
 <!-- Favicon -->
   <link
     rel="icon"
     href="./images/icons/WS-Logo-192.png"
     type="image/png"
   >
+
 
   <!-- CSS -->
   <link
@@ -76,7 +79,7 @@
 
       <a
         href="/"
-        class="directory"
+        class="directory active"
       >
         Directory
       </a>
@@ -97,7 +100,7 @@
 
       <a
         href="./suggest.html"
-        class="suggest active"
+        class="suggest"
       >
         Suggest a site
       </a>
@@ -125,7 +128,7 @@
 
   <main tabindex="-1" id="main-content" class="container">
 
-    <section class="suggest-page">
+    <section class="category-page">
 
 
       <!-- Back Link -->
@@ -139,145 +142,71 @@
 
 
 
-      <!-- Page Header -->
+      <!-- Category Header -->
 
-      <div class="suggest-page-header">
+      <div class="category-page-header">
 
-        <h1>
-          Suggest a site
+        <div
+          class="category-page-icon"
+          id="category-page-icon"
+        >
+          <i
+            data-lucide="folder"
+            id="category-page-lucide"
+          ></i>
+        </div>
+
+
+      <div>
+
+        <h1 id="category-page-title">
+          Category
         </h1>
 
-        <p>
-          Know a useful website that belongs on WebShelf?
-          Send it for review.
+        <p id="category-page-count" role="status" aria-live="polite" aria-atomic="true">
+          0 sites
         </p>
+
+        <p
+          id="category-page-description"
+          class="category-page-description"
+        ></p>
+
+      </div>
 
       </div>
 
 
 
-      <!-- ==================================================
-           SUGGEST FORM
-      =================================================== -->
+      <!-- Category filters -->
 
-      <form
-        class="suggest-form"
-        id="suggest-form"
-        action="https://formspree.io/f/xaeyjvkd"
-        method="POST"
-      >
+      <div
+        class="site-filter-bar"
+        id="category-site-filters"
+        aria-label="Filter sites in this category"
+      ></div>
 
-        <input
-          type="hidden"
-          name="form-type"
-          value="WebShelf Suggestion"
-        >
+      <!-- Category Sites -->
 
-
-        <!-- Website URL -->
-
-        <div class="form-group">
-
-          <label for="site-url">
-            Website URL
-          </label>
-
-          <input
-            type="url"
-            id="site-url"
-            name="site-url"
-            placeholder="https://example.com"
-            required
-          >
-
-        </div>
-
-
-
-        <!-- Category -->
-
-        <div class="form-group">
-
-          <label for="site-category">
-            Category
-          </label>
-
-          <select
-            id="site-category"
-            name="site-category"
-            required
-          >
-
-            <option value="">
-              Select a category
-            </option>
-
-          </select>
-
-        </div>
-
-
-
-        <!-- Notes -->
-
-        <div class="form-group">
-
-          <label for="site-notes">
-            Why should we add it?
-          </label>
-
-          <textarea
-            id="site-notes"
-            name="site-notes"
-            rows="5"
-            placeholder="Tell us what makes this site useful..."
-          ></textarea>
-
-        </div>
-
-
-
-        <!-- Submit Button -->
-
-        <button
-          type="submit"
-          class="suggest-submit"
-          id="suggest-submit"
-        >
-          Submit suggestion
-        </button>
-
-
-
-        <!-- Form Message -->
-
-        <p
-          class="form-message"
-          id="form-message"
-          aria-live="polite"
-        ></p>
-
-      </form>
+      <div
+        class="category-page-list"
+        id="category-page-list"
+        aria-live="polite"
+        aria-busy="false"
+      ></div>
 
     </section>
 
   </main>
 
+<footer class="site-footer">
+  <div class="container footer-content">
 
+    <p>
+      © 2026 WebShelf
+    </p>
 
-  <!-- ==================================================
-       FOOTER
-  =================================================== -->
-
-  <footer class="site-footer">
-
-    <div class="container footer-content">
-
-      <p>
-        © 2026 WebShelf
-      </p>
-
-      <div class="footer-links">
+<div class="footer-links">
 <a href="/">Directory</a>
 <a href="./activity.html">Activity</a>
 <a href="./support.html">Support</a>
@@ -286,15 +215,13 @@
 </div>
 </footer>
 
-
-
   <!-- ==================================================
-       JAVASCRIPT
+       SCRIPTS
   =================================================== -->
 
   <script src="./data.js"></script>
 <script src="./common.js"></script>
-<script src="./suggest.bundle.js"></script>
+<script src="./category.bundle.js"></script>
 <script>
   window.va =
     window.va ||

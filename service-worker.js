@@ -1,13 +1,12 @@
 const SCOPE_PATH = new URL(self.registration.scope).pathname;
 const CACHE_PREFIX = 'webshelf-' + SCOPE_PATH + '-';
-const CACHE_NAME = CACHE_PREFIX + 'd2d001de66e1';
+const CACHE_NAME = CACHE_PREFIX + '2bff7dfb498d';
 const CORE = [
   "./",
   "./style.css",
   "./data.js",
   "./common.js",
   "./manifest.webmanifest",
-  "/",
   "./index.bundle.js",
   "./category.html",
   "./category.bundle.js",
@@ -51,7 +50,8 @@ async function serve(request, url) {
   try {
     response = await network(request);
     if (response.status < 500) {
-      const storeKey = url.origin + url.pathname;
+      // Category query values identify different HTML documents.
+      const storeKey = request.mode === 'navigate' ? request : url.origin + url.pathname;
       await remember(cache, storeKey, response);
       return response;
     }

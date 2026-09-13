@@ -276,7 +276,7 @@ if (document.readyState === "loading") {
 
 const urlParams = new URLSearchParams(window.location.search);
 
-const categoryType = urlParams.get("type");
+const categoryType = document.body?.dataset?.category || urlParams.get("type");
 
 const currentCategory = WebShelfCategories.find(
   (category) => category.key === categoryType
@@ -572,7 +572,7 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
     <div class="category-empty">
       <h2>Category not found</h2>
       <p>The category you're looking for doesn't exist or the link may be incorrect.</p>
-      <a href="." class="category-empty-link">Back to Directory</a>
+      <a href="/" class="category-empty-link">Back to Directory</a>
     </div>
   `;
 } else {
@@ -599,7 +599,7 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
       `Browse curated ${currentCategory.title} websites on WebShelf.`;
   }
 
-  pageTitle.textContent = currentCategory.title;
+  pageTitle.textContent = currentCategory.title + " Sites";
   pageIcon.style.color = currentCategory.accent || "var(--brand-purple)";
   lucideIcon.setAttribute("data-lucide", currentCategory.icon || "folder");
   renderCategorySites();
@@ -614,6 +614,7 @@ siteFilters?.addEventListener("click", (event) => {
 
 document.addEventListener("webshelf-hidden-changed", renderCategorySites);
 window.lucide?.createIcons?.();
+
 ;
 
 // preview.js

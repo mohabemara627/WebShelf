@@ -21,7 +21,7 @@ function checkScripts(html, page) {
   const sources = scripts.map(attributes).filter(attrs => attrs.src).map(attrs => new URL(attrs.src, base).href);
   if (new Set(sources).size !== sources.length) errors.push('Duplicate external script URL');
   const expected = ['data.js', 'common.js'];
-  if (page !== '404.html') expected.push(page.replace(/\.html$/, '.bundle.js'));
+  if (page !== '404.html') expected.push(/^category-.+\.html$/.test(page) ? 'category.bundle.js' : page.replace(/\.html$/, '.bundle.js'));
   expected.push('/_vercel/insights/script.js');
   if (JSON.stringify(sources) !== JSON.stringify(expected.map(src => new URL(src, base).href))) {
     errors.push('Incorrect script dependencies or load order');

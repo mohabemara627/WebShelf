@@ -30,7 +30,8 @@ async function serve(request, url) {
   try {
     response = await network(request);
     if (response.status < 500) {
-      const storeKey = url.origin + url.pathname;
+      // Category query values identify different HTML documents.
+      const storeKey = request.mode === 'navigate' ? request : url.origin + url.pathname;
       await remember(cache, storeKey, response);
       return response;
     }

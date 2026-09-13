@@ -6,7 +6,7 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 
-const categoryType = urlParams.get("type");
+const categoryType = document.body?.dataset?.category || urlParams.get("type");
 
 const currentCategory = WebShelfCategories.find(
   (category) => category.key === categoryType
@@ -329,7 +329,7 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
       `Browse curated ${currentCategory.title} websites on WebShelf.`;
   }
 
-  pageTitle.textContent = currentCategory.title;
+  pageTitle.textContent = currentCategory.title + " Sites";
   pageIcon.style.color = currentCategory.accent || "var(--brand-purple)";
   lucideIcon.setAttribute("data-lucide", currentCategory.icon || "folder");
   renderCategorySites();

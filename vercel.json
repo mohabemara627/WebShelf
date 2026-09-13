@@ -5,6 +5,42 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "TV-streaming"
+        }
+      ],
+      "destination": "/category.html?type=tv-streaming",
+      "permanent": true
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "TV-download"
+        }
+      ],
+      "destination": "/category.html?type=tv-download",
+      "permanent": true
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "TV-database"
+        }
+      ],
+      "destination": "/category.html?type=tv-database",
+      "permanent": true
     }
   ],
   "headers": [
@@ -32,6 +68,140 @@
           "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://formspree.io; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://formspree.io; manifest-src 'self'; worker-src 'self';"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "anime-streaming"
+        }
+      ],
+      "destination": "/category-anime-streaming.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "tv-streaming"
+        }
+      ],
+      "destination": "/category-tv-streaming.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "sports-streaming"
+        }
+      ],
+      "destination": "/category-sports-streaming.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "manga-reading"
+        }
+      ],
+      "destination": "/category-manga-reading.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "manhwa-reading"
+        }
+      ],
+      "destination": "/category-manhwa-reading.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "novel-reading"
+        }
+      ],
+      "destination": "/category-novel-reading.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "anime-download"
+        }
+      ],
+      "destination": "/category-anime-download.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "tv-download"
+        }
+      ],
+      "destination": "/category-tv-download.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "subtitle-download"
+        }
+      ],
+      "destination": "/category-subtitle-download.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "anime-database"
+        }
+      ],
+      "destination": "/category-anime-database.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "anime-schedule"
+        }
+      ],
+      "destination": "/category-anime-schedule.html"
+    },
+    {
+      "source": "/category.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "type",
+          "value": "tv-database"
+        }
+      ],
+      "destination": "/category-tv-database.html"
     }
   ]
 }
