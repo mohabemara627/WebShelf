@@ -13,7 +13,8 @@ const WebShelfCategories = [
         "url": "https://anime.nexus/",
         "icon": "./images/icons/animenexus.png",
         "badges": [
-          "Ar"
+          "Ar",
+          "4K"
         ]
       },
       {
@@ -83,17 +84,18 @@ const WebShelfCategories = [
     "accent": "var(--TV-streaming)",
     "sites": [
       {
-        "name": "Movy",
-        "url": "https://www.movy.bz/",
-        "icon": "./images/icons/movy.png",
-        "badges": [
-          "Ar"
-        ]
-      },
-      {
         "name": "Cinejoy",
         "url": "https://cinejoy.to/",
         "icon": "./images/icons/cinejoy.ico",
+        "badges": [
+          "Ar",
+          "4K"
+        ]
+      },
+      {
+        "name": "Movy",
+        "url": "https://www.movy.bz/",
+        "icon": "./images/icons/movy.png",
         "badges": [
           "Ar"
         ]
