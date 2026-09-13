@@ -17,7 +17,6 @@ for(const cat of catalog) test('static SEO and Vercel mapping: '+cat.key,()=>{
   assert.equal(H.attributes(canon[0]).href,SEO.urlFor(cat.key));
   assert.equal(nodes.filter(n=>n.tagName==='h1').length,1);
   assert.equal(text(byId('category-page-title')),cat.title+' Sites');
-  assert.ok(text(byId('category-page-description')).length>40);
   const anchors=nodes.filter(n=>n.tagName==='a').map(H.attributes);
   for(const site of cat.sites) assert.ok(anchors.some(a=>a.href===site.url),site.name);
   assert.equal(nodes.filter(n=>H.attributes(n).class==='site-row').length,cat.sites.length);

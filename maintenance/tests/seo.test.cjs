@@ -19,7 +19,7 @@ function categoryEnvironment(search, categories = L.readCatalog()) {
   const canonical = element({ rel: 'canonical' });
   // Include stale metadata to verify invalid states actively remove it.
   const metas = [description, element({ property: 'og:title', content: 'Old title' }), element({ name: 'twitter:title', content: 'Old title' })];
-  const nodes = Object.fromEntries(['category-page-title', 'category-page-count', 'category-page-list', 'category-page-icon', 'category-page-lucide', 'category-page-description', 'category-site-filters'].map(id => ['#' + id, element()]));
+  const nodes = Object.fromEntries(['category-page-title', 'category-page-count', 'category-page-list', 'category-page-icon', 'category-page-lucide', 'category-site-filters'].map(id => ['#' + id, element()]));
   nodes['#category-description'] = description;
   nodes['#category-canonical'] = canonical;
   const head = {

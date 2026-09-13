@@ -48,7 +48,6 @@ function generate(root, catalog) {
       .replace('<body>',`<body data-category="${escape(cat.key)}">`);
     html = slot(html,'category-page-title',escape(cat.title+' Sites'));
     html = slot(html,'category-page-count',`${cat.sites.length} sites`);
-    html = slot(html,'category-page-description',escape(meta.intro));
     html = slot(html,'category-page-list',rows(cat.sites));
     const related = catalog.filter(c=>c.key!==cat.key && c.group===cat.group);
     const links = (related.length?related:catalog.filter(c=>c.key!==cat.key).slice(0,3))

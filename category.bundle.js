@@ -296,9 +296,6 @@ const categoryCanonical = document.querySelector("#category-canonical");
 
 const categoryDescription = document.querySelector("#category-description");
 
-const categoryPageDescription = document.querySelector(
-  "#category-page-description"
-);
 
 const siteFilters = document.querySelector("#category-site-filters");
 
@@ -592,12 +589,6 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
   setCategoryMeta("property", "og:url", canonicalUrl);
   setCategoryMeta("name", "twitter:title", title);
   setCategoryMeta("name", "twitter:description", description);
-
-  if (categoryPageDescription) {
-    categoryPageDescription.textContent =
-      seo?.intro ||
-      `Browse curated ${currentCategory.title} websites on WebShelf.`;
-  }
 
   pageTitle.textContent = currentCategory.title + " Sites";
   pageIcon.style.color = currentCategory.accent || "var(--brand-purple)";
