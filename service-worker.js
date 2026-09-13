@@ -7,7 +7,7 @@ const CORE = [
   "./data.js",
   "./common.js",
   "./manifest.webmanifest",
-  "./index.html",
+  "/",
   "./index.bundle.js",
   "./category.html",
   "./category.bundle.js",

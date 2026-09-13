@@ -302,7 +302,7 @@ if (!pageTitle || !pageCount || !pageList || !pageIcon || !lucideIcon) {
     <div class="category-empty">
       <h2>Category not found</h2>
       <p>The category you're looking for doesn't exist or the link may be incorrect.</p>
-      <a href="./index.html" class="category-empty-link">Back to Directory</a>
+      <a href="/" class="category-empty-link">Back to Directory</a>
     </div>
   `;
 } else {

@@ -278,7 +278,7 @@ function renderActivity() {
       <div class="activity-empty">
         <h2>Nothing here yet</h2>
         <p>${safeText(message)}</p>
-        <a href="./index.html">Explore directory</a>
+        <a href="/">Explore directory</a>
       </div>`;
     return;
   }
