@@ -11,6 +11,7 @@
         "url": "https://anime.nexus/",
         "icon": "./images/icons/animenexus.png",
         "badges": [
+          "4k",
           "Ar"
         ]
 
@@ -81,6 +82,16 @@
     "icon": "play",
     "accent": "var(--TV-streaming)",
     "sites": [
+
+      {
+        "name": "Cinejoy",
+        "url": "https://cinejoy.to/",
+        "icon": "./images/icons/cinejoy.ico",
+        "badges": [
+          "4k",
+          "Ar"
+        ]
+      },
       {
         "name": "Movy",
         "url": "https://www.movy.bz/",
@@ -89,14 +100,6 @@
           "Ar"
         ]
         
-      },
-      {
-        "name": "Cinejoy",
-        "url": "https://cinejoy.to/",
-        "icon": "./images/icons/cinejoy.ico",
-        "badges": [
-          "Ar"
-        ]
       },
       {
         "name": "HuraWatch",

@@ -3,11 +3,11 @@
 :root {
   /* Base */
   --background: #000000;
-  --navbar-background: #020202;
-  --card-background: #050505;
-  --panel-background: #020202;
-  --panel-header-background: #030303;
-  --hover-background: #090909;
+--navbar-background: #000000;
+--card-background: #000000;
+--panel-background: #000000;
+--panel-header-background: #000000;
+--hover-background: #090909;
 
   /* Borders */
   --border-default: #1a022c;
@@ -728,19 +728,6 @@ nav a:focus-visible {
   text-decoration: none;
 
   transition: background-color 0.2s ease;
-}
-
-/* Main directory / category rows */
-.site-list .site-row:nth-child(odd of .site-row) {
-  background: #000000;
-}
-
-.site-list .site-row:nth-child(even of .site-row) {
-  background: #080808;
-}
-
-.site-list .site-row:hover {
-  background: #101010;
 }
 
 /* RANK */
@@ -1626,18 +1613,6 @@ nav a:focus-visible {
 }
 
 /* LIGHT MODE FIXES */
-
-html[data-theme="light"] .site-list .site-row:nth-child(odd of .site-row) {
-  background: #ffffff;
-}
-
-html[data-theme="light"] .site-list .site-row:nth-child(even of .site-row) {
-  background: #f3f3f6;
-}
-
-html[data-theme="light"] .site-list .site-row:hover {
-  background: #ececf1;
-}
 
 /* Site logos */
 
@@ -4140,37 +4115,37 @@ html[data-theme="light"] .sidebar-favorites .site-row:hover {
   grid-template-columns: minmax(0, 1fr);
 }
 
-/* FINAL ROW STRIPING OVERRIDE */
+/* FINAL SITE ROW STRIPING — only website rows */
 
-.directory-panel .site-list .site-row:nth-child(odd of .site-row),
-.category-page .site-list .site-row:nth-child(odd of .site-row) {
-  background: hsl(0, 0%, 1%) !important;
+.directory-panel > .site-list > .site-row:nth-child(odd),
+.category-page-list > .site-row:nth-child(odd) {
+  background: #000000 !important;
 }
 
-.directory-panel .site-list .site-row:nth-child(even of .site-row),
-.category-page .site-list .site-row:nth-child(even of .site-row) {
-  background: hsl(0, 0%, 0%) !important;
+.directory-panel > .site-list > .site-row:nth-child(even),
+.category-page-list > .site-row:nth-child(even) {
+  background: #0a0a0a !important;
 }
 
-.directory-panel .site-list .site-row:hover,
-.category-page .site-list .site-row:hover {
-  background: #121212 !important;
+.directory-panel > .site-list > .site-row:hover,
+.category-page-list > .site-row:hover {
+  background: #141414 !important;
 }
 
 /* Light mode */
-html[data-theme="light"] .directory-panel .site-list .site-row:nth-child(odd of .site-row),
-html[data-theme="light"] .category-page .site-list .site-row:nth-child(odd of .site-row) {
+html[data-theme="light"] .directory-panel > .site-list > .site-row:nth-child(odd),
+html[data-theme="light"] .category-page-list > .site-row:nth-child(odd) {
   background: #ffffff !important;
 }
 
-html[data-theme="light"] .directory-panel .site-list .site-row:nth-child(even of .site-row),
-html[data-theme="light"] .category-page .site-list .site-row:nth-child(even of .site-row) {
-  background: #fafafa !important;
+html[data-theme="light"] .directory-panel > .site-list > .site-row:nth-child(even),
+html[data-theme="light"] .category-page-list > .site-row:nth-child(even) {
+  background: #f3f3f6 !important;
 }
 
-html[data-theme="light"] .directory-panel .site-list .site-row:hover,
-html[data-theme="light"] .category-page .site-list .site-row:hover {
-  background: #e9e9ee !important;
+html[data-theme="light"] .directory-panel > .site-list > .site-row:hover,
+html[data-theme="light"] .category-page-list > .site-row:hover {
+  background: #ececf1 !important;
 }
 
 /* Accessible navigation and image failure states. */
