@@ -1,6 +1,6 @@
 const SCOPE_PATH = new URL(self.registration.scope).pathname;
 const CACHE_PREFIX = 'webshelf-' + SCOPE_PATH + '-';
-const CACHE_NAME = CACHE_PREFIX + '4489e31ce43b';
+const CACHE_NAME = CACHE_PREFIX + '470d980c8908';
 const CORE = [
   "./",
   "./style.css",
@@ -20,7 +20,12 @@ const CORE = [
   "./suggest.bundle.js",
   "./404.html",
   "./images/icons/WS-Logo-192.png",
-  "./images/icons/WS-Logo-512.png"
+  "./images/icons/WS-Logo-512.png",
+  "./images/icons/webshelf-favicon-96.png",
+  "./images/icons/webshelf-favicon-180.png",
+  "./images/icons/webshelf-favicon-192.png",
+  "./images/icons/webshelf-favicon-512.png",
+  "./images/icons/webshelf-favicon.ico"
 ];
 const corePaths = new Set(CORE.map(value => new URL(value, self.registration.scope).pathname));
 self.addEventListener('install', event => {

@@ -17,5 +17,10 @@
   "./suggest.bundle.js",
   "./404.html",
   "./images/icons/WS-Logo-192.png",
-  "./images/icons/WS-Logo-512.png"
+  "./images/icons/WS-Logo-512.png",
+  "./images/icons/webshelf-favicon-96.png",
+  "./images/icons/webshelf-favicon-180.png",
+  "./images/icons/webshelf-favicon-192.png",
+  "./images/icons/webshelf-favicon-512.png",
+  "./images/icons/webshelf-favicon.ico"
 ]
