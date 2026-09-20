@@ -35,7 +35,11 @@
       {
         "name": "Miruro",
         "url": "https://www.miruro.to/",
-        "icon": "./images/icons/miruro.png"
+        "icon": "./images/icons/miruro.png",
+        "badges": [
+
+          "Ar"
+        ]
       },
       {
         "name": "Animepahe",
