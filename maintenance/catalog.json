@@ -7,6 +7,15 @@
     "accent": "var(--anime-streaming)",
     "sites": [
       {
+        "name": "Miruro",
+        "url": "https://www.miruro.to/",
+        "icon": "./images/icons/miruro.png",
+        "badges": [
+          "4K",
+          "Ar"
+        ]
+      },
+      {
         "name": "Anime Nexus",
         "url": "https://anime.nexus/",
         "icon": "./images/icons/animenexus.png",
@@ -17,14 +26,6 @@
 
       },
       {
-        "name": "AniKoto",
-        "url": "https://anikototv.to/home",
-        "icon": "./images/icons/anikoto.png",
-        "badges": [
-          "Ar"
-        ]
-      },
-      {
         "name": "Re:Anime",
         "url": "https://reanime.to/home",
         "icon": "./images/icons/reanime.png",
@@ -33,11 +34,10 @@
         ]
       },
       {
-        "name": "Miruro",
-        "url": "https://www.miruro.to/",
-        "icon": "./images/icons/miruro.png",
+        "name": "AniKoto",
+        "url": "https://anikototv.to/home",
+        "icon": "./images/icons/anikoto.png",
         "badges": [
-
           "Ar"
         ]
       },
